@@ -377,7 +377,7 @@ const WORKSHOPS = [
         label: "Speaker in 2023",
         title: "unBUX: relUX + enjUI 2023",
         desc: "I was invited to be a speaker at \"unBUX: relUX + enjUI,\" organized by GDSC-USTP, where I discussed \"UI Factor: How to Design and Prototype UI with Figma.\"",
-        img: "/unBUX_ relUX + enjUI 2023.png",
+        img: "/unBUX_relUX_enjUI_2023.png",
     },
     {
         label: "Event Lead and Speaker in 2023",
