@@ -990,8 +990,8 @@ export default function JadeyPortfolio() {
                         <div className="jp-alay jp-rv">
                             <div className="jp-amug">
                                 <Image
-                                    className="jp-amug-img"
-                                    src="/jadey.png"
+                                className="jp-amug-img"
+                                src="/Jadey.png"
                                   layout="fill"
                                   objectFit="contain"
                                     alt="Jadey — Jane Dhell Cagas"
