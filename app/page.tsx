@@ -125,24 +125,20 @@ const CSS = `
 /* TESTIMONIALS */
 .jp-tslider{position:relative;margin-top:60px}
 .jp-tslider-viewport{overflow:hidden;width:100%}
-.jp-ttrack{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);align-items:stretch}
-.jp-tslide{min-width:100%;display:grid;grid-template-columns:1.5fr 1fr;grid-template-rows:repeat(3,auto);gap:16px;align-items:stretch}
-.jp-tslide>:nth-child(1){grid-column:1;grid-row:1/4}
-.jp-tslide>:nth-child(2){grid-column:2;grid-row:1}
-.jp-tslide>:nth-child(3){grid-column:2;grid-row:2}
-.jp-tslide>:nth-child(4){grid-column:2;grid-row:3}
-.jp-tc{background:var(--bg2);padding:28px;display:flex;flex-direction:column;border:1px solid var(--border)}
+.jp-ttrack{display:flex;transition:transform .75s ease-in-out;align-items:stretch}
+.jp-tslide{min-width:100%;display:grid;grid-template-columns:repeat(2,1fr);gap:24px;align-items:stretch}
+.jp-tc{background:var(--bg2);padding:36px;display:flex;flex-direction:column;border:1px solid var(--border);height:100%}
 .jp-tc.big{background:var(--pu);border-color:var(--pu)}
 .jp-tc.big .jp-tq{color:rgba(10,10,8,.85)}.jp-tc.big .jp-tan{color:var(--bg)}.jp-tc.big .jp-tar{color:rgba(10,10,8,.5)}.jp-tc.big .jp-tstar{color:var(--bg)}
 .jp-tstar{font-size:11px;color:var(--pu);letter-spacing:3px;margin-bottom:12px}
-.jp-tq{font-size:11px;line-height:1.8;color:var(--muted);font-style:italic;margin-bottom:18px;flex:1}
+.jp-tq{font-size:12px;line-height:1.95;color:var(--muted);font-style:italic;margin-bottom:24px;flex:1}
 .jp-ta-w{display:flex;align-items:center;gap:12px;margin-top:auto}
-.jp-tav{width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(240,235,224,0.15)}
+.jp-tav{width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(240,235,224,0.15)}
 .jp-tav img{width:100%;height:100%;object-fit:cover;display:block}
 .jp-tc.big .jp-tav{border-color:rgba(10,10,8,0.2)}
-.jp-tan{font-size:11px;font-weight:700;color:var(--paper)}
-.jp-tar{font-size:10px;color:var(--muted)}
-.jp-tcontrols{display:flex;align-items:center;gap:16px;margin-top:20px;justify-content:center}
+.jp-tan{font-size:12px;font-weight:700;color:var(--paper)}
+.jp-tar{font-size:10px;color:var(--muted);margin-top:2px}
+.jp-tcontrols{display:flex;align-items:center;gap:16px;margin-top:28px;justify-content:center}
 .jp-tarr{width:44px;height:44px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'Bebas Neue',sans-serif;font-size:20px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;padding:0}
 .jp-tarr:hover{border-color:var(--pu);color:var(--pu)}
 .jp-tdots{display:flex;gap:8px}
@@ -165,15 +161,17 @@ const CSS = `
 .jp-dl-note{font-size:9px;color:var(--muted)}
 /* ARTICLES */
 .jp-articles-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.jp-bc{border:1px solid var(--border);overflow:hidden;transition:transform .3s,border-color .3s;display:block;text-decoration:none}
+.jp-bc{border:1px solid var(--border);overflow:hidden;transition:transform .3s,border-color .3s;display:flex;flex-direction:column;text-decoration:none}
 .jp-bc:hover{transform:translate(-4px,-4px);border-color:var(--pu)}
-.jp-bbd{padding:24px}
+.jp-bimg{width:100%;overflow:hidden;flex-shrink:0}
+.jp-bimg img{width:100%;height:auto;display:block}
+.jp-bbd{padding:24px;display:flex;flex-direction:column;flex:1}
 .jp-bmeta{display:flex;gap:8px;align-items:center;margin-bottom:9px}
 .jp-btag{font-size:8px;padding:3px 9px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
 .jp-bdate{font-size:9px;color:var(--muted)}
 .jp-bc h3{font-family:'Bebas Neue',sans-serif;font-size:clamp(15px,2vw,22px);letter-spacing:.5px;color:var(--paper);line-height:1.15;margin-bottom:8px}
-.jp-bc p{font-size:10px;color:var(--muted);line-height:1.7}
-.jp-bfoot{display:flex;justify-content:space-between;align-items:center;margin-top:16px}
+.jp-bc p{font-size:10px;color:var(--muted);line-height:1.7;flex:1}
+.jp-bfoot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:16px}
 .jp-btime{font-size:9px;color:var(--muted)}
 .jp-blink{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--pu)}
 /* RESOURCES */
@@ -194,10 +192,13 @@ const CSS = `
 .jp-workshops{background:var(--paper);clip-path:polygon(0 56px,100% 0,100% 100%,0 100%)}
 .jp-workshops .jp-section-inner{padding:170px var(--pad) 110px}
 .jp-workshops .jp-sl-tag{color:var(--bg)}.jp-workshops .jp-sl-tag::after{background:var(--bg)}.jp-workshops .jp-st{color:var(--bg)}.jp-workshops .jp-st em{color:var(--pu3)}
-.jp-wkg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px;align-items:stretch}
+.jp-wkg{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:52px;align-items:stretch}
+@media(max-width:1100px){.jp-wkg{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.jp-wkg{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.jp-wkg{grid-template-columns:1fr}}
 .jp-wkcard{border:1px solid rgba(10,10,8,.12);overflow:hidden;transition:all .25s;display:flex;flex-direction:column;height:100%}
 .jp-wkcard:hover{transform:translate(-3px,-3px);box-shadow:0 12px 32px rgba(107,63,160,0.18);border-color:var(--pu3)}
-.jp-wkthumb{width:100%;height:180px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.jp-wkthumb{width:100%;aspect-ratio:1/1;position:relative;overflow:hidden}
 .jp-wkthumb-icon{font-size:48px;position:relative;z-index:1}
 .jp-wkthumb-year{font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:-2px;color:rgba(255,255,255,0.1);position:absolute;bottom:-4px;right:8px;line-height:1}
 .jp-wkinfo{padding:18px 20px;border-top:1px solid rgba(10,10,8,.1);background:white;flex:1;display:flex;flex-direction:column}
@@ -221,6 +222,19 @@ const CSS = `
 .jp-fg input:focus,.jp-fg select:focus,.jp-fg textarea:focus{border-color:var(--pu)}
 .jp-fg select option{background:var(--bg2);color:var(--paper)}
 .jp-fg textarea{height:110px;resize:none}
+.jp-sel{position:relative;width:100%}
+.jp-sel-btn{width:100%;background:rgba(240,235,224,.04);border:1px solid var(--border);color:var(--paper);font-family:'Space Mono',monospace;font-size:11px;padding:11px 14px;outline:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:border-color .2s,background .2s;text-align:left}
+.jp-sel-btn.placeholder{color:rgba(240,235,224,.35)}
+.jp-sel-btn.open,.jp-sel-btn:focus-visible{border-color:var(--pu)}
+.jp-sel-btn:hover{background:rgba(240,235,224,.07)}
+.jp-sel-chevron{width:14px;height:14px;flex-shrink:0;transition:transform .2s;opacity:.5}
+.jp-sel-btn.open .jp-sel-chevron{transform:rotate(180deg)}
+.jp-sel-menu{position:absolute;top:calc(100% + 2px);left:0;right:0;background:#18181A;border:1px solid var(--pu);z-index:200;overflow:hidden;max-height:0;opacity:0;pointer-events:none;transition:max-height .22s ease,opacity .18s ease}
+.jp-sel-menu.open{max-height:300px;opacity:1;pointer-events:all}
+.jp-sel-opt{padding:11px 14px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.04em;color:rgba(240,235,224,.75);cursor:pointer;transition:background .14s,color .14s;border-bottom:1px solid rgba(240,235,224,.06)}
+.jp-sel-opt:last-child{border-bottom:none}
+.jp-sel-opt:hover{background:rgba(155,89,208,.18);color:var(--pu2)}
+.jp-sel-opt.active{background:rgba(155,89,208,.12);color:var(--pu);font-weight:700}
 .jp-bsub{width:100%;background:var(--pu);color:var(--bg);border:none;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:16px;cursor:pointer;transition:background .2s;margin-top:6px}
 .jp-bsub:hover{background:var(--pu2)}
 .jp-bsub:disabled{opacity:.6;cursor:not-allowed}
@@ -234,7 +248,7 @@ const CSS = `
 .jp-flinks a{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
 .jp-flinks a:hover{color:var(--pu)}
 .jp-flinks .jp-fall{color:var(--pu)!important}
-.jp-toast{position:fixed;bottom:32px;right:32px;background:var(--pu);color:var(--bg);font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.08em;padding:14px 24px;z-index:3000;transform:translateY(80px);opacity:0;transition:all .3s;max-width:320px;line-height:1.5}
+.jp-toast{position:fixed;bottom:32px;right:32px;background:var(--pu3);color:var(--paper);font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.08em;padding:14px 24px;z-index:3000;transform:translateY(80px);opacity:0;transition:all .3s;max-width:320px;line-height:1.5}
 .jp-toast.show{transform:translateY(0);opacity:1}
 .jp-toast.err{background:#c0392b}
 .jp-rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
@@ -283,6 +297,8 @@ const TESTIMONIAL_SLIDES = [
             position: "Graphic Designer at Thinkogic",
             q: "Jane is detail-oriented and can easily identify problems without needing to consult the head. She works efficiently, and the quality of her work is excellent. She’s great to work with—always taking care as a leader by guiding us and offering helpful advice to improve the workflow.",
         },
+    ],
+    [
         {
             big: false,
             img: "/Kent%20Bryan%20Maglinao.jpg",
@@ -297,7 +313,7 @@ const TESTIMONIAL_SLIDES = [
             name: "Ronnel Yacunas",
             flag: "🇵🇭",
             position: "Backend Engineer (Lead) in ScaleForge",
-            q: "Jane Dhell is someone you can always rely on to deliver excellent results. Her UI/UX skills make every project both engaging and user-friendly. She pays close attention to detail and consistently raises the quality of the work. Working with her means you'll always get creativity and dependability combined.",
+            q: "Jane Dhell is someone you can always rely on to deliver excellent results. Her UI/UX skills make every project both engaging and user-friendly. She pays close attention to detail and consistently raises the quality of the work. Working with her means you’ll always get creativity and dependability combined.",
         },
     ],
     [
@@ -317,6 +333,8 @@ const TESTIMONIAL_SLIDES = [
             position: "Backend Engineer (Lead) in ScaleForge",
             q: "Working with Jadey has always been a great experience. She is a highly talented designer who combines creativity with efficiency, delivering outputs that are both visually impressive and high quality. One of her strongest qualities is her ability to truly understand ideas and bring them to life in a way that often exceeds expectations. She is reliable, detail-oriented, and very easy to collaborate with. If you’re looking for someone who can execute ideas quickly without sacrificing quality, Jadey is definitely someone you can count on.",
         },
+    ],
+    [
         {
             big: false,
             img: "/Jade%20Kenneth%20Darunday.jpg",
@@ -325,88 +343,65 @@ const TESTIMONIAL_SLIDES = [
             position: "Frontend Engineer in ScaleForge",
             q: "I’ve had the chance to work closely with Jane Dhell, and as a frontend developer, I really appreciate how thoughtful and precise her UI/UX work is. She has a strong eye for detail and consistently follows solid design principles, which makes implementation smooth and predictable. Her designs are clear, well-structured, and user-focused. On top of that, she works fast without sacrificing quality, which is rare. It’s always easy collaborating with her.",
         },
+        {
+            big: false,
+            img: "/Princess%20Romera%20Origenes.jpg",
+            name: "Princess Romera Origenes",
+            flag: "🇵🇭",
+            position: "UX Researcher in Nektic",
+            q: "JD was such a great workmate! She actually taught me the design fundamentals when I was just starting out as a designer. I love that she’s always ready to help but also has a strict commitment to deadlines 😜",
+        },
     ],
 ]
 
 const WORKSHOPS = [
     {
-        ev: "Workshop",
-        title: "Figma Animate",
-        date: "2024",
-        icon: "🎨",
-        color: "linear-gradient(135deg,#5A2890,#9B59D0)",
-        support:
-            "Exploring animation in Figma — transitions, smart animate, and advanced prototyping.",
-    },
-    {
-        ev: "Community",
+        label: "Speaker in 2022",
         title: "CoffeeHours Session",
-        date: "2024",
-        icon: "☕",
-        color: "linear-gradient(135deg,#3A1860,#6B3FA0)",
-        support:
-            "Casual design discussion and Q&A connecting designers over coffee.",
+        desc: "I was assigned as a speaker at an online Coffee Hours Session for my talk \"Figma Animate,\" where I shared 5 basic Figma animation tricks.",
+        img: "/CoffeeHours Session.png",
     },
     {
-        ev: "Workshop",
-        title: "unbUX Workshop Manila",
-        date: "2023",
-        icon: "🔍",
-        color: "linear-gradient(135deg,#4A2870,#7A50A8)",
-        support:
-            "Hands-on UX workshop covering user research, journey mapping, and design thinking.",
+        label: "Speaker in 2022",
+        title: "unbUX Workshop 2023",
+        desc: "I was invited to be a speaker at the \"unbUX: Web Development and Design\" workshop organized by GDSC-USTP, where I discussed \"Diving Into Figma.\"",
+        img: "/unbUX Workshop 2023.png",
     },
     {
-        ev: "Event",
-        title: "First Design HIVE CDO",
-        date: "2023",
-        icon: "🐝",
-        color: "linear-gradient(135deg,#3A1860,#6B4090)",
-        support: "Inaugural Design HIVE community event in Cagayan de Oro.",
+        label: "One of the Organizers in 2023",
+        title: "First Design HIVE Event in CDO",
+        desc: "I was assigned as one of the organizers of the 1st Design Hive event held in CDO City.",
+        img: "/First Design HIVE Event in CDO.png",
     },
     {
-        ev: "Workshop",
-        title: "unbUX-reLUX + erelU 2023",
-        date: "2023",
-        icon: "🔄",
-        color: "linear-gradient(135deg,#2E1050,#5A3690)",
-        support:
-            "Revisiting UX fundamentals and sharing real-world lessons from design practice.",
+        label: "Speaker in 2023",
+        title: "unBUX: relUX + enjUI 2023",
+        desc: "I was invited to be a speaker at \"unBUX: relUX + enjUI,\" organized by GDSC-USTP, where I discussed \"UI Factor: How to Design and Prototype UI with Figma.\"",
+        img: "/unBUX_ relUX + enjUI 2023.png",
     },
     {
-        ev: "Conference",
-        title: "HIVERS CONNECT MANILA",
-        date: "2023",
-        icon: "🌐",
-        color: "linear-gradient(135deg,#5A2890,#8B5CC8)",
-        support:
-            "Design community networking connecting Hivers members across the Philippines.",
-    },
-    {
-        ev: "Conference",
+        label: "Event Lead and Speaker in 2023",
         title: "HIVERS CONNECT 2023",
-        date: "2023",
-        icon: "🤝",
-        color: "linear-gradient(135deg,#4A2872,#7A50A8)",
-        support:
-            "Annual gathering of the Hivers design community — talks, workshops, and collaboration.",
+        desc: "I was the lead of \"Hivers Connect 2023,\" organized by Design Hive, where I also served as a speaker and discussed \"The Importance of UI Design in Landing Pages.\"",
+        img: "/HIVERS CONNECT 2023.png",
     },
     {
-        ev: "Community",
+        label: "Event Lead and Speaker in 2024",
+        title: "HIVERS CONNECT MANILA",
+        desc: "I was the lead and speaker at \"Hivers Connect Manila,\" organized by Design Hive, where I discussed \"The Workflow in Designing Landing Pages.\"",
+        img: "/HIVERS CONNECT MANILA.png",
+    },
+    {
+        label: "Volunteer in 2024",
         title: "django girls Workshop 2024",
-        date: "2024",
-        icon: "💻",
-        color: "linear-gradient(135deg,#3A1860,#6B3FA0)",
-        support:
-            "Empowering women in tech through beginner-friendly design and coding workshops.",
+        desc: "I got curious about a tech-related workshop, so I decided to volunteer.",
+        img: "/django girls Workshop 2024.png",
     },
     {
-        ev: "Conference",
-        title: "INNOVATE 2024 – CDOC",
-        date: "2024",
-        icon: "💡",
-        color: "linear-gradient(135deg,#2E1050,#5A3690)",
-        support: "Innovation and design showcase event in CDO.",
+        label: "Speaker in 2024",
+        title: "iNNOVATE 2024 – GDSC EVENT",
+        desc: "I was invited to be a speaker at \"INNOVATE 2024,\" a workshop organized by GDSC-USTP, where I shared insights and tips on \"Prototyping with Figma.\"",
+        img: "/iNNOVATE 2024 - GDSC EVENT.png",
     },
 ]
 
@@ -470,14 +465,14 @@ const WhatsAppIcon = () => (
 )
 
 export default function JadeyPortfolio() {
-    const [sendState, setSendState] = useState<
-        "idle" | "sending" | "sent" | "error"
-    >("idle")
     const [showToast, setShowToast] = useState(false)
     const [toastMsg, setToastMsg] = useState("")
     const [toastErr, setToastErr] = useState(false)
     const [navScroll, setNavScroll] = useState(false)
     const [testiSlide, setTestiSlide] = useState(0)
+    const isTransitioning = useRef(false)
+    const paused = useRef(false)
+    const resumeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
     const [handbookImgOk, setHandbookImgOk] = useState(true)
     const ref = useRef<HTMLDivElement>(null)
     const c1 = useRef<HTMLDivElement>(null)
@@ -492,6 +487,10 @@ export default function JadeyPortfolio() {
     const [projType, setProjType] = useState("")
     const [budget, setBudget] = useState("")
     const [message, setMessage] = useState("")
+    const [projTypeOpen, setProjTypeOpen] = useState(false)
+    const [budgetOpen, setBudgetOpen] = useState(false)
+    const projTypeRef = useRef<HTMLDivElement>(null)
+    const budgetRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         const move = (e: MouseEvent) => {
@@ -544,12 +543,39 @@ export default function JadeyPortfolio() {
     }, [])
 
     useEffect(() => {
-        const t = setInterval(
-            () => setTestiSlide((s) => (s + 1) % TESTIMONIAL_SLIDES.length),
-            6000
-        )
-        return () => clearInterval(t)
+        const t = setInterval(() => {
+            if (!paused.current) {
+                setTestiSlide((s) => (s + 1) % TESTIMONIAL_SLIDES.length)
+            }
+        }, 10000)
+        return () => {
+            clearInterval(t)
+            if (resumeTimer.current) clearTimeout(resumeTimer.current)
+        }
     }, [])
+
+    useEffect(() => {
+        const handler = (e: MouseEvent) => {
+            if (projTypeRef.current && !projTypeRef.current.contains(e.target as Node))
+                setProjTypeOpen(false)
+            if (budgetRef.current && !budgetRef.current.contains(e.target as Node))
+                setBudgetOpen(false)
+        }
+        document.addEventListener("mousedown", handler)
+        return () => document.removeEventListener("mousedown", handler)
+    }, [])
+
+    const navigate = (fn: (s: number) => number) => {
+        if (isTransitioning.current) return
+        paused.current = true
+        if (resumeTimer.current) clearTimeout(resumeTimer.current)
+        resumeTimer.current = setTimeout(() => {
+            paused.current = false
+        }, 60000)
+        isTransitioning.current = true
+        setTestiSlide(fn)
+        setTimeout(() => { isTransitioning.current = false }, 800)
+    }
 
     const go = (id: string) =>
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
@@ -561,53 +587,30 @@ export default function JadeyPortfolio() {
         setTimeout(() => setShowToast(false), 4000)
     }
 
-    const send = async () => {
-        if (!fname.trim() || !email.trim() || !message.trim()) {
-            showMsg("Please fill in name, email and message.", true)
+    const send = () => {
+        if (!fname.trim() || !lname.trim() || !email.trim() || !projType || !budget || !message.trim()) {
+            showMsg("Please fill in all required fields.", true)
             return
         }
-        setSendState("sending")
-        try {
-            const res = await fetch("https://api.web3forms.com/submit", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
-                },
-                body: JSON.stringify({
-                    access_key: WEB3FORMS_KEY,
-                    subject:
-                        `Portfolio Inquiry — ${projType || "General"} from ${fname} ${lname}`.trim(),
-                    from_name: `${fname} ${lname}`.trim(),
-                    reply_to: email,
-                    name: `${fname} ${lname}`.trim(),
-                    email,
-                    project_type: projType || "Not specified",
-                    budget: budget || "Not specified",
-                    message,
-                    redirect: false,
-                }),
-            })
-            const data = await res.json()
-            if (data.success) {
-                setSendState("sent")
-                showMsg("Message sent! I'll get back to you soon. ✓")
-                setFname("")
-                setLname("")
-                setEmail("")
-                setProjType("")
-                setBudget("")
-                setMessage("")
-                setTimeout(() => setSendState("idle"), 4000)
-            } else throw new Error("failed")
-        } catch {
-            setSendState("error")
-            showMsg(
-                "Something went wrong. Please email cagas4504@gmail.com directly.",
-                true
-            )
-            setTimeout(() => setSendState("idle"), 4000)
-        }
+        const subject = encodeURIComponent(
+            `New Project Inquiry from ${fname.trim()} ${lname.trim()}`
+        )
+        const body = encodeURIComponent(
+            `First Name: ${fname.trim()}\n` +
+            `Last Name: ${lname.trim()}\n` +
+            `Email: ${email.trim()}\n` +
+            `Project Type: ${projType}\n` +
+            `Budget Range: ${budget}\n` +
+            `\nMessage:\n${message.trim()}`
+        )
+        window.location.href = `mailto:cagas4504@gmail.com?subject=${subject}&body=${body}`
+        setFname("")
+        setLname("")
+        setEmail("")
+        setProjType("")
+        setBudget("")
+        setMessage("")
+        showMsg("Preparing your email…")
     }
 
     const handleDownload = () => {
@@ -1147,6 +1150,7 @@ export default function JadeyPortfolio() {
                                                 <div
                                                     key={ti}
                                                     className={`jp-tc${tc.big ? " big" : ""}`}
+                                                    style={slide.length === 1 ? { gridColumn: "1 / -1", maxWidth: "60%", margin: "0 auto" } : {}}
                                                 >
                                                     <div className="jp-tstar">
                                                         ★★★★★
@@ -1177,11 +1181,9 @@ export default function JadeyPortfolio() {
                                 <button
                                     className="jp-tarr"
                                     onClick={() =>
-                                        setTestiSlide(
+                                        navigate(
                                             (s) =>
-                                                (s -
-                                                    1 +
-                                                    TESTIMONIAL_SLIDES.length) %
+                                                (s - 1 + TESTIMONIAL_SLIDES.length) %
                                                 TESTIMONIAL_SLIDES.length
                                         )
                                     }
@@ -1193,17 +1195,16 @@ export default function JadeyPortfolio() {
                                         <button
                                             key={i}
                                             className={`jp-tdot${testiSlide === i ? " on" : ""}`}
-                                            onClick={() => setTestiSlide(i)}
+                                            onClick={() => navigate(() => i)}
                                         />
                                     ))}
                                 </div>
                                 <button
                                     className="jp-tarr"
                                     onClick={() =>
-                                        setTestiSlide(
+                                        navigate(
                                             (s) =>
-                                                (s + 1) %
-                                                TESTIMONIAL_SLIDES.length
+                                                (s + 1) % TESTIMONIAL_SLIDES.length
                                         )
                                     }
                                 >
@@ -1232,12 +1233,15 @@ export default function JadeyPortfolio() {
                             display: "flex",
                             alignItems: "center",
                             padding:"44px",
-                            background:"var(--bg2)",border:"1px solid var(--pborder)",marginTop:"60px",marginBottom:"28px"
+                            background:"var(--bg2)",
+                            border:"1px solid var(--pborder)",
+                            marginTop:"60px",
+                            marginBottom:"28px"
                         }}>
                             <div>
                                 {handbookImgOk ? (
                                     <img
-                                        src={HANDBOOK_IMG}
+                                        src={"/handbook.png"}
                                         alt="Landing Page Workflow Handbook cover"
                                         width="500"
                                         style={{
@@ -1304,42 +1308,36 @@ export default function JadeyPortfolio() {
                         <div className="jp-articles-row jp-rv">
                             {[
                                 {
-                                    bg: "linear-gradient(135deg,#2E1050,#6B3FA0)",
-                                    lbl: "GUIDE",
-                                    tagC: "rgba(155,89,208,.2)",
-                                    tagTxt: "var(--pu)",
-                                    tag: "UI Design",
-                                    date: "Dec 2024",
-                                    h: 180,
-                                    t: "Essential Elements of a UI Style Guide Starter Kit",
-                                    d: "A guide to building your first UI style guide.",
-                                    time: "7 min read",
-                                    url: "https://medium.com/design-bootcamp/essential-elements-of-a-ui-style-guide-starter-kit-and-how-to-use-it-ec4c5452d662",
-                                },
-                                {
-                                    bg: "linear-gradient(135deg,#1a0a00,#3a2800)",
-                                    lbl: "COLOR",
                                     tagC: "rgba(212,168,67,.14)",
                                     tagTxt: "#d4a843",
                                     tag: "Color Theory",
-                                    date: "Nov 2024",
-                                    h: 180,
+                                    date: "Mar 23, 2023",
+                                    img: "/Creating%20Color%20Schemes%20for%20the%20UI%20Style%20Guide%20Kit.png",
                                     t: "Creating Color Schemes for the UI Style Guide Kit",
                                     d: "How to build cohesive, accessible color systems.",
-                                    time: "6 min",
+                                    time: "9 mins read",
                                     url: "https://medium.com/design-bootcamp/a-beginners-guide-to-creating-color-schemes-for-the-ui-style-guide-kit-f759e904b3ea",
                                 },
                                 {
-                                    bg: "linear-gradient(135deg,#0a1a0a,#1a3a1a)",
-                                    lbl: "MOTION",
+                                    tagC: "rgba(155,89,208,.2)",
+                                    tagTxt: "var(--pu)",
+                                    tag: "UI Design",
+                                    date: "Mar 31, 2023",
+                                    img: "/Essential%20Elements%20of%20a%20UI%20Style%20Guide%20Starter%20Kit%20and%20How%20to%20Use%20It.png",
+                                    t: "Essential Elements of a UI Style Guide Starter Kit",
+                                    d: "A guide to building your first UI style guide.",
+                                    time: "9 mins read",
+                                    url: "https://medium.com/design-bootcamp/essential-elements-of-a-ui-style-guide-starter-kit-and-how-to-use-it-ec4c5452d662",
+                                },
+                                {
                                     tagC: "rgba(100,200,100,.11)",
                                     tagTxt: "#64c864",
                                     tag: "Animation",
-                                    date: "Nov 2024",
-                                    h: 180,
+                                    date: "Mar 13, 2023",
+                                    img: "/The%20Impact%20of%20UI%20Animation%20on%20Your%20Design.png",
                                     t: "The Impact of UI Animation on Your Design",
                                     d: "Why motion design matters and elevates UX.",
-                                    time: "8 min",
+                                    time: "5 mins read",
                                     url: "https://medium.com/@jadeyc/the-impact-of-ui-animation-on-your-design-239553d873fb",
                                 },
                             ].map((b, i) => (
@@ -1350,26 +1348,8 @@ export default function JadeyPortfolio() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <div
-                                        style={{
-                                            height: b.h,
-                                            background: b.bg,
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "center",
-                                        }}
-                                    >
-                                        <div
-                                            style={{
-                                                fontFamily:
-                                                    "'Bebas Neue',sans-serif",
-                                                fontSize: 52,
-                                                letterSpacing: -2,
-                                                color: "rgba(255,255,255,.06)",
-                                            }}
-                                        >
-                                            {b.lbl}
-                                        </div>
+                                    <div className="jp-bimg">
+                                        <img src={b.img} alt={b.t} />
                                     </div>
                                     <div className="jp-bbd">
                                         <div className="jp-bmeta">
@@ -1410,6 +1390,18 @@ export default function JadeyPortfolio() {
                                 <br />
                                 <em>Resources</em>
                             </h2>
+                            <p
+                                style={{
+                                    fontSize: 11,
+                                    color: "var(--muted)",
+                                    lineHeight: 1.8,
+                                    marginTop: 14,
+                                    maxWidth: 460,
+                                    letterSpacing: ".01em",
+                                }}
+                            >
+                                I personally created these resources to help designers and developers streamline their workflow.
+                            </p>
                             <div className="jp-resources">
                                 {RESOURCES.map((r, i) => (
                                     <a
@@ -1486,28 +1478,43 @@ export default function JadeyPortfolio() {
                         <div className="jp-wkg jp-rv">
                             {WORKSHOPS.map((ws, i) => (
                                 <div key={i} className="jp-wkcard">
-                                    <div
-                                        className="jp-wkthumb"
-                                        style={{ background: ws.color }}
-                                    >
-                                        <span className="jp-wkthumb-icon">
-                                            {ws.icon}
-                                        </span>
-                                        <div className="jp-wkthumb-year">
-                                            {ws.date}
-                                        </div>
+                                    <div className="jp-wkthumb">
+                                        <img
+                                            src={ws.img}
+                                            alt={ws.title}
+                                            style={{
+                                                position: "absolute",
+                                                inset: 0,
+                                                width: "100%",
+                                                height: "100%",
+                                                objectFit: "cover",
+                                                objectPosition: "center",
+                                                display: "block",
+                                            }}
+                                        />
                                     </div>
                                     <div className="jp-wkinfo">
-                                        <div className="jp-wkev">{ws.ev}</div>
+                                        <div className="jp-wkev">{ws.label}</div>
                                         <div className="jp-wkname">
                                             {ws.title}
                                         </div>
                                         <div className="jp-wksupport">
-                                            {ws.support}
+                                            {ws.desc}
                                         </div>
                                     </div>
                                 </div>
                             ))}
+                        </div>
+                        <div style={{ marginTop: 48 }} className="jp-rv">
+                            <img
+                                src="/All event.png"
+                                alt="All Events"
+                                style={{
+                                    width: "100%",
+                                    height: "auto",
+                                    display: "block",
+                                }}
+                            />
                         </div>
                     </div>
                 </section>
@@ -1669,47 +1676,39 @@ export default function JadeyPortfolio() {
                                 </div>
                                 <div className="jp-fg">
                                     <label>Project Type</label>
-                                    <select
-                                        value={projType}
-                                        onChange={(e) =>
-                                            setProjType(e.target.value)
-                                        }
-                                    >
-                                        <option value="">
-                                            Select a service...
-                                        </option>
-                                        {[
-                                            "UI/UX Design",
-                                            "Brand Identity",
-                                            "Graphic Design",
-                                            "Presentation Design",
-                                            "Workshop / Speaking",
-                                            "Other",
-                                        ].map((o) => (
-                                            <option key={o}>{o}</option>
-                                        ))}
-                                    </select>
+                                    <div className="jp-sel" ref={projTypeRef}>
+                                        <button
+                                            type="button"
+                                            className={`jp-sel-btn${projTypeOpen ? " open" : ""}${!projType ? " placeholder" : ""}`}
+                                            onClick={() => { setProjTypeOpen(o => !o); setBudgetOpen(false) }}
+                                        >
+                                            <span>{projType || "Select a service..."}</span>
+                                            <svg className="jp-sel-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                                        </button>
+                                        <div className={`jp-sel-menu${projTypeOpen ? " open" : ""}`}>
+                                            {["UI/UX Design","Brand Identity","Graphic Design","Presentation Design","Workshop / Speaking","Other"].map(o => (
+                                                <div key={o} className={`jp-sel-opt${projType === o ? " active" : ""}`} onClick={() => { setProjType(o); setProjTypeOpen(false) }}>{o}</div>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className="jp-fg">
                                     <label>Budget Range</label>
-                                    <select
-                                        value={budget}
-                                        onChange={(e) =>
-                                            setBudget(e.target.value)
-                                        }
-                                    >
-                                        <option value="">
-                                            Select budget...
-                                        </option>
-                                        {[
-                                            "Under $500",
-                                            "$500 – $1,500",
-                                            "$1,500 – $5,000",
-                                            "$5,000+",
-                                        ].map((o) => (
-                                            <option key={o}>{o}</option>
-                                        ))}
-                                    </select>
+                                    <div className="jp-sel" ref={budgetRef}>
+                                        <button
+                                            type="button"
+                                            className={`jp-sel-btn${budgetOpen ? " open" : ""}${!budget ? " placeholder" : ""}`}
+                                            onClick={() => { setBudgetOpen(o => !o); setProjTypeOpen(false) }}
+                                        >
+                                            <span>{budget || "Select budget..."}</span>
+                                            <svg className="jp-sel-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                                        </button>
+                                        <div className={`jp-sel-menu${budgetOpen ? " open" : ""}`}>
+                                            {["Under $500","$500 – $1,500","$1,500 – $5,000","$5,000+"].map(o => (
+                                                <div key={o} className={`jp-sel-opt${budget === o ? " active" : ""}`} onClick={() => { setBudget(o); setBudgetOpen(false) }}>{o}</div>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className="jp-fg">
                                     <label>Tell me about your project</label>
@@ -1724,15 +1723,8 @@ export default function JadeyPortfolio() {
                                 <button
                                     className="jp-bsub"
                                     onClick={send}
-                                    disabled={sendState === "sending"}
                                 >
-                                    {sendState === "idle"
-                                        ? "SEND MESSAGE →"
-                                        : sendState === "sending"
-                                          ? "SENDING..."
-                                          : sendState === "sent"
-                                            ? "MESSAGE SENT ✓"
-                                            : "TRY AGAIN"}
+                                    SEND MESSAGE →
                                 </button>
                             </div>
                         </div>

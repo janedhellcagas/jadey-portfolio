@@ -3,6 +3,7 @@ import ProjectDetailPage from "./ProjectDetailPage"
 const SLUGS = [
     "advante", "brandsonic", "devluvs", "future-founders",
     "incremental", "login-signup", "reviv", "scaleforge", "starseekr",
+    "taskbeasts", "helios-solar", "ballers-ph", "landing-page-kit",
 ]
 
 export function generateStaticParams() {
