@@ -253,6 +253,88 @@ const CSS = `
 .jp-toast.err{background:#c0392b}
 .jp-rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .jp-rv.in{opacity:1;transform:translateY(0)}
+/* ===== RESPONSIVE ===== */
+@media(hover:none),(pointer:coarse){.jp-cur,.jp-cur2{display:none!important}}
+.jp-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:transparent;border:none;padding:6px}
+.jp-hamburger span{display:block;width:24px;height:2px;background:var(--paper);transition:all .3s}
+.jp-drawer{position:fixed;inset:0;z-index:600;background:var(--bg);transform:translateX(100%);transition:transform .35s ease;display:flex;flex-direction:column;padding:88px 28px 40px;overflow-y:auto}
+.jp-drawer.open{transform:translateX(0)}
+.jp-drawer-close{position:absolute;top:22px;right:24px;background:transparent;border:none;color:var(--paper);font-size:22px;cursor:pointer;line-height:1}
+.jp-drawer a{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:18px 0;border-bottom:1px solid var(--border);transition:color .2s;display:block}
+.jp-drawer a:hover,.jp-drawer a:active{color:var(--pu)}
+.jp-drawer-cta{background:var(--pu);color:var(--bg)!important;padding:14px 0!important;font-weight:700;border-bottom:none!important;text-align:center;margin-top:20px;display:block;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.jp-drawer-cta:hover{background:var(--pu2)}
+@media(max-width:1024px){
+    .jp-nav-inner{padding:14px 28px}
+    .jp-sg{grid-template-columns:repeat(2,1fr)}
+    .jp-wmas{grid-template-columns:repeat(2,1fr)}
+    .jp-alay{gap:48px}
+    .jp-ptrack{grid-template-columns:repeat(3,1fr)}
+    .jp-ptrack::before{display:none}
+    .jp-articles-row{grid-template-columns:repeat(2,1fr)}
+    .jp-clay{gap:40px}
+}
+@media(max-width:768px){
+    :root{--pad:24px}
+    .jp-hamburger{display:flex}
+    .jp-nav-r{display:none}
+    .jp-section-inner{padding:72px var(--pad)}
+    .jp-services .jp-section-inner{padding:100px var(--pad)}
+    .jp-about .jp-section-inner{padding:100px var(--pad)}
+    .jp-workshops .jp-section-inner{padding:110px var(--pad) 72px}
+    .jp-abar span{font-size:8px;letter-spacing:.15em}
+    .jp-hero-bot-inner{flex-direction:column;align-items:flex-start;gap:28px;padding:24px var(--pad) 44px}
+    .jp-hstats{flex-wrap:wrap;gap:24px}
+    .jp-sg{grid-template-columns:1fr}
+    .jp-wmas{grid-template-columns:1fr}
+    .jp-work-header{flex-direction:column;align-items:flex-start}
+    .jp-alay{grid-template-columns:1fr;gap:32px}
+    .jp-ptrack{grid-template-columns:1fr;gap:0}
+    .jp-ps{text-align:left;padding:20px 0;border-bottom:1px solid var(--border)}
+    .jp-pn{margin:0 0 14px}
+    .jp-tslide{grid-template-columns:1fr}
+    .jp-handbook{flex-direction:column;padding:28px}
+    .jp-handbook-cover,.jp-handbook-cover-fallback{width:100%;max-width:160px}
+    .jp-handbook-right{width:100%}
+    .jp-dl-btn{width:100%;justify-content:center}
+    .jp-articles-row{grid-template-columns:1fr}
+    .jp-clay{grid-template-columns:1fr}
+    .jp-footer-inner{flex-direction:column;align-items:flex-start;gap:20px;padding:32px var(--pad)}
+    .jp-flinks{flex-direction:column;gap:10px;align-items:flex-start}
+}
+@media(max-width:480px){
+    :root{--pad:16px}
+    .jp-section-inner{padding:56px var(--pad)}
+    .jp-hero-c{padding:96px var(--pad) 0}
+    .jp-hstats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .jp-sn{font-size:36px}
+    .jp-hact{flex-direction:column;align-items:stretch}
+    .jp-blime,.jp-bghost{text-align:center}
+    .jp-cf .jp-fg-row{grid-template-columns:1fr}
+    .jp-resources{grid-template-columns:1fr}
+    .jp-abar{padding:9px 16px}
+    .jp-abar span{font-size:7px}
+}
+@media(hover:none){
+    .jp-wc:hover{transform:none;border-color:var(--border)}
+    .jp-bc:hover{transform:none;border-color:var(--border)}
+    .jp-rcard:hover{transform:none}
+    .jp-wkcard:hover{transform:none;box-shadow:none}
+}
+@media(hover:none),(pointer:coarse){
+    .jp-hamburger{min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
+    .jp-tdot{position:relative}
+    .jp-tdot::after{content:'';position:absolute;inset:-16px}
+    .jp-tarr{min-width:44px;min-height:44px}
+}
+@media(prefers-reduced-motion:reduce){
+    .jp-rv{transition:none;opacity:1;transform:none}
+    .jp-drawer{transition:none}
+    .jp-mq-t,.jp-mq2-t{animation-duration:.001ms}
+    .jp-ttrack{transition:none}
+    .jp-ndot,.jp-adot{animation:none}
+    .jp-cur,.jp-cur2{display:none}
+}
 `
 
 const HIGHLIGHTS = [
@@ -469,6 +551,7 @@ export default function JadeyPortfolio() {
     const [toastMsg, setToastMsg] = useState("")
     const [toastErr, setToastErr] = useState(false)
     const [navScroll, setNavScroll] = useState(false)
+    const [menuOpen, setMenuOpen] = useState(false)
     const [testiSlide, setTestiSlide] = useState(0)
     const isTransitioning = useRef(false)
     const paused = useRef(false)
@@ -491,8 +574,28 @@ export default function JadeyPortfolio() {
     const [budgetOpen, setBudgetOpen] = useState(false)
     const projTypeRef = useRef<HTMLDivElement>(null)
     const budgetRef = useRef<HTMLDivElement>(null)
+    const drawerRef = useRef<HTMLDivElement>(null)
+    const hamburgerRef = useRef<HTMLButtonElement>(null)
 
     useEffect(() => {
+        if (!menuOpen) { hamburgerRef.current?.focus(); return }
+        const drawer = drawerRef.current
+        if (!drawer) return
+        const focusable = Array.from(drawer.querySelectorAll<HTMLElement>("a,button"))
+        focusable[0]?.focus()
+        const trap = (e: KeyboardEvent) => {
+            if (e.key === "Escape") { setMenuOpen(false); return }
+            if (e.key !== "Tab") return
+            const first = focusable[0], last = focusable[focusable.length - 1]
+            if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last?.focus() } }
+            else { if (document.activeElement === last) { e.preventDefault(); first?.focus() } }
+        }
+        document.addEventListener("keydown", trap)
+        return () => document.removeEventListener("keydown", trap)
+    }, [menuOpen])
+
+    useEffect(() => {
+        if (window.matchMedia("(hover:none)").matches) return
         const move = (e: MouseEvent) => {
             mx.current = e.clientX
             my.current = e.clientY
@@ -518,6 +621,11 @@ export default function JadeyPortfolio() {
             cancelAnimationFrame(raf)
         }
     }, [])
+
+    useEffect(() => {
+        document.body.style.overflow = menuOpen ? "hidden" : ""
+        return () => { document.body.style.overflow = "" }
+    }, [menuOpen])
 
     useEffect(() => {
         const els = Array.from(ref.current?.querySelectorAll(".jp-rv") || [])
@@ -728,8 +836,29 @@ export default function JadeyPortfolio() {
                                 Contact Me
                             </a>
                         </div>
+                        <button
+                            ref={hamburgerRef}
+                            className="jp-hamburger"
+                            onClick={() => setMenuOpen(true)}
+                            aria-label="Open menu"
+                            aria-expanded={menuOpen}
+                        >
+                            <span /><span /><span />
+                        </button>
                     </div>
                 </nav>
+
+                {/* MOBILE DRAWER */}
+                <div ref={drawerRef} className={`jp-drawer${menuOpen ? " open" : ""}`} aria-hidden={!menuOpen} role="dialog" aria-label="Navigation menu">
+                    <button className="jp-drawer-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">✕</button>
+                    <a href="/all-work" onClick={() => setMenuOpen(false)}>All Projects</a>
+                    <a href="#about" onClick={(e) => { e.preventDefault(); go("about"); setMenuOpen(false) }}>About Me</a>
+                    <a href="#work" onClick={(e) => { e.preventDefault(); go("work"); setMenuOpen(false) }}>Work Highlights</a>
+                    <a href="#testimonials" onClick={(e) => { e.preventDefault(); go("testimonials"); setMenuOpen(false) }}>Testimonials</a>
+                    <a href="#insights" onClick={(e) => { e.preventDefault(); go("insights"); setMenuOpen(false) }}>Blog</a>
+                    <a href="#workshops" onClick={(e) => { e.preventDefault(); go("workshops"); setMenuOpen(false) }}>Workshops</a>
+                    <a className="jp-drawer-cta" href="#contact" onClick={(e) => { e.preventDefault(); go("contact"); setMenuOpen(false) }}>Contact Me</a>
+                </div>
 
                 {/* HERO */}
                 <div className="jp-hero" id="hero">

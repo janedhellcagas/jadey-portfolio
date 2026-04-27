@@ -77,6 +77,50 @@ const CSS = `
 .pd-404 p{font-size:12px;color:var(--muted);max-width:340px;line-height:1.8}
 .pd-rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .pd-rv.in{opacity:1;transform:translateY(0)}
+/* ===== RESPONSIVE ===== */
+.pd-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:transparent;border:none;padding:6px}
+.pd-hamburger span{display:block;width:24px;height:2px;background:var(--paper);transition:all .3s}
+.pd-drawer{position:fixed;inset:0;z-index:600;background:var(--bg);transform:translateX(100%);transition:transform .35s ease;display:flex;flex-direction:column;padding:88px 28px 40px;overflow-y:auto}
+.pd-drawer.open{transform:translateX(0)}
+.pd-drawer-close{position:absolute;top:22px;right:24px;background:transparent;border:none;color:var(--paper);font-size:22px;cursor:pointer;line-height:1}
+.pd-drawer a{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:18px 0;border-bottom:1px solid var(--border);transition:color .2s;display:block}
+.pd-drawer a:hover,.pd-drawer a:active{color:var(--pu)}
+.pd-drawer-cta{background:var(--pu);color:var(--bg)!important;padding:14px 0!important;font-weight:700;border-bottom:none!important;text-align:center;margin-top:20px;display:block;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.pd-drawer-cta:hover{background:var(--pu2)}
+@media(max-width:1024px){
+    .pd-nav-inner{padding:14px 28px}
+    .pd-next-inner{grid-template-columns:1fr;gap:32px}
+}
+@media(max-width:768px){
+    :root{--pad:24px}
+    .pd-hamburger{display:flex}
+    .pd-nav-r{display:none}
+    .pd-hero-inner{padding:110px var(--pad) 44px}
+    .pd-body-inner{padding:52px var(--pad)}
+    .pd-meta-row{gap:24px}
+    .pd-cover{padding:36px var(--pad) 0}
+    .pd-showcase{padding:36px var(--pad) 0}
+    .pd-next-inner{padding:44px var(--pad)}
+    .pd-foot-inner{flex-direction:column;align-items:flex-start;gap:20px;padding:32px var(--pad)}
+    .pd-flinks{flex-direction:column;gap:10px;align-items:flex-start}
+    .pd-next-actions{flex-direction:column;align-items:flex-start}
+    .pd-btn,.pd-ghost-btn{width:100%;text-align:center;display:block}
+}
+@media(max-width:480px){
+    :root{--pad:16px}
+    .pd-meta-row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .pd-abar{padding:9px 16px}
+    .pd-abar span{font-size:7px}
+}
+@media(hover:none),(pointer:coarse){
+    .pd-hamburger{min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
+    .pd-btn,.pd-ghost-btn,.pd-cta{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+    .pd-rv{transition:none;opacity:1;transform:none}
+    .pd-drawer{transition:none}
+    .pd-ndot,.pd-adot{animation:none}
+}
 `
 
 const PROJECTS: Record<string, any> = {
@@ -102,6 +146,9 @@ const PROJECTS: Record<string, any> = {
 export default function ProjectDetailPage({ slug }: { slug: string }) {
     const ref = useRef<HTMLDivElement>(null)
     const [navScroll, setNavScroll] = useState(false)
+    const [menuOpen, setMenuOpen] = useState(false)
+    const drawerRef = useRef<HTMLDivElement>(null)
+    const hamburgerRef = useRef<HTMLButtonElement>(null)
 
     const project = PROJECTS[slug]
     const nextProject = project ? PROJECTS[project.next] : null
@@ -128,6 +175,28 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
             window.removeEventListener("scroll", reveal)
         }
     }, [])
+
+    useEffect(() => {
+        document.body.style.overflow = menuOpen ? "hidden" : ""
+        return () => { document.body.style.overflow = "" }
+    }, [menuOpen])
+
+    useEffect(() => {
+        if (!menuOpen) { hamburgerRef.current?.focus(); return }
+        const drawer = drawerRef.current
+        if (!drawer) return
+        const focusable = Array.from(drawer.querySelectorAll<HTMLElement>("a,button"))
+        focusable[0]?.focus()
+        const trap = (e: KeyboardEvent) => {
+            if (e.key === "Escape") { setMenuOpen(false); return }
+            if (e.key !== "Tab") return
+            const first = focusable[0], last = focusable[focusable.length - 1]
+            if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last?.focus() } }
+            else { if (document.activeElement === last) { e.preventDefault(); first?.focus() } }
+        }
+        document.addEventListener("keydown", trap)
+        return () => document.removeEventListener("keydown", trap)
+    }, [menuOpen])
 
     const coverImg = project?.coverSrc || ""
     const mockImg1 = project?.mockup1  || ""
@@ -163,8 +232,20 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
                             <a href="/#workshops">Workshops</a>
                             <a className="pd-nav-contact" href="/#contact">Contact Me</a>
                         </div>
+                        <button ref={hamburgerRef} className="pd-hamburger" onClick={() => setMenuOpen(true)} aria-label="Open menu" aria-expanded={menuOpen}>
+                            <span /><span /><span />
+                        </button>
                     </div>
                 </nav>
+                <div ref={drawerRef} className={`pd-drawer${menuOpen ? " open" : ""}`} aria-hidden={!menuOpen} role="dialog" aria-label="Navigation menu">
+                    <button className="pd-drawer-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">✕</button>
+                    <a href="/all-work" onClick={() => setMenuOpen(false)}>All Projects</a>
+                    <a href="/#about" onClick={() => setMenuOpen(false)}>About Me</a>
+                    <a href="/#work" onClick={() => setMenuOpen(false)}>Work Highlights</a>
+                    <a href="/#insights" onClick={() => setMenuOpen(false)}>Blog</a>
+                    <a href="/#workshops" onClick={() => setMenuOpen(false)}>Workshops</a>
+                    <a className="pd-drawer-cta" href="/#contact" onClick={() => setMenuOpen(false)}>Contact Me</a>
+                </div>
                 <div className="pd-404">
                     <div style={{fontSize:9,letterSpacing:".2em",textTransform:"uppercase",color:"var(--muted)"}}>404 — Not Found</div>
                     <h2>Oops.</h2>
@@ -195,8 +276,23 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
                         <a href="/#workshops">Workshops</a>
                         <a className="pd-nav-contact" href="/#contact">Contact Me</a>
                     </div>
+                    <button className="pd-hamburger" onClick={() => setMenuOpen(true)} aria-label="Open menu" aria-expanded={menuOpen}>
+                        <span /><span /><span />
+                    </button>
                 </div>
             </nav>
+
+            {/* MOBILE DRAWER */}
+            <div className={`pd-drawer${menuOpen ? " open" : ""}`} aria-hidden={!menuOpen}>
+                <button className="pd-drawer-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">✕</button>
+                <a href="/all-work" onClick={() => setMenuOpen(false)}>All Projects</a>
+                <a href="/#about" onClick={() => setMenuOpen(false)}>About Me</a>
+                <a href="/#work" onClick={() => setMenuOpen(false)}>Work Highlights</a>
+                <a href="/#testimonials" onClick={() => setMenuOpen(false)}>Testimonials</a>
+                <a href="/#insights" onClick={() => setMenuOpen(false)}>Blog</a>
+                <a href="/#workshops" onClick={() => setMenuOpen(false)}>Workshops</a>
+                <a className="pd-drawer-cta" href="/#contact" onClick={() => setMenuOpen(false)}>Contact Me</a>
+            </div>
 
             <div className="pd-hero" style={{background: project.bg}}>
                 <div className="pd-hero-inner">

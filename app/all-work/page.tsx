@@ -71,6 +71,50 @@ const CSS = `
 /* REVEAL */
 .aw-rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .aw-rv.in{opacity:1;transform:translateY(0)}
+/* ===== RESPONSIVE ===== */
+.aw-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:transparent;border:none;padding:6px}
+.aw-hamburger span{display:block;width:24px;height:2px;background:var(--paper);transition:all .3s}
+.aw-drawer{position:fixed;inset:0;z-index:600;background:var(--bg);transform:translateX(100%);transition:transform .35s ease;display:flex;flex-direction:column;padding:88px 28px 40px;overflow-y:auto}
+.aw-drawer.open{transform:translateX(0)}
+.aw-drawer-close{position:absolute;top:22px;right:24px;background:transparent;border:none;color:var(--paper);font-size:22px;cursor:pointer;line-height:1}
+.aw-drawer a{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:18px 0;border-bottom:1px solid var(--border);transition:color .2s;display:block}
+.aw-drawer a:hover,.aw-drawer a:active{color:var(--pu)}
+.aw-drawer-cta{background:var(--pu);color:var(--bg)!important;padding:14px 0!important;font-weight:700;border-bottom:none!important;text-align:center;margin-top:20px;display:block;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.aw-drawer-cta:hover{background:var(--pu2)}
+@media(max-width:1024px){
+    .aw-nav-inner{padding:14px 28px}
+    .aw-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+    :root{--pad:24px}
+    .aw-hamburger{display:flex}
+    .aw-nav-r{display:none}
+    .aw-header-inner{padding:110px var(--pad) 44px}
+    .aw-body-inner{padding:44px var(--pad) 72px}
+    .aw-grid{grid-template-columns:1fr}
+    .aw-toolbar{flex-direction:column;align-items:flex-start}
+    .aw-filters{flex-wrap:wrap}
+    .aw-footer-inner{flex-direction:column;align-items:flex-start;gap:20px;padding:32px var(--pad)}
+    .aw-flinks{flex-direction:column;gap:10px;align-items:flex-start}
+}
+@media(max-width:480px){
+    :root{--pad:16px}
+    .aw-fb{padding:10px 14px;font-size:8px}
+    .aw-abar{padding:9px 16px}
+    .aw-abar span{font-size:7px}
+}
+@media(hover:none){
+    .aw-card:hover{transform:none;border-color:var(--border)}
+}
+@media(hover:none),(pointer:coarse){
+    .aw-hamburger{min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
+    .aw-fb{min-height:44px}
+}
+@media(prefers-reduced-motion:reduce){
+    .aw-rv{transition:none;opacity:1;transform:none}
+    .aw-drawer{transition:none}
+    .aw-ndot,.aw-adot{animation:none}
+}
 `
 
 const ALL_WORKS = [
@@ -93,7 +137,10 @@ const ALL_WORKS = [
 export default function AllWorkPage() {
     const [filter, setFilter] = useState("all")
     const [navScroll, setNavScroll] = useState(false)
+    const [menuOpen, setMenuOpen] = useState(false)
     const ref = useRef<HTMLDivElement>(null)
+    const drawerRef = useRef<HTMLDivElement>(null)
+    const hamburgerRef = useRef<HTMLButtonElement>(null)
 
     useEffect(() => {
         const els = Array.from(ref.current?.querySelectorAll(".aw-rv") || [])
@@ -117,6 +164,28 @@ export default function AllWorkPage() {
         window.addEventListener("scroll", onScroll)
         return () => window.removeEventListener("scroll", onScroll)
     }, [])
+
+    useEffect(() => {
+        document.body.style.overflow = menuOpen ? "hidden" : ""
+        return () => { document.body.style.overflow = "" }
+    }, [menuOpen])
+
+    useEffect(() => {
+        if (!menuOpen) { hamburgerRef.current?.focus(); return }
+        const drawer = drawerRef.current
+        if (!drawer) return
+        const focusable = Array.from(drawer.querySelectorAll<HTMLElement>("a,button"))
+        focusable[0]?.focus()
+        const trap = (e: KeyboardEvent) => {
+            if (e.key === "Escape") { setMenuOpen(false); return }
+            if (e.key !== "Tab") return
+            const first = focusable[0], last = focusable[focusable.length - 1]
+            if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last?.focus() } }
+            else { if (document.activeElement === last) { e.preventDefault(); first?.focus() } }
+        }
+        document.addEventListener("keydown", trap)
+        return () => document.removeEventListener("keydown", trap)
+    }, [menuOpen])
 
     const filtered = filter === "all" ? ALL_WORKS : ALL_WORKS.filter(w => w.cat === filter)
 
@@ -144,8 +213,23 @@ export default function AllWorkPage() {
                         <a href="/#workshops">Workshops</a>
                         <a className="aw-nav-contact" href="/#contact">Contact Me</a>
                     </div>
+                    <button ref={hamburgerRef} className="aw-hamburger" onClick={() => setMenuOpen(true)} aria-label="Open menu" aria-expanded={menuOpen}>
+                        <span /><span /><span />
+                    </button>
                 </div>
             </nav>
+
+            {/* MOBILE DRAWER */}
+            <div ref={drawerRef} className={`aw-drawer${menuOpen ? " open" : ""}`} aria-hidden={!menuOpen} role="dialog" aria-label="Navigation menu">
+                <button className="aw-drawer-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">✕</button>
+                <a href="/all-work" onClick={() => setMenuOpen(false)}>All Projects</a>
+                <a href="/#about" onClick={() => setMenuOpen(false)}>About Me</a>
+                <a href="/#work" onClick={() => setMenuOpen(false)}>Work Highlights</a>
+                <a href="/#testimonials" onClick={() => setMenuOpen(false)}>Testimonials</a>
+                <a href="/#insights" onClick={() => setMenuOpen(false)}>Blog</a>
+                <a href="/#workshops" onClick={() => setMenuOpen(false)}>Workshops</a>
+                <a className="aw-drawer-cta" href="/#contact" onClick={() => setMenuOpen(false)}>Contact Me</a>
+            </div>
 
             {/* HEADER */}
             <div className="aw-header">
