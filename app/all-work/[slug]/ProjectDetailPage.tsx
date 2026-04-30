@@ -88,7 +88,10 @@ const CSS = `
 .pd-drawer-cta{background:var(--pu);color:var(--bg)!important;padding:14px 0!important;font-weight:700;border-bottom:none!important;text-align:center;margin-top:20px;display:block;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .2s}
 .pd-drawer-cta:hover{background:var(--pu2)}
 @media(max-width:1024px){
+    :root{--pad:32px}
     .pd-nav-inner{padding:14px 28px}
+    .pd-hamburger{display:flex}
+    .pd-nav-r{display:none}
     .pd-next-inner{grid-template-columns:1fr;gap:32px}
 }
 @media(max-width:768px){
@@ -114,6 +117,7 @@ const CSS = `
 }
 @media(hover:none),(pointer:coarse){
     .pd-hamburger{min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
+    .pd-nav-r{display:none}
     .pd-btn,.pd-ghost-btn,.pd-cta{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
 }
 @media(prefers-reduced-motion:reduce){

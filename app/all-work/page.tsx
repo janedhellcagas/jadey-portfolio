@@ -82,7 +82,10 @@ const CSS = `
 .aw-drawer-cta{background:var(--pu);color:var(--bg)!important;padding:14px 0!important;font-weight:700;border-bottom:none!important;text-align:center;margin-top:20px;display:block;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .2s}
 .aw-drawer-cta:hover{background:var(--pu2)}
 @media(max-width:1024px){
+    :root{--pad:32px}
     .aw-nav-inner{padding:14px 28px}
+    .aw-hamburger{display:flex}
+    .aw-nav-r{display:none}
     .aw-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:768px){
@@ -108,6 +111,7 @@ const CSS = `
 }
 @media(hover:none),(pointer:coarse){
     .aw-hamburger{min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
+    .aw-nav-r{display:none}
     .aw-fb{min-height:44px}
 }
 @media(prefers-reduced-motion:reduce){

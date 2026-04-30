@@ -266,14 +266,26 @@ const CSS = `
 .jp-drawer-cta{background:var(--pu);color:var(--bg)!important;padding:14px 0!important;font-weight:700;border-bottom:none!important;text-align:center;margin-top:20px;display:block;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .2s}
 .jp-drawer-cta:hover{background:var(--pu2)}
 @media(max-width:1024px){
+    :root{--pad:32px}
     .jp-nav-inner{padding:14px 28px}
+    .jp-hamburger{display:flex}
+    .jp-nav-r{display:none}
+    .jp-hero{min-height:0;display:block}
+    .jp-hero-c{padding:100px var(--pad) 52px}
+    .jp-hero-bg{top:35%}
     .jp-sg{grid-template-columns:repeat(2,1fr)}
     .jp-wmas{grid-template-columns:repeat(2,1fr)}
     .jp-alay{gap:48px}
-    .jp-ptrack{grid-template-columns:repeat(3,1fr)}
+    .jp-ptrack{grid-template-columns:repeat(3,1fr);row-gap:48px}
     .jp-ptrack::before{display:none}
+    .jp-ps::after{content:'';position:absolute;top:26px;left:calc(50% + 26px);right:calc(-50% + 26px);height:1px;background:var(--border);z-index:0;pointer-events:none}
+    .jp-ps:nth-child(3)::after,.jp-ps:last-child::after{display:none}
     .jp-articles-row{grid-template-columns:repeat(2,1fr)}
     .jp-clay{gap:40px}
+    .jp-handbook-card{grid-template-areas:"tag" "img" "body" "cta";grid-template-columns:1fr;padding:36px;column-gap:0;row-gap:20px}
+    .jp-hb-img{width:100%;max-width:420px;align-self:center;margin:0 auto}
+    .jp-handbook-right{width:100%;align-items:stretch}
+    .jp-dl-btn{width:100%;justify-content:center}
 }
 @media(max-width:768px){
     :root{--pad:24px}
@@ -283,6 +295,7 @@ const CSS = `
     .jp-services .jp-section-inner{padding:100px var(--pad)}
     .jp-about .jp-section-inner{padding:100px var(--pad)}
     .jp-workshops .jp-section-inner{padding:110px var(--pad) 72px}
+    .jp-hero{min-height:100vh;display:grid;grid-template-rows:1fr auto}
     .jp-abar span{font-size:8px;letter-spacing:.15em}
     .jp-hero-bot-inner{flex-direction:column;align-items:flex-start;gap:28px;padding:24px var(--pad) 44px}
     .jp-hstats{flex-wrap:wrap;gap:24px}
@@ -292,6 +305,7 @@ const CSS = `
     .jp-alay{grid-template-columns:1fr;gap:32px}
     .jp-hero-bg{top:23%;transform:translateX(-50%)}
     .jp-ptrack{grid-template-columns:1fr;gap:0}
+    .jp-ps::after{display:none}
     .jp-ps{text-align:left;padding:16px 0;border-bottom:1px solid var(--border);display:flex;flex-direction:row;align-items:flex-start;gap:16px}
     .jp-pn{flex-shrink:0;margin:0;align-self:stretch;display:flex;align-items:center;justify-content:center;min-height:52px}
     .jp-tslide{grid-template-columns:1fr}
@@ -325,6 +339,7 @@ const CSS = `
 }
 @media(hover:none),(pointer:coarse){
     .jp-hamburger{min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
+    .jp-nav-r{display:none}
     .jp-tdot{position:relative}
     .jp-tdot::after{content:'';position:absolute;inset:-16px}
     .jp-tarr{min-width:44px;min-height:44px}
