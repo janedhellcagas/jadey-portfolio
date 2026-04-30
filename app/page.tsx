@@ -122,6 +122,7 @@ const CSS = `
 .jp-ps:hover .jp-pn{background:var(--pu);color:var(--bg);border-color:var(--pu)}
 .jp-pt{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--paper);margin-bottom:7px}
 .jp-pd{font-size:10px;color:var(--muted);line-height:1.7}
+.jp-ps-content{flex:1;min-width:0}
 /* TESTIMONIALS */
 .jp-tslider{position:relative;margin-top:60px}
 .jp-tslider-viewport{overflow:hidden;width:100%}
@@ -145,17 +146,17 @@ const CSS = `
 .jp-tdot{width:8px;height:8px;border-radius:50%;background:var(--border);border:none;cursor:pointer;transition:all .2s;padding:0}
 .jp-tdot.on{background:var(--pu);transform:scale(1.2)}
 /* HANDBOOK */
-.jp-handbook{display:flex;gap:40px;align-items:center;padding:44px;background:var(--bg2);border:1px solid var(--pborder);margin-top:60px;margin-bottom:28px}
-.jp-handbook-cover{width:200px;flex-shrink:0;border-radius:6px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.7)}
-.jp-handbook-cover img{width:100%;display:block;border-radius:6px}
+.jp-handbook-card{display:grid;grid-template-areas:"img tag cta" "img body cta";grid-template-columns:auto 1fr auto;column-gap:40px;row-gap:6px;align-items:center;padding:44px;background:var(--bg2);border:1px solid var(--pborder);margin-top:60px;margin-bottom:28px}
+.jp-hb-img{grid-area:img;align-self:center;width:350px;border-radius:6px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.7)}
+.jp-hb-img img{width:100%;display:block;border-radius:6px}
 .jp-handbook-cover-fallback{width:200px;height:260px;background:linear-gradient(135deg,#3A1060,#7A3AB8);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px}
 .jp-handbook-cover-fallback span{font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:-2px;color:rgba(240,235,224,0.3)}
-.jp-handbook-left{flex:1}
-.jp-handbook-tag{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--pu);margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.jp-handbook-tag::after{content:'';width:28px;height:1px;background:var(--pu)}
+.jp-hb-tag{grid-area:tag;align-self:end;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--pu);display:flex;align-items:center;gap:8px}
+.jp-hb-tag::after{content:'';width:28px;height:1px;background:var(--pu)}
+.jp-hb-body{grid-area:body;align-self:start}
 .jp-handbook-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4vw,52px);letter-spacing:-1px;line-height:.95;color:var(--paper);margin-bottom:14px}
 .jp-handbook-desc{font-size:11px;line-height:1.9;color:var(--muted);max-width:360px}
-.jp-handbook-right{display:flex;flex-direction:column;align-items:flex-start;gap:12px;flex-shrink:0}
+.jp-handbook-right{grid-area:cta;display:flex;flex-direction:column;align-items:flex-start;gap:12px;flex-shrink:0;align-self:center}
 .jp-dl-btn{background:var(--pu);color:var(--bg);padding:14px 32px;border:2px solid var(--pu);font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:10px}
 .jp-dl-btn:hover{background:var(--pu2);border-color:var(--pu2)}
 .jp-dl-note{font-size:9px;color:var(--muted)}
@@ -289,13 +290,14 @@ const CSS = `
     .jp-wmas{grid-template-columns:1fr}
     .jp-work-header{flex-direction:column;align-items:flex-start}
     .jp-alay{grid-template-columns:1fr;gap:32px}
+    .jp-hero-bg{top:23%;transform:translateX(-50%)}
     .jp-ptrack{grid-template-columns:1fr;gap:0}
-    .jp-ps{text-align:left;padding:20px 0;border-bottom:1px solid var(--border)}
-    .jp-pn{margin:0 0 14px}
+    .jp-ps{text-align:left;padding:16px 0;border-bottom:1px solid var(--border);display:flex;flex-direction:row;align-items:flex-start;gap:16px}
+    .jp-pn{flex-shrink:0;margin:0;align-self:stretch;display:flex;align-items:center;justify-content:center;min-height:52px}
     .jp-tslide{grid-template-columns:1fr}
-    .jp-handbook{flex-direction:column;padding:28px}
-    .jp-handbook-cover,.jp-handbook-cover-fallback{width:100%;max-width:160px}
-    .jp-handbook-right{width:100%}
+    .jp-handbook-card{grid-template-areas:"tag" "img" "body" "cta";grid-template-columns:1fr;padding:28px;column-gap:0;row-gap:20px}
+    .jp-hb-img{width:100%;align-self:center}
+    .jp-handbook-right{width:100%;align-items:stretch}
     .jp-dl-btn{width:100%;justify-content:center}
     .jp-articles-row{grid-template-columns:1fr}
     .jp-clay{grid-template-columns:1fr}
@@ -308,7 +310,7 @@ const CSS = `
     .jp-hero-c{padding:96px var(--pad) 0}
     .jp-hstats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
     .jp-sn{font-size:36px}
-    .jp-hact{flex-direction:column;align-items:stretch}
+    .jp-hact{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:stretch}
     .jp-blime,.jp-bghost{text-align:center}
     .jp-cf .jp-fg-row{grid-template-columns:1fr}
     .jp-resources{grid-template-columns:1fr}
@@ -339,11 +341,11 @@ const CSS = `
 
 const HIGHLIGHTS = [
     {
-        slug: "advante",
-        img: "/Advante%20Landing%20Page%20Banner%20Showcase%20-%20Main.png",
+        slug: "scaleforge",
+        img: "/ScaleForge%20Landing%20Page%20Banner%20Showcase%20-%20Main.png",
         label: "UI/UX DESIGN",
-        title: "Advante",
-        desc: "Executive coaching platform — orbital hero, trust-building layout, and seamless trial conversion.",
+        title: "ScaleForge",
+        desc: "Tech solutions company — scalable, reliable, metrics-driven, and rooted in strong company values.",
     },
     {
         slug: "brandsonic",
@@ -353,15 +355,16 @@ const HIGHLIGHTS = [
         desc: "All-in-one podcast creation service — use the power of audio to build your brand.",
     },
     {
-        slug: "starseekr",
-        img: "/Starseekr%20Landing%20Page%20Banner%20Showcase%20-%20Main.png",
+        slug: "advante",
+        img: "/Advante%20Landing%20Page%20Banner%20Showcase%20-%20Main.png",
         label: "UI/UX DESIGN",
-        title: "Starseekr",
-        desc: "Recruitment platform — bold, purple, and built to connect businesses with their next star hire.",
+        title: "Advante",
+        desc: "Coaching platform website — guided journey, outcome-focused, and built for multiple entry points.",
     },
 ]
 
 const TESTIMONIAL_SLIDES = [
+    /* ── Slide 1: CEOs first ── */
     [
         {
             big: true,
@@ -373,31 +376,71 @@ const TESTIMONIAL_SLIDES = [
         },
         {
             big: false,
-            img: "/Dionrie%20L.%20Amomonpon.png",
-            name: "Dionrie L. Amomonpon",
+            img: "/Jhai%20Salcedo.jpg",
+            name: "Jhai Salcedo",
             flag: "🇵🇭",
-            position: "Graphic Designer, Thinkogic",
-            q: "Jane is detail-oriented and can easily identify problems without needing to consult the head. She works efficiently, and the quality of her work is excellent. She’s great to work with—always taking care as a leader by guiding us and offering helpful advice to improve the workflow.",
+            position: "CEO of Advante",
+            q: "Jadey did an excellent job working on the Advante landing page. She demonstrated a strong sense of design structure, ensuring that the layout was both visually appealing and easy to navigate. Beyond her technical skills, she is highly hardworking, detail-oriented, and reliable. She consistently delivers quality work and is someone you can trust to execute with both creativity and discipline.",
         },
     ],
+    /* ── Slide 2: Long pair ── */
     [
         {
             big: false,
-            img: "/Kent%20Bryan%20Maglinao.jpg",
-            name: "Kent Bryan Maglinao",
+            img: "/Mary%20Ann%20Monuz.jpg",
+            name: "Mary Ann Monuz",
             flag: "🇵🇭",
-            position: "Backend Engineer (Unit Head), ScaleForge",
-            q: "Jane Dhell is highly dependable, detail-oriented, and always on time. We never had to worry about project timelines because they treated every design requirement and deadline as a firm commitment.",
+            position: "Lead of SQA & Project Manager, ScaleForge",
+            q: "I worked closely with Jadey across almost all of our UI/UX designs, and she’s been a great partner throughout. As a Product/Project Manager, I really value how well she understands requirements and translates them into designs that are clean, intuitive, and aligned with both user needs and business goals. She’s easy to work with—open to feedback, quick to iterate, and proactive in suggesting improvements that make a real difference in the overall experience. What stands out is her attention to detail and her ability to think through how users will actually interact with the product, not just how it looks. Jadey is reliable, collaborative, and someone I’d confidently work with again. I’d highly recommend her to any team looking for a strong UI/UX designer.",
         },
         {
             big: false,
-            img: "/Ronnel%20Yacunas.jpg",
-            name: "Ronnel Yacunas",
+            img: "/Carmella%20Joy%20Ventanilla.jpg",
+            name: "Carmella Joy Ventanilla",
             flag: "🇵🇭",
-            position: "Backend Engineer (Unit Head), ScaleForge",
-            q: "Jane Dhell is someone you can always rely on to deliver excellent results. Her UI/UX skills make every project both engaging and user-friendly. She pays close attention to detail and consistently raises the quality of the work. Working with her means you’ll always get creativity and dependability combined.",
+            position: "Software Quality Assurance, ScaleForge",
+            q: "I had the pleasure of working with Jane Dhell Cagas on several projects, and as a Software Quality Analyst, I truly appreciate her attention to detail and strong design sense. Jane consistently delivers clean, user-friendly, and visually engaging designs that align well with both business requirements and user experience standards. What stands out the most is her openness to feedback and her ability to quickly adapt to changes. She collaborates effectively with the QA and development teams, ensuring that designs are not only visually appealing but also practical and easy to implement. This greatly helps in minimizing issues during testing and improves overall product quality. Jane is reliable, creative, and highly professional. I highly recommend her to anyone looking for a designer who values both aesthetics and functionality.",
         },
     ],
+    /* ── Slide 3: Long pair ── */
+    [
+        {
+            big: false,
+            img: "/Jesson%20Sacote.jpg",
+            name: "Jesson Sacote",
+            flag: "🇵🇭",
+            position: "UI/UX Designer, ScaleForge",
+            q: "Since July 2022, I’ve worked closely with Jane Dhell and have been continually impressed by her talent and adaptability. She is sharp, quick to shift her strategies in response to company changes, and extremely versatile when it comes to designing, whether it’s crafting elegant interfaces or solving complex UX and UI problems. Beyond her design skills, Jane Dhell has shown strong leadership by leading several projects and even organizing company gatherings and events. Her positive energy, attention to detail, and ability to collaborate effectively have made a real difference on our team. Jane is not only a talented UI/UX professional but also a reliable and inspiring colleague.",
+        },
+        {
+            big: false,
+            img: "/Kris%20Herrah%20N.%20Arancon.jpg",
+            name: "Kris Herrah N. Arancon",
+            flag: "🇵🇭",
+            position: "Former HR Admin of ScaleForge",
+            q: "Jane Dhell \"Jadey\" Cagas and I worked together in an online tech company. During my tenure, she was one of the first members of the design department I reached out to for assistance. She is good-natured, approachable, and very easy to work with. I never had any difficulty asking for help, as she is always willing to assist anyone who needs her support. In fact, even before I could request a design, she would often take the initiative to start the project and suggest improvements to make it more visually appealing. Aside from her initiative, Jadey is also fast and highly efficient, often completing tasks ahead of the set deadlines. She is open to suggestions and consistently demonstrates strong work ethics. I can confidently recommend Jadey, not only because of her positive attitude but also because of her professionalism and dedication to her work.",
+        },
+    ],
+    /* ── Slide 4: Long + medium ── */
+    [
+        {
+            big: false,
+            img: "/April%20Sheena%20Dalhog.jpg",
+            name: "April Sheena Dalhog",
+            flag: "🇵🇭",
+            position: "HR Admin, starseekr",
+            q: "Our department recently commissioned the development of our recruitment website, with Jane leading the design, and we’re very pleased with the outcome. The site presents a clean, modern aesthetic that aligns well with our goals. Jane was receptive to our feedback, and our requested refinements were thoughtfully implemented. Each section feels purposeful and well-structured, contributing to a smooth user experience. Performance has been reliable, with fast load times and responsive interactions. The design is engaging without being overwhelming, with subtle creative touches that add personality. Jane showed a strong understanding of both aesthetics and user experience, and her attention to detail was evident throughout the project. Overall, starseekr.io is a polished and well-executed result that meets our expectations.",
+        },
+        {
+            big: false,
+            img: "/Jade%20Kenneth%20Darunday.jpg",
+            name: "Jade Kenneth Darunday",
+            flag: "🇵🇭",
+            position: "Frontend Engineer, ScaleForge",
+            q: "I’ve had the chance to work closely with Jane Dhell, and as a frontend developer, I really appreciate how thoughtful and precise her UI/UX work is. She has a strong eye for detail and consistently follows solid design principles, which makes implementation smooth and predictable. Her designs are clear, well-structured, and user-focused. On top of that, she works fast without sacrificing quality, which is rare. It’s always easy collaborating with her.",
+        },
+    ],
+    /* ── Slide 5: Highlighted + medium ── */
     [
         {
             big: true,
@@ -416,15 +459,46 @@ const TESTIMONIAL_SLIDES = [
             q: "Working with Jadey has always been a great experience. She is a highly talented designer who combines creativity with efficiency, delivering outputs that are both visually impressive and high quality. One of her strongest qualities is her ability to truly understand ideas and bring them to life in a way that often exceeds expectations. She is reliable, detail-oriented, and very easy to collaborate with. If you’re looking for someone who can execute ideas quickly without sacrificing quality, Jadey is definitely someone you can count on.",
         },
     ],
+    /* ── Slide 6: Short pair ── */
     [
         {
             big: false,
-            img: "/Jade%20Kenneth%20Darunday.jpg",
-            name: "Jade Kenneth Darunday",
+            img: "/Mereyem%20Jell%20Malinao.jpg",
+            name: "Mereyem Jell Malinao",
             flag: "🇵🇭",
-            position: "Frontend Engineer, ScaleForge",
-            q: "I’ve had the chance to work closely with Jane Dhell, and as a frontend developer, I really appreciate how thoughtful and precise her UI/UX work is. She has a strong eye for detail and consistently follows solid design principles, which makes implementation smooth and predictable. Her designs are clear, well-structured, and user-focused. On top of that, she works fast without sacrificing quality, which is rare. It’s always easy collaborating with her.",
+            position: "Multimedia Designer, Nektic",
+            q: "Working with Jane and her collaborative mindset has helped us so much in our team. She has a good eye on making sure what the user needs without losing the aesthetic and practicality. She’s fast at producing high quality outputs, but is also willing to listen and adapt to the client’s requests.",
         },
+        {
+            big: false,
+            img: "/Dionrie%20L.%20Amomonpon.png",
+            name: "Dionrie L. Amomonpon",
+            flag: "🇵🇭",
+            position: "Graphic Designer, Thinkogic",
+            q: "Jane is detail-oriented and can easily identify problems without needing to consult the head. She works efficiently, and the quality of her work is excellent. She’s great to work with—always taking care as a leader by guiding us and offering helpful advice to improve the workflow.",
+        },
+    ],
+    /* ── Slide 7: Short pair ── */
+    [
+        {
+            big: false,
+            img: "/Kent%20Bryan%20Maglinao.jpg",
+            name: "Kent Bryan Maglinao",
+            flag: "🇵🇭",
+            position: "Backend Engineer (Unit Head), ScaleForge",
+            q: "Jane Dhell is highly dependable, detail-oriented, and always on time. We never had to worry about project timelines because they treated every design requirement and deadline as a firm commitment.",
+        },
+        {
+            big: false,
+            img: "/Ronnel%20Yacunas.jpg",
+            name: "Ronnel Yacunas",
+            flag: "🇵🇭",
+            position: "Backend Engineer (Unit Head), ScaleForge",
+            q: "Jane Dhell is someone you can always rely on to deliver excellent results. Her UI/UX skills make every project both engaging and user-friendly. She pays close attention to detail and consistently raises the quality of the work. Working with her means you’ll always get creativity and dependability combined.",
+        },
+    ],
+    /* ── Slide 8: Solo (odd total — centered at column width) ── */
+    [
         {
             big: false,
             img: "/Princess%20Romera%20Origenes.jpg",
@@ -520,6 +594,8 @@ const RESOURCES = [
     },
 ]
 
+const ALL_TESTIMONIALS = TESTIMONIAL_SLIDES.flat()
+
 const PDF_URL =
     "https://drive.google.com/uc?export=download&id=1XLqs0sPuAsNTu-d4FplqjLOxzt9fVCho"
 const HANDBOOK_IMG =
@@ -553,6 +629,9 @@ export default function JadeyPortfolio() {
     const [navScroll, setNavScroll] = useState(false)
     const [menuOpen, setMenuOpen] = useState(false)
     const [testiSlide, setTestiSlide] = useState(0)
+    const [mobileSlide, setMobileSlide] = useState(0)
+    const [isMobile, setIsMobile] = useState(false)
+    const isMobileRef = useRef(false)
     const isTransitioning = useRef(false)
     const paused = useRef(false)
     const resumeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -653,13 +732,28 @@ export default function JadeyPortfolio() {
     useEffect(() => {
         const t = setInterval(() => {
             if (!paused.current) {
-                setTestiSlide((s) => (s + 1) % TESTIMONIAL_SLIDES.length)
+                if (isMobileRef.current) {
+                    setMobileSlide((s) => (s + 1) % ALL_TESTIMONIALS.length)
+                } else {
+                    setTestiSlide((s) => (s + 1) % TESTIMONIAL_SLIDES.length)
+                }
             }
         }, 10000)
         return () => {
             clearInterval(t)
             if (resumeTimer.current) clearTimeout(resumeTimer.current)
         }
+    }, [])
+
+    useEffect(() => {
+        const mq = window.matchMedia("(max-width:768px)")
+        const handle = () => {
+            isMobileRef.current = mq.matches
+            setIsMobile(mq.matches)
+        }
+        handle()
+        mq.addEventListener("change", handle)
+        return () => mq.removeEventListener("change", handle)
     }, [])
 
     useEffect(() => {
@@ -682,6 +776,18 @@ export default function JadeyPortfolio() {
         }, 60000)
         isTransitioning.current = true
         setTestiSlide(fn)
+        setTimeout(() => { isTransitioning.current = false }, 800)
+    }
+
+    const navigateMobile = (fn: (s: number) => number) => {
+        if (isTransitioning.current) return
+        paused.current = true
+        if (resumeTimer.current) clearTimeout(resumeTimer.current)
+        resumeTimer.current = setTimeout(() => {
+            paused.current = false
+        }, 60000)
+        isTransitioning.current = true
+        setMobileSlide(fn)
         setTimeout(() => { isTransitioning.current = false }, 800)
     }
 
@@ -1245,8 +1351,10 @@ export default function JadeyPortfolio() {
                             ].map(([n, t, d]) => (
                                 <div key={n} className="jp-ps">
                                     <div className="jp-pn">{n}</div>
-                                    <div className="jp-pt">{t}</div>
-                                    <div className="jp-pd">{d}</div>
+                                    <div className="jp-ps-content">
+                                        <div className="jp-pt">{t}</div>
+                                        <div className="jp-pd">{d}</div>
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -1265,82 +1373,107 @@ export default function JadeyPortfolio() {
                             <br />
                             <em>Feedback</em>
                         </h2>
-                        <div className="jp-tslider jp-rv">
-                            <div className="jp-tslider-viewport">
-                                <div
-                                    className="jp-ttrack"
-                                    style={{
-                                        transform: `translateX(-${testiSlide * 100}%)`,
-                                    }}
-                                >
-                                    {TESTIMONIAL_SLIDES.map((slide, si) => (
-                                        <div key={si} className="jp-tslide">
-                                            {slide.map((tc, ti) => (
-                                                <div
-                                                    key={ti}
-                                                    className={`jp-tc${tc.big ? " big" : ""}`}
-                                                    style={slide.length === 1 ? { gridColumn: "1 / -1", maxWidth: "60%", margin: "0 auto" } : {}}
-                                                >
-                                                    <div className="jp-tstar">
-                                                        ★★★★★
-                                                    </div>
-                                                    <p className="jp-tq">
-                                                        {tc.q}
-                                                    </p>
+                        {isMobile ? (
+                            /* Mobile: 1 testimonial per slide */
+                            <div className="jp-tslider jp-rv">
+                                <div className="jp-tslider-viewport">
+                                    <div
+                                        className="jp-ttrack"
+                                        style={{ transform: `translateX(-${mobileSlide * 100}%)` }}
+                                    >
+                                        {ALL_TESTIMONIALS.map((tc, i) => (
+                                            <div key={i} className="jp-tslide">
+                                                <div className={`jp-tc${tc.big ? " big" : ""}`} style={{ gridColumn: "1 / -1" }}>
+                                                    <div className="jp-tstar">★★★★★</div>
+                                                    <p className="jp-tq">{tc.q}</p>
                                                     <div className="jp-ta-w">
                                                         <div className="jp-tav">
                                                             <img src={tc.img} alt={tc.name} />
                                                         </div>
                                                         <div>
-                                                            <div className="jp-tan">
-                                                                {tc.name} {tc.flag}
-                                                            </div>
-                                                            <div className="jp-tar">
-                                                                {tc.position}
-                                                            </div>
+                                                            <div className="jp-tan">{tc.name} {tc.flag}</div>
+                                                            <div className="jp-tar">{tc.position}</div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            ))}
-                                        </div>
-                                    ))}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className="jp-tcontrols">
+                                    <button
+                                        className="jp-tarr"
+                                        onClick={() => navigateMobile((s) => (s - 1 + ALL_TESTIMONIALS.length) % ALL_TESTIMONIALS.length)}
+                                    >←</button>
+                                    <div className="jp-tdots">
+                                        {ALL_TESTIMONIALS.map((_, i) => (
+                                            <button
+                                                key={i}
+                                                className={`jp-tdot${mobileSlide === i ? " on" : ""}`}
+                                                onClick={() => navigateMobile(() => i)}
+                                            />
+                                        ))}
+                                    </div>
+                                    <button
+                                        className="jp-tarr"
+                                        onClick={() => navigateMobile((s) => (s + 1) % ALL_TESTIMONIALS.length)}
+                                    >→</button>
                                 </div>
                             </div>
-                            <div className="jp-tcontrols">
-                                <button
-                                    className="jp-tarr"
-                                    onClick={() =>
-                                        navigate(
-                                            (s) =>
-                                                (s - 1 + TESTIMONIAL_SLIDES.length) %
-                                                TESTIMONIAL_SLIDES.length
-                                        )
-                                    }
-                                >
-                                    ←
-                                </button>
-                                <div className="jp-tdots">
-                                    {TESTIMONIAL_SLIDES.map((_, i) => (
-                                        <button
-                                            key={i}
-                                            className={`jp-tdot${testiSlide === i ? " on" : ""}`}
-                                            onClick={() => navigate(() => i)}
-                                        />
-                                    ))}
+                        ) : (
+                            /* Desktop: 2 testimonials per slide */
+                            <div className="jp-tslider jp-rv">
+                                <div className="jp-tslider-viewport">
+                                    <div
+                                        className="jp-ttrack"
+                                        style={{ transform: `translateX(-${testiSlide * 100}%)` }}
+                                    >
+                                        {TESTIMONIAL_SLIDES.map((slide, si) => (
+                                            <div key={si} className="jp-tslide">
+                                                {slide.map((tc, ti) => (
+                                                    <div
+                                                        key={ti}
+                                                        className={`jp-tc${tc.big ? " big" : ""}`}
+                                                        style={slide.length === 1 ? { gridColumn: "1 / -1", maxWidth: "60%", margin: "0 auto" } : {}}
+                                                    >
+                                                        <div className="jp-tstar">★★★★★</div>
+                                                        <p className="jp-tq">{tc.q}</p>
+                                                        <div className="jp-ta-w">
+                                                            <div className="jp-tav">
+                                                                <img src={tc.img} alt={tc.name} />
+                                                            </div>
+                                                            <div>
+                                                                <div className="jp-tan">{tc.name} {tc.flag}</div>
+                                                                <div className="jp-tar">{tc.position}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
-                                <button
-                                    className="jp-tarr"
-                                    onClick={() =>
-                                        navigate(
-                                            (s) =>
-                                                (s + 1) % TESTIMONIAL_SLIDES.length
-                                        )
-                                    }
-                                >
-                                    →
-                                </button>
+                                <div className="jp-tcontrols">
+                                    <button
+                                        className="jp-tarr"
+                                        onClick={() => navigate((s) => (s - 1 + TESTIMONIAL_SLIDES.length) % TESTIMONIAL_SLIDES.length)}
+                                    >←</button>
+                                    <div className="jp-tdots">
+                                        {TESTIMONIAL_SLIDES.map((_, i) => (
+                                            <button
+                                                key={i}
+                                                className={`jp-tdot${testiSlide === i ? " on" : ""}`}
+                                                onClick={() => navigate(() => i)}
+                                            />
+                                        ))}
+                                    </div>
+                                    <button
+                                        className="jp-tarr"
+                                        onClick={() => navigate((s) => (s + 1) % TESTIMONIAL_SLIDES.length)}
+                                    >→</button>
+                                </div>
                             </div>
-                        </div>
+                        )}
                     </div>
                 </section>
 
@@ -1358,28 +1491,12 @@ export default function JadeyPortfolio() {
                                 <em>Blog</em>
                             </h2>
                         </div>
-                        <div style={{
-                            display: "flex",
-                            alignItems: "center",
-                            padding:"44px",
-                            background:"var(--bg2)",
-                            border:"1px solid var(--pborder)",
-                            marginTop:"60px",
-                            marginBottom:"28px"
-                        }}>
-                            <div>
+                        <div className="jp-handbook-card">
+                            <div className="jp-hb-img">
                                 {handbookImgOk ? (
                                     <img
                                         src={"/handbook.png"}
                                         alt="Landing Page Workflow Handbook cover"
-                                        width="500"
-                                        style={{
-                                            width: "350px",
-                                          
-                                          
-                                            display: "flex",
-                                            borderRadius: "6px",
-                                        }}
                                         onError={() => setHandbookImgOk(false)}
                                     />
                                 ) : (
@@ -1398,10 +1515,10 @@ export default function JadeyPortfolio() {
                                     </div>
                                 )}
                             </div>
-                            <div className="jp-handbook-left" >
-                                <div className="jp-handbook-tag">
-                                    📄 Free Resource
-                                </div>
+                            <div className="jp-hb-tag">
+                                FREE RESOURCE
+                            </div>
+                            <div className="jp-hb-body">
                                 <div className="jp-handbook-title">
                                     Landing Page
                                     <br />
@@ -1673,7 +1790,7 @@ export default function JadeyPortfolio() {
                                     <em>Create Something Great</em>
                                 </h2>
                             </div>
-                            <div style={{ textAlign: "right" }}>
+                            <div style={{ textAlign: "left" }}>
                                 <div
                                     style={{
                                         fontSize: 9,
@@ -1746,25 +1863,6 @@ export default function JadeyPortfolio() {
                                             09558017202
                                         </a>
                                     </div>
-                                </div>
-                                <div className="jp-soc-row">
-                                    <a
-                                        href="https://www.linkedin.com/in/jadeyc/"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="jp-socb"
-                                    >
-                                        LinkedIn
-                                    </a>
-                                    <a href="#" className="jp-socb">
-                                        Dribbble
-                                    </a>
-                                    <a href="#" className="jp-socb">
-                                        Behance
-                                    </a>
-                                    <a href="#" className="jp-socb">
-                                        Read.cv
-                                    </a>
                                 </div>
                             </div>
                             <div className="jp-cf">
