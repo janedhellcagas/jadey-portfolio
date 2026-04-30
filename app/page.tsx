@@ -295,7 +295,6 @@ const CSS = `
     .jp-services .jp-section-inner{padding:100px var(--pad)}
     .jp-about .jp-section-inner{padding:100px var(--pad)}
     .jp-workshops .jp-section-inner{padding:110px var(--pad) 72px}
-    .jp-hero{min-height:100vh;display:grid;grid-template-rows:1fr auto}
     .jp-abar span{font-size:8px;letter-spacing:.15em}
     .jp-hero-bot-inner{flex-direction:column;align-items:flex-start;gap:28px;padding:24px var(--pad) 44px}
     .jp-hstats{flex-wrap:wrap;gap:24px}
@@ -303,7 +302,6 @@ const CSS = `
     .jp-wmas{grid-template-columns:1fr}
     .jp-work-header{flex-direction:column;align-items:flex-start}
     .jp-alay{grid-template-columns:1fr;gap:32px}
-    .jp-hero-bg{top:23%;transform:translateX(-50%)}
     .jp-ptrack{grid-template-columns:1fr;gap:0}
     .jp-ps::after{display:none}
     .jp-ps{text-align:left;padding:16px 0;border-bottom:1px solid var(--border);display:flex;flex-direction:row;align-items:flex-start;gap:16px}
