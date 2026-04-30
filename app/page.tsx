@@ -26,7 +26,7 @@ const CSS = `
 .jp-nav-inner{max-width:var(--max);margin:0 auto;padding:18px var(--pad);display:flex;align-items:center;justify-content:space-between}
 .jp-logo{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:4px;color:var(--paper);text-decoration:none;display:inline-block}
 .jp-logo span{color:var(--pu)}
-.jp-nav-r{display:flex;align-items:center;gap:14px}
+.jp-nav-r{display:none;align-items:center;gap:14px}
 .jp-nav-r a{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
 .jp-nav-r a:hover{color:var(--pu)}
 .jp-nav-contact{background:var(--pu)!important;color:var(--bg)!important;padding:9px 20px!important;font-weight:700!important;border:2px solid var(--pu)!important;display:inline-block!important}
@@ -40,7 +40,7 @@ const CSS = `
 /* HERO */
 .jp-hero{min-height:100vh;display:grid;grid-template-rows:1fr auto;position:relative;overflow:hidden}
 .jp-hero-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bebas Neue',sans-serif;font-size:clamp(80px,16vw,240px);letter-spacing:-8px;color:rgba(240,235,224,0.022);white-space:nowrap;pointer-events:none;user-select:none}
-.jp-hero-c{display:flex;flex-direction:column;justify-content:flex-end;padding:130px var(--pad) 0;max-width:var(--max);margin:0 auto;width:100%}
+.jp-hero-c{display:flex;flex-direction:column;justify-content:center;padding:80px var(--pad) 0;max-width:var(--max);margin:0 auto;width:100%}
 .jp-h-eye{display:flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
 .jp-h-eye::before{content:'';width:36px;height:1px;background:var(--pu)}
 .jp-h1{font-family:'Bebas Neue',sans-serif;letter-spacing:-2px;color:var(--paper);line-height:.88}
@@ -256,7 +256,7 @@ const CSS = `
 .jp-rv.in{opacity:1;transform:translateY(0)}
 /* ===== RESPONSIVE ===== */
 @media(hover:none),(pointer:coarse){.jp-cur,.jp-cur2{display:none!important}}
-.jp-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:transparent;border:none;padding:6px}
+.jp-hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;background:transparent;border:none;padding:6px}
 .jp-hamburger span{display:block;width:24px;height:2px;background:var(--paper);transition:all .3s}
 .jp-drawer{position:fixed;inset:0;z-index:600;background:var(--bg);transform:translateX(100%);transition:transform .35s ease;display:flex;flex-direction:column;padding:88px 28px 40px;overflow-y:auto}
 .jp-drawer.open{transform:translateX(0)}
@@ -265,11 +265,9 @@ const CSS = `
 .jp-drawer a:hover,.jp-drawer a:active{color:var(--pu)}
 .jp-drawer-cta{background:var(--pu);color:var(--bg)!important;padding:14px 0!important;font-weight:700;border-bottom:none!important;text-align:center;margin-top:20px;display:block;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .2s}
 .jp-drawer-cta:hover{background:var(--pu2)}
-@media(max-width:1024px){
+@media(max-width:1023px){
     :root{--pad:32px}
     .jp-nav-inner{padding:14px 28px}
-    .jp-hamburger{display:flex}
-    .jp-nav-r{display:none}
     .jp-hero{min-height:0;display:block}
     .jp-hero-c{padding:100px var(--pad) 52px}
     .jp-hero-bg{top:35%}
@@ -289,8 +287,6 @@ const CSS = `
 }
 @media(max-width:768px){
     :root{--pad:24px}
-    .jp-hamburger{display:flex}
-    .jp-nav-r{display:none}
     .jp-section-inner{padding:72px var(--pad)}
     .jp-services .jp-section-inner{padding:100px var(--pad)}
     .jp-about .jp-section-inner{padding:100px var(--pad)}
@@ -341,6 +337,10 @@ const CSS = `
     .jp-tdot{position:relative}
     .jp-tdot::after{content:'';position:absolute;inset:-16px}
     .jp-tarr{min-width:44px;min-height:44px}
+}
+@media(min-width:1024px){
+    .jp-hamburger{display:none}
+    .jp-nav-r{display:flex}
 }
 @media(prefers-reduced-motion:reduce){
     .jp-rv{transition:none;opacity:1;transform:none}

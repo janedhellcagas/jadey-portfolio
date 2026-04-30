@@ -9,7 +9,7 @@ const CSS = `
 .pd-nav-inner{max-width:var(--max);margin:0 auto;padding:18px var(--pad);display:flex;align-items:center;justify-content:space-between}
 .pd-logo{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:4px;color:var(--paper);text-decoration:none;display:inline-block}
 .pd-logo span{color:var(--pu)}
-.pd-nav-r{display:flex;align-items:center;gap:14px}
+.pd-nav-r{display:none;align-items:center;gap:14px}
 .pd-nav-r a{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
 .pd-nav-r a:hover{color:var(--pu)}
 .pd-ndot{width:7px;height:7px;background:var(--pu);border-radius:50%;animation:pd-pulse 2s ease-in-out infinite;flex-shrink:0}
@@ -78,7 +78,7 @@ const CSS = `
 .pd-rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .pd-rv.in{opacity:1;transform:translateY(0)}
 /* ===== RESPONSIVE ===== */
-.pd-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:transparent;border:none;padding:6px}
+.pd-hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;background:transparent;border:none;padding:6px}
 .pd-hamburger span{display:block;width:24px;height:2px;background:var(--paper);transition:all .3s}
 .pd-drawer{position:fixed;inset:0;z-index:600;background:var(--bg);transform:translateX(100%);transition:transform .35s ease;display:flex;flex-direction:column;padding:88px 28px 40px;overflow-y:auto}
 .pd-drawer.open{transform:translateX(0)}
@@ -87,17 +87,13 @@ const CSS = `
 .pd-drawer a:hover,.pd-drawer a:active{color:var(--pu)}
 .pd-drawer-cta{background:var(--pu);color:var(--bg)!important;padding:14px 0!important;font-weight:700;border-bottom:none!important;text-align:center;margin-top:20px;display:block;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .2s}
 .pd-drawer-cta:hover{background:var(--pu2)}
-@media(max-width:1024px){
+@media(max-width:1023px){
     :root{--pad:32px}
     .pd-nav-inner{padding:14px 28px}
-    .pd-hamburger{display:flex}
-    .pd-nav-r{display:none}
     .pd-next-inner{grid-template-columns:1fr;gap:32px}
 }
 @media(max-width:768px){
     :root{--pad:24px}
-    .pd-hamburger{display:flex}
-    .pd-nav-r{display:none}
     .pd-hero-inner{padding:110px var(--pad) 44px}
     .pd-body-inner{padding:52px var(--pad)}
     .pd-meta-row{gap:24px}
@@ -119,6 +115,10 @@ const CSS = `
     .pd-hamburger{min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
     .pd-nav-r{display:none}
     .pd-btn,.pd-ghost-btn,.pd-cta{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+}
+@media(min-width:1024px){
+    .pd-hamburger{display:none}
+    .pd-nav-r{display:flex}
 }
 @media(prefers-reduced-motion:reduce){
     .pd-rv{transition:none;opacity:1;transform:none}

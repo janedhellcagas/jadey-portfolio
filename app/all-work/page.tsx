@@ -11,7 +11,7 @@ const CSS = `
 .aw-nav-inner{max-width:var(--max);margin:0 auto;padding:18px var(--pad);display:flex;align-items:center;justify-content:space-between}
 .aw-logo{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:4px;color:var(--paper);text-decoration:none;display:inline-block}
 .aw-logo span{color:var(--pu)}
-.aw-nav-r{display:flex;align-items:center;gap:14px}
+.aw-nav-r{display:none;align-items:center;gap:14px}
 .aw-nav-r a{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
 .aw-nav-r a:hover{color:var(--pu)}
 .aw-nav-r a.active{color:var(--pu)}
@@ -72,7 +72,7 @@ const CSS = `
 .aw-rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .aw-rv.in{opacity:1;transform:translateY(0)}
 /* ===== RESPONSIVE ===== */
-.aw-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:transparent;border:none;padding:6px}
+.aw-hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;background:transparent;border:none;padding:6px}
 .aw-hamburger span{display:block;width:24px;height:2px;background:var(--paper);transition:all .3s}
 .aw-drawer{position:fixed;inset:0;z-index:600;background:var(--bg);transform:translateX(100%);transition:transform .35s ease;display:flex;flex-direction:column;padding:88px 28px 40px;overflow-y:auto}
 .aw-drawer.open{transform:translateX(0)}
@@ -81,17 +81,13 @@ const CSS = `
 .aw-drawer a:hover,.aw-drawer a:active{color:var(--pu)}
 .aw-drawer-cta{background:var(--pu);color:var(--bg)!important;padding:14px 0!important;font-weight:700;border-bottom:none!important;text-align:center;margin-top:20px;display:block;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .2s}
 .aw-drawer-cta:hover{background:var(--pu2)}
-@media(max-width:1024px){
+@media(max-width:1023px){
     :root{--pad:32px}
     .aw-nav-inner{padding:14px 28px}
-    .aw-hamburger{display:flex}
-    .aw-nav-r{display:none}
     .aw-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:768px){
     :root{--pad:24px}
-    .aw-hamburger{display:flex}
-    .aw-nav-r{display:none}
     .aw-header-inner{padding:110px var(--pad) 44px}
     .aw-body-inner{padding:44px var(--pad) 72px}
     .aw-grid{grid-template-columns:1fr}
@@ -114,6 +110,10 @@ const CSS = `
     .aw-nav-r{display:none}
     .aw-fb{min-height:44px}
 }
+@media(min-width:1024px){
+    .aw-hamburger{display:none}
+    .aw-nav-r{display:flex}
+}
 @media(prefers-reduced-motion:reduce){
     .aw-rv{transition:none;opacity:1;transform:none}
     .aw-drawer{transition:none}
@@ -135,6 +135,7 @@ const ALL_WORKS = [
     {slug:"helios-solar",      cat:"ux", label:"UI/UX DESIGN",   title:"Helios Solar",                   desc:"Philippines' no.1 solar marketplace — panel options, savings calculator, bank financing, and admin tools in one platform.",                             img:"/Helios%20Solar%20Site%20Banner%20Showcase%20-%20Main.png"},
     {slug:"ballers-ph",        cat:"ux", label:"UI/UX DESIGN",   title:"Ballers.ph",                     desc:"Philippine basketball news site redesign — cleaner editorial hierarchy, improved article layouts, and responsive design across devices.",                 img:"/Ballers.ph%20Site%20Banner%20Showcase%20-%20Main.png"},
     {slug:"landing-page-kit",  cat:"ux", label:"TEMPLATE KIT",   title:"Landing Page Template Kit",      desc:"Free Figma landing page kit — 30+ modular sections across web, mobile, and tablet, built to be adapted quickly across different products.",              img:"/Landing%20Page%20Template%20Kit%20-%20Main.png"},
+    {slug:"parves-shahid",     cat:"brand", label:"BRAND DESIGN", title:"Parves Shahid",                  desc:"Personal brand system for an AI creator — visual identity, carousel, infographic, and banner designed around consistency and recognition.",            img:"/Parves%20Shahid%20Cover%20Photo.png"},
 ]
 
 
