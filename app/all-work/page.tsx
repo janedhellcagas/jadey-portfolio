@@ -121,6 +121,20 @@ const CSS = `
 }
 `
 
+function interleaveCategories<T extends {cat:string}>(items: T[]): T[] {
+    const groups: Record<string,T[]> = {}
+    items.forEach(w => { if (!groups[w.cat]) groups[w.cat] = []; groups[w.cat].push(w) })
+    const queues = Object.values(groups).map(g => [...g])
+    const result: T[] = []
+    let i = 0
+    while (result.length < items.length) {
+        const q = queues[i % queues.length]
+        if (q.length > 0) result.push(q.shift()!)
+        i++
+    }
+    return result
+}
+
 const ALL_WORKS = [
     {slug:"advante",         cat:"ux", label:"UI/UX DESIGN",  title:"Advante",                      desc:"Executive coaching platform — orbital hero, trust-building layout, and seamless trial conversion.",           img:"/Advante%20Landing%20Page%20Banner%20Showcase%20-%20Main.png"},
     {slug:"brandsonic",      cat:"ux", label:"WEB DESIGN",    title:"BrandSonic",                   desc:"All-in-one podcast creation service — use the power of audio to build your brand.",                           img:"/BrandSonic%20Landing%20Page%20Banner%20Showcase%20-%20Main.png"},
@@ -136,7 +150,17 @@ const ALL_WORKS = [
     {slug:"ballers-ph",        cat:"ux", label:"UI/UX DESIGN",   title:"Ballers.ph",                     desc:"Philippine basketball news site redesign — cleaner editorial hierarchy, improved article layouts, and responsive design across devices.",                 img:"/Ballers.ph%20Site%20Banner%20Showcase%20-%20Main.png"},
     {slug:"landing-page-kit",  cat:"ux", label:"TEMPLATE KIT",   title:"Landing Page Template Kit",      desc:"Free Figma landing page kit — 30+ modular sections across web, mobile, and tablet, built to be adapted quickly across different products.",              img:"/Landing%20Page%20Template%20Kit%20-%20Main.png"},
     {slug:"parves-shahid",     cat:"brand", label:"BRAND DESIGN", title:"Parves Shahid",                  desc:"Personal brand system for an AI creator — visual identity, carousel, infographic, and banner designed around consistency and recognition.",            img:"/Parves%20Shahid%20Cover%20Photo.png"},
+    {slug:"grace-ling",        cat:"brand", label:"BRAND DESIGN", title:"Grace Ling",                      desc:"Personal brand system built on elegance and clarity — consistent visual identity across LinkedIn profile, carousel, and banners.",                      img:"/Grace%20Ling%20Cover%20Photo.png"},
+    {slug:"kim-frances-santillana", cat:"brand", label:"BRAND DESIGN", title:"Kim Frances Santillana",     desc:"Personal brand system focused on clarity and structure — making valuable content easier to scan, read, and engage with.",                               img:"/Kim%20Frances%20Santillana%20Cover%20Photo.png"},
+    {slug:"parin-mehta",           cat:"brand", label:"BRAND DESIGN", title:"Parin Mehta",                  desc:"Personal brand system for an analytical content creator — structured visuals that reflect logical thinking across carousel, infographic, and banner.",  img:"/PARIN%20MEHTA%20Cover%20Photo.png"},
+    {slug:"mariam-khawar",         cat:"brand", label:"BRAND DESIGN", title:"Mariam Khawar",                  desc:"Personal brand system built for educational content — structured layouts and clear hierarchy that make information easier to process and retain.",       img:"/Mariam%20Khawar%20Cover%20Photo.png"},
+    {slug:"ravi-kumar-sapata",     cat:"brand", label:"BRAND DESIGN", title:"Ravi Kumar Sapata",                desc:"Personal brand system for a bold, opinion-driven voice — high-contrast visuals and strong typography that make ideas impossible to scroll past.",         img:"/Ravi%20kumar%20sapata%20Cover%20Photo.png"},
+    {slug:"gaurav-singh",          cat:"brand", label:"BRAND DESIGN", title:"Gaurav Singh",                      desc:"Personal brand system for structured thought leadership — clear visual hierarchy and illustration-driven layouts that make complex ideas easy to follow.",    img:"/Gaurav%20Singh%20Cover%20Photo.png"},
+    {slug:"brandsonic",            cat:"brand", label:"BRAND DESIGN", title:"BrandSonic",                        desc:"Brand identity system for a podcast and audio branding platform — dark foundation, blue accent, and a clean visual language built for premium recognition.",    img:"/BrandSonic%20-%20Cover.png"},
+    {slug:"starseekr",             cat:"brand", label:"BRAND DESIGN", title:"Starseekr",                         desc:"Collaborative brand identity project — a cohesive visual system built across logo, color, typography, merchandise, and social media by two designers.",           img:"/Starseekr%20-%20Cover.png"},
 ]
+
+const ALL_WORKS_SHUFFLED = interleaveCategories(ALL_WORKS)
 
 
 export default function AllWorkPage() {
@@ -192,7 +216,7 @@ export default function AllWorkPage() {
         return () => document.removeEventListener("keydown", trap)
     }, [menuOpen])
 
-    const filtered = filter === "all" ? ALL_WORKS : ALL_WORKS.filter(w => w.cat === filter)
+    const filtered = filter === "all" ? ALL_WORKS_SHUFFLED : ALL_WORKS.filter(w => w.cat === filter)
 
     return (
         <div className="aw" ref={ref}>
@@ -260,7 +284,7 @@ export default function AllWorkPage() {
                     {filtered.length > 0 ? (
                         <div className="aw-grid aw-rv">
                             {filtered.map(w => (
-                                <a key={w.slug} className="aw-card" href={`/all-work/${w.slug}`}>
+                                <a key={`${w.slug}-${w.cat}`} className="aw-card" href={`/all-work/${w.slug}`}>
                                     <div className="aw-thumb">
                                         {w.img && (
                                             <img src={w.img} alt={w.title} style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} />

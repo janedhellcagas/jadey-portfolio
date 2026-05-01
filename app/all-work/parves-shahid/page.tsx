@@ -63,6 +63,9 @@ const CSS = `
 /* HEIGHT-CLAMPED IMAGE — for tall images (banner, infographic) */
 .ps-alt-img--clamp{max-height:500px}
 .ps-alt-img--clamp img{width:100%;height:100%;max-height:500px;object-fit:contain;object-position:center top}
+/* BARE IMAGE — no border/bg, image only */
+.ps-alt-img--bare{border:none!important;overflow:visible;background:transparent}
+.ps-alt-img--bare img{width:100%;height:auto;max-height:560px;object-fit:contain;object-position:center top;display:block}
 /* BRAND SYSTEM GRID */
 .ps-brand-grid{max-width:var(--max);margin:0 auto;padding:72px var(--pad)}
 .ps-brand-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
@@ -477,7 +480,7 @@ export default function ParvesShahidPage() {
 
                 {/* SECTION 7 — INFOGRAPHICS: image left, text right */}
                 <div className="ps-alt ps-rv">
-                    <div className="ps-alt-img ps-alt-img--clamp">
+                    <div className="ps-alt-img ps-alt-img--bare">
                         <img
                             src="/Parves%20Shahid%20-%20Infographics.png"
                             alt="Parves Shahid — Infographics"
@@ -524,7 +527,7 @@ export default function ParvesShahidPage() {
                             </ul>
                         </div>
                     </div>
-                    <div className="ps-alt-img ps-alt-img--clamp">
+                    <div className="ps-alt-img ps-alt-img--bare">
                         <img
                             src="/Parves%20Shahid%20-%20Banner.png"
                             alt="Parves Shahid — Banner"

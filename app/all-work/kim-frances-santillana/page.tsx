@@ -75,8 +75,8 @@ const CSS = `
 /* BANNER GRID */
 .kf-banner-section{max-width:var(--max);margin:0 auto;padding:72px var(--pad)}
 .kf-banner-intro{margin-bottom:40px}
-.kf-banner-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
-.kf-banner-item{overflow:hidden;border:1px solid var(--border)}
+.kf-banner-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px;align-items:start}
+.kf-banner-item{overflow:visible;border:none;background:transparent}
 .kf-banner-item img{width:100%;height:auto;display:block}
 /* IMPACT FINAL */
 .kf-impact-final{max-width:var(--max);margin:0 auto;padding:72px var(--pad);background:var(--bg2)}
@@ -133,7 +133,6 @@ const CSS = `
   .kf-brand-cards{grid-template-columns:repeat(2,1fr)}
   .kf-impact-stats{grid-template-columns:repeat(2,1fr)}
   .kf-next-inner{grid-template-columns:1fr;gap:32px}
-  .kf-banner-list{grid-template-columns:1fr}
 }
 @media(max-width:768px){
   :root{--pad:24px}
@@ -152,6 +151,8 @@ const CSS = `
   .kf-next-actions{flex-direction:column;align-items:flex-start}
   .kf-btn,.kf-ghost-btn{width:100%;text-align:center;display:block}
   .kf-banner-section{padding:52px var(--pad)}
+  .kf-banner-list{grid-template-columns:repeat(2,1fr)}
+  .kf-banner-list .kf-banner-item:last-child{grid-column:1/-1}
 }
 @media(max-width:480px){
   :root{--pad:16px}
@@ -159,6 +160,8 @@ const CSS = `
   .kf-abar span{font-size:7px}
   .kf-meta-row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
   .kf-impact-stats{grid-template-columns:1fr;gap:14px}
+  .kf-banner-list{grid-template-columns:1fr}
+  .kf-banner-list .kf-banner-item:last-child{grid-column:auto}
 }
 @media(hover:none),(pointer:coarse){
   .kf-hamburger{min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
@@ -307,36 +310,36 @@ export default function KimFrancesSantillanaPage() {
                         <div className="kf-section-label">The Problem</div>
                         <h2 className="kf-section-title">The Challenge</h2>
                         <p className="kf-section-body">
-                            Kim Frances needed a clearer and more structured way to present her professional content on LinkedIn.
+                            Kim Frances creates valuable, informative content, but the visual presentation made it harder to absorb quickly.
                         </p>
                         <p className="kf-section-body" style={{ marginTop: 12 }}>
-                            Many personal brands in similar spaces struggle with:
+                            From the visuals:
                         </p>
                         <ul className="kf-list" style={{ marginTop: 8 }}>
-                            <li>Inconsistent visual layouts across posts</li>
-                            <li>Content that feels unstructured and hard to follow</li>
-                            <li>No clear connection between profile, banners, and posts</li>
+                            <li>Content relied heavily on text without strong hierarchy</li>
+                            <li>Layouts felt inconsistent across posts</li>
+                            <li>Important points didn&apos;t stand out immediately</li>
                         </ul>
                         <p className="kf-section-body" style={{ marginTop: 12 }}>
-                            Because of this, users often:
+                            Because of this:
                         </p>
                         <ul className="kf-list" style={{ marginTop: 8 }}>
-                            <li>Scroll past without engaging</li>
-                            <li>Struggle to quickly understand the message</li>
-                            <li>Do not recognize the creator as a strong personal brand</li>
+                            <li>Users needed more time to process each post</li>
+                            <li>Key insights were easily overlooked</li>
+                            <li>Engagement dropped despite strong content</li>
                         </ul>
                     </div>
                     <div className="kf-ov-col">
                         <div className="kf-section-label">The Goal</div>
                         <h2 className="kf-section-title">What We Set Out to Do</h2>
                         <p className="kf-section-body">
-                            The goal was to create a personal brand system that improves clarity and consistency across all content.
+                            The goal was not to redesign the content — but to redesign how it is consumed.
                         </p>
                         <ul className="kf-list" style={{ marginTop: 14 }}>
-                            <li>Make posts easier to read and understand</li>
-                            <li>Create a unified look across profile, banners, and content</li>
-                            <li>Design a system that can be reused across different formats</li>
-                            <li>Keep the overall style clean, structured, and professional</li>
+                            <li>Make content easier to scan</li>
+                            <li>Introduce clear visual hierarchy</li>
+                            <li>Build a consistent system across all outputs</li>
+                            <li>Maintain a clean and professional identity</li>
                         </ul>
                     </div>
                 </div>
@@ -349,21 +352,25 @@ export default function KimFrancesSantillanaPage() {
                         <div className="kf-tag">Visual Direction</div>
                         <h2 className="kf-alt-title">Moodboard &amp; Direction</h2>
                         <p className="kf-alt-body">
-                            Before building anything, the visual direction was established first. The moodboard defined the tone and guided every decision that followed.
+                            The direction focused on clarity and structure.
                         </p>
                         <p className="kf-alt-body" style={{ marginTop: 12 }}>
-                            Three core decisions shaped the direction:
+                            Three design decisions shaped the approach:
                         </p>
                         <ul className="kf-list" style={{ marginTop: 10 }}>
-                            <li>Clean layouts with proper spacing to improve readability</li>
-                            <li>Balanced and soft color usage to maintain a professional tone</li>
-                            <li>Minimal visual elements to avoid distractions</li>
+                            <li>Clean layout → removes unnecessary noise</li>
+                            <li>Controlled spacing → separates ideas clearly</li>
+                            <li>Minimal color usage → highlights only what matters</li>
                         </ul>
+                        <p className="kf-alt-body" style={{ marginTop: 12 }}>
+                            Why: Users don&apos;t read everything — they scan first.
+                        </p>
                         <div className="kf-impact-row">
                             <div className="kf-impact-label">Impact</div>
                             <ul className="kf-impact-list">
-                                <li>Content becomes easier to scan and follow</li>
-                                <li>The design feels calm, clean, and professional</li>
+                                <li>Faster comprehension</li>
+                                <li>Improved readability</li>
+                                <li>Better engagement</li>
                             </ul>
                         </div>
                     </div>
@@ -382,7 +389,7 @@ export default function KimFrancesSantillanaPage() {
                     <div className="kf-section-label">Brand System</div>
                     <h2 className="kf-section-title">Building the System</h2>
                     <p className="kf-section-body" style={{ maxWidth: 680 }}>
-                        The brand system is built around consistency and simplicity. Every element is defined once and reused across all formats so content stays aligned without extra effort.
+                        Every element is defined with a purpose — to make the content easier to read, recognize, and scale.
                     </p>
                     <div className="kf-brand-cards">
                         <div className="kf-brand-card">
@@ -395,7 +402,7 @@ export default function KimFrancesSantillanaPage() {
                             </div>
                             <div className="kf-brand-card-title">Typography</div>
                             <p className="kf-brand-card-body">
-                                Clear and readable type is used to support structured content. Headers carry the main message at a glance while supporting text fills in the detail without slowing the reader down.
+                                Header font: <strong>Kaisei Opti</strong>. Supporting text: <strong>Hind</strong>. Kaisei Opti creates emphasis and authority in headlines. Hind keeps body text readable and balanced. Without strong hierarchy, all text competes equally — and nothing stands out.
                             </p>
                         </div>
                         <div className="kf-brand-card">
@@ -408,7 +415,7 @@ export default function KimFrancesSantillanaPage() {
                             </div>
                             <div className="kf-brand-card-title">Color</div>
                             <p className="kf-brand-card-body">
-                                A controlled color palette ensures consistency across every piece. Fewer colors means faster recognition — each post immediately reads as part of the same brand.
+                                Color is used as a guide, not decoration. A neutral base keeps the layout clean. An accent color draws attention to key words selectively. Too much color creates noise — this keeps focus where it belongs.
                             </p>
                         </div>
                         <div className="kf-brand-card">
@@ -421,7 +428,7 @@ export default function KimFrancesSantillanaPage() {
                             </div>
                             <div className="kf-brand-card-title">Elements</div>
                             <p className="kf-brand-card-body">
-                                Simple layout structures and spacing rules are defined once and reused across all designs. No random choices — every element has a purpose and a consistent place.
+                                Consistent spacing, layout containers, and alignment rules applied across every format. Random layouts reduce consistency — a defined system makes every piece predictable and easy to scale.
                             </p>
                         </div>
                     </div>
@@ -441,17 +448,22 @@ export default function KimFrancesSantillanaPage() {
                         <div className="kf-tag">Core Application</div>
                         <h2 className="kf-alt-title">LinkedIn Profile &amp; Cover</h2>
                         <p className="kf-alt-body">
-                            The LinkedIn profile is the first thing someone sees before deciding whether to follow or engage. It needs to make a strong, immediate impression without saying much.
+                            The profile is the first impression. Before a user reads a single post, they see the profile — it sets the expectation for everything else.
                         </p>
                         <p className="kf-alt-body" style={{ marginTop: 12 }}>
-                            The brand system was applied directly to the profile and cover, ensuring the visual identity carries through from the very first touchpoint.
+                            The design system was applied directly here:
                         </p>
+                        <ul className="kf-list" style={{ marginTop: 8 }}>
+                            <li>Strong headline hierarchy</li>
+                            <li>Clean and structured layout</li>
+                            <li>Consistent visual system</li>
+                        </ul>
                         <div className="kf-impact-row">
                             <div className="kf-impact-label">Impact</div>
                             <ul className="kf-impact-list">
-                                <li>A clean first impression that communicates credibility</li>
-                                <li>Consistent identity between profile visuals and published content</li>
-                                <li>Immediately recognizable as a structured, professional brand</li>
+                                <li>Immediate clarity at first glance</li>
+                                <li>Professional and credible presentation</li>
+                                <li>Strong, recognizable brand identity</li>
                             </ul>
                         </div>
                     </div>
@@ -465,17 +477,22 @@ export default function KimFrancesSantillanaPage() {
                         <div className="kf-tag">Content Design</div>
                         <h2 className="kf-alt-title">Carousel Design</h2>
                         <p className="kf-alt-body">
-                            Unstructured posts are difficult to read and follow. The carousel format solves this by breaking content into clear, digestible slides — but only when the structure is intentional.
+                            Long text reduces engagement. The carousel breaks content into structured, easy-to-follow slides — but only if each slide is intentionally designed.
                         </p>
                         <p className="kf-alt-body" style={{ marginTop: 12 }}>
-                            Each slide was designed with a clear hierarchy: one main idea per slide, supported by brief text and consistent layout. Familiar enough to feel structured, but varied enough to stay engaging.
+                            Design decision:
                         </p>
+                        <ul className="kf-list" style={{ marginTop: 8 }}>
+                            <li>One idea per slide</li>
+                            <li>Clear headline with supporting text</li>
+                            <li>Consistent layout system throughout</li>
+                        </ul>
                         <div className="kf-impact-row">
                             <div className="kf-impact-label">Impact</div>
                             <ul className="kf-impact-list">
-                                <li>Easier reading experience with better content flow</li>
-                                <li>Stronger hierarchy between title and body text</li>
-                                <li>Increased engagement and understanding per post</li>
+                                <li>Easier to follow from slide to slide</li>
+                                <li>Higher engagement per post</li>
+                                <li>Better content retention</li>
                             </ul>
                         </div>
                     </div>
@@ -495,10 +512,10 @@ export default function KimFrancesSantillanaPage() {
                         <div className="kf-section-label">Brand Presence</div>
                         <h2 className="kf-section-title">Banner System</h2>
                         <p className="kf-section-body" style={{ maxWidth: 680 }}>
-                            Instead of a single banner, multiple variations were created using the same system. Each one follows the same layout structure, typography, and spacing — only the content changes. This gives flexibility without losing consistency.
+                            Multiple banner variations were created using the same design system. Each one follows the same layout, typography, and spacing — only the content changes.
                         </p>
                         <p className="kf-section-body" style={{ maxWidth: 680, marginTop: 12 }}>
-                            The result is a set of banners that work across different contexts while still feeling like they belong to the same brand.
+                            This gives flexibility without losing consistency. Every banner still reads as part of the same brand.
                         </p>
                     </div>
                     <div className="kf-banner-list">
@@ -531,27 +548,27 @@ export default function KimFrancesSantillanaPage() {
                     <div className="kf-section-label">Results</div>
                     <h2 className="kf-section-title">The Impact</h2>
                     <p className="kf-section-body" style={{ maxWidth: 680 }}>
-                        The result is a structured and scalable personal brand system built to work across every format Kim Frances publishes. The carousel breaks content into clear, readable slides. The banners create a flexible yet consistent visual presence. The profile and cover deliver a strong first impression. And because everything follows the same rules, each piece reinforces the others.
+                        The result is a structured and scalable personal brand system.
                     </p>
                     <p className="kf-section-body" style={{ maxWidth: 680, marginTop: 12 }}>
-                        Not just a set of well-designed assets — a system that grows with the brand.
+                        Not just better visuals — but a better content experience.
                     </p>
                     <div className="kf-impact-stats">
                         <div className="kf-stat">
-                            <div className="kf-stat-num">3</div>
-                            <div className="kf-stat-label">Banner variations built from one unified system</div>
+                            <div className="kf-stat-num">↑</div>
+                            <div className="kf-stat-label">Content is easier to understand at a glance</div>
                         </div>
                         <div className="kf-stat">
                             <div className="kf-stat-num">1</div>
-                            <div className="kf-stat-label">Design system applied consistently across all formats</div>
-                        </div>
-                        <div className="kf-stat">
-                            <div className="kf-stat-num">↑</div>
-                            <div className="kf-stat-label">Improved readability and structure across all content</div>
+                            <div className="kf-stat-label">Consistent visual identity across every format</div>
                         </div>
                         <div className="kf-stat">
                             <div className="kf-stat-num">✦</div>
-                            <div className="kf-stat-label">Consistent visual identity across every touchpoint</div>
+                            <div className="kf-stat-label">Users engage faster — less time spent processing</div>
+                        </div>
+                        <div className="kf-stat">
+                            <div className="kf-stat-num">3</div>
+                            <div className="kf-stat-label">Banner variations — one system, full flexibility</div>
                         </div>
                     </div>
                 </div>
