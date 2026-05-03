@@ -382,7 +382,7 @@ export default function BrandSonicPage() {
                 {/* TYPOGRAPHY — image left, text right */}
                 <div className="bsi-alt bsi-rv">
                     <div className="bsi-alt-img bsi-alt-img--full">
-                        <img src="/BrandSonic%20-%20Typography.png" alt="BrandSonic — Typography" />
+                        <img src="/brandsonic%20-%20typography%202.png" alt="BrandSonic — Typography" />
                     </div>
                     <div className="bsi-alt-content">
                         <div className="bsi-tag">Typography</div>

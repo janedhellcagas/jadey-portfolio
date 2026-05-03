@@ -386,7 +386,7 @@ export default function StarseekrPage() {
                 {/* TYPOGRAPHY — image left, text right */}
                 <div className="skr-alt skr-rv">
                     <div className="skr-alt-img">
-                        <img src="/starseekr%20-%20typography.png" alt="Starseekr — Typography" />
+                        <img src="/starseekr%20-%20typography%202.png" alt="Starseekr — Typography" />
                     </div>
                     <div className="skr-alt-content">
                         <div className="skr-tag">Typography</div>
