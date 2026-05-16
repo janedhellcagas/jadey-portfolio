@@ -430,7 +430,7 @@ const TESTIMONIAL_SLIDES = [
             img: "/Kris%20Herrah%20N.%20Arancon.jpg",
             name: "Kris Herrah N. Arancon",
             flag: "🇵🇭",
-            position: "Former HR Admin of ScaleForge",
+            position: "HR Admin of ScaleForge",
             q: "Jane Dhell \"Jadey\" Cagas and I worked together in an online tech company. During my tenure, she was one of the first members of the design department I reached out to for assistance. She is good-natured, approachable, and very easy to work with. I never had any difficulty asking for help, as she is always willing to assist anyone who needs her support. In fact, even before I could request a design, she would often take the initiative to start the project and suggest improvements to make it more visually appealing. Aside from her initiative, Jadey is also fast and highly efficient, often completing tasks ahead of the set deadlines. She is open to suggestions and consistently demonstrates strong work ethics. I can confidently recommend Jadey, not only because of her positive attitude but also because of her professionalism and dedication to her work.",
         },
     ],
