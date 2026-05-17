@@ -1020,7 +1020,7 @@ export default function JadeyPortfolio() {
                             <div className="jp-hstats jp-rv">
                                 {[
                                     ["6+", "Years"],
-                                    ["80+", "Projects"],
+                                    ["50+", "Projects"],
                                     ["9+", "Events"],
                                 ].map(([n, l]) => (
                                     <div key={l}>
