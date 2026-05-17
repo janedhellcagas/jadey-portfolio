@@ -245,7 +245,7 @@ export default function KimFrancesSantillanaPage() {
             {/* NAV */}
             <nav className="kf-nav" style={{ top: navScroll ? "38px" : "0" }}>
                 <div className="kf-nav-inner">
-                    <a className="kf-logo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
+                    <a className="kf-logo" href="/">JADEY<span>.</span></a>
                     <div className="kf-nav-r">
                         <div className="kf-ndot" />
                         <a href="/all-work">All Projects</a>
@@ -603,7 +603,7 @@ export default function KimFrancesSantillanaPage() {
             {/* FOOTER */}
             <footer className="kf-foot">
                 <div className="kf-foot-inner">
-                    <a className="kf-flogo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
+                    <a className="kf-flogo" href="/">JADEY<span>.</span></a>
                     <div className="kf-fcopy">© 2025 Jane Dhell Cagas. All rights reserved.</div>
                     <div className="kf-flinks">
                         <a href="/#about">About Me</a>

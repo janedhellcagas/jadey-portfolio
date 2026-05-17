@@ -221,7 +221,7 @@ export default function LunaraHaircarePage() {
             {/* NAV */}
             <nav className="lhc-nav" style={{ top: navScroll ? "38px" : "0" }}>
                 <div className="lhc-nav-inner">
-                    <a className="lhc-logo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
+                    <a className="lhc-logo" href="/">JADEY<span>.</span></a>
                     <div className="lhc-nav-r">
                         <div className="lhc-ndot" />
                         <a href="/all-work">All Projects</a>
@@ -521,7 +521,7 @@ export default function LunaraHaircarePage() {
             {/* FOOTER */}
             <footer className="lhc-foot">
                 <div className="lhc-foot-inner">
-                    <a className="lhc-flogo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
+                    <a className="lhc-flogo" href="/">JADEY<span>.</span></a>
                     <div className="lhc-fcopy">© 2025 Jane Dhell Cagas. All rights reserved.</div>
                     <div className="lhc-flinks">
                         <a href="/#about">About Me</a>

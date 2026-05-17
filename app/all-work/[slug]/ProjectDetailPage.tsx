@@ -259,7 +259,7 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
                 </div>
                 <nav className="pd-nav" style={{ top: navScroll ? "38px" : "0" }}>
                     <div className="pd-nav-inner">
-                        <a className="pd-logo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
+                        <a className="pd-logo" href="/">JADEY<span>.</span></a>
                         <div className="pd-nav-r">
                             <div className="pd-ndot" />
                             <a href="/all-work">All Projects</a>
@@ -302,7 +302,7 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
             </div>
             <nav className="pd-nav" style={{ top: navScroll ? "38px" : "0" }}>
                 <div className="pd-nav-inner">
-                    <a className="pd-logo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
+                    <a className="pd-logo" href="/">JADEY<span>.</span></a>
                     <div className="pd-nav-r">
                         <div className="pd-ndot" />
                         <a href="/all-work">All Projects</a>
@@ -456,7 +456,7 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
 
             <footer className="pd-foot">
                 <div className="pd-foot-inner">
-                    <a className="pd-flogo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
+                    <a className="pd-flogo" href="/">JADEY<span>.</span></a>
                     <div className="pd-fcopy">© 2025 Jane Dhell Cagas. All rights reserved.</div>
                     <div className="pd-flinks">
                         <a href="/#about">About Me</a>

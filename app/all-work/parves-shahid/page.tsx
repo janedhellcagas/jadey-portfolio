@@ -239,7 +239,7 @@ export default function ParvesShahidPage() {
             {/* NAV */}
             <nav className="ps-nav" style={{ top: navScroll ? "38px" : "0" }}>
                 <div className="ps-nav-inner">
-                    <a className="ps-logo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
+                    <a className="ps-logo" href="/">JADEY<span>.</span></a>
                     <div className="ps-nav-r">
                         <div className="ps-ndot" />
                         <a href="/all-work">All Projects</a>
@@ -598,7 +598,7 @@ export default function ParvesShahidPage() {
             {/* FOOTER */}
             <footer className="ps-foot">
                 <div className="ps-foot-inner">
-                    <a className="ps-flogo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
+                    <a className="ps-flogo" href="/">JADEY<span>.</span></a>
                     <div className="ps-fcopy">© 2025 Jane Dhell Cagas. All rights reserved.</div>
                     <div className="ps-flinks">
                         <a href="/#about">About Me</a>

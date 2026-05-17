@@ -235,7 +235,7 @@ export default function MariamKhawarPage() {
             {/* NAV */}
             <nav className="mk-nav" style={{ top: navScroll ? "38px" : "0" }}>
                 <div className="mk-nav-inner">
-                    <a className="mk-logo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
+                    <a className="mk-logo" href="/">JADEY<span>.</span></a>
                     <div className="mk-nav-r">
                         <div className="mk-ndot" />
                         <a href="/all-work">All Projects</a>
@@ -619,7 +619,7 @@ export default function MariamKhawarPage() {
             {/* FOOTER */}
             <footer className="mk-foot">
                 <div className="mk-foot-inner">
-                    <a className="mk-flogo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
+                    <a className="mk-flogo" href="/">JADEY<span>.</span></a>
                     <div className="mk-fcopy">© 2025 Jane Dhell Cagas. All rights reserved.</div>
                     <div className="mk-flinks">
                         <a href="/#about">About Me</a>

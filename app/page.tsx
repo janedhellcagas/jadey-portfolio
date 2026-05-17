@@ -894,7 +894,7 @@ export default function JadeyPortfolio() {
                                 go("hero")
                             }}
                         >
-                            <img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} />
+                            JADEY<span>.</span>
                         </a>
                         <div className="jp-nav-r">
                             <div className="jp-ndot" />
@@ -1982,7 +1982,7 @@ export default function JadeyPortfolio() {
                                 go("hero")
                             }}
                         >
-                            <img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} />
+                            JADEY<span>.</span>
                         </a>
                         <div className="jp-fcopy">
                             © 2025 Jane Dhell Cagas. All rights reserved.

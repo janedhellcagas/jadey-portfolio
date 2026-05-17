@@ -241,7 +241,7 @@ export default function AllWorkPage() {
             {/* NAV */}
             <nav className="aw-nav" style={{ top: navScroll ? "38px" : "0" }}>
                 <div className="aw-nav-inner">
-                    <a className="aw-logo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
+                    <a className="aw-logo" href="/">JADEY<span>.</span></a>
                     <div className="aw-nav-r">
                         <div className="aw-ndot" />
                         <a className="active" href="/all-work">All Projects</a>
@@ -322,7 +322,7 @@ export default function AllWorkPage() {
             {/* FOOTER */}
             <footer className="aw-footer">
                 <div className="aw-footer-inner">
-                    <a className="aw-flogo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
+                    <a className="aw-flogo" href="/">JADEY<span>.</span></a>
                     <div className="aw-fcopy">© 2025 Jane Dhell Cagas. All rights reserved.</div>
                     <div className="aw-flinks">
                         <a href="/#about">About Me</a>

@@ -216,7 +216,7 @@ export default function NourPage() {
             {/* NAV */}
             <nav className="nr-nav" style={{ top: navScroll ? "38px" : "0" }}>
                 <div className="nr-nav-inner">
-                    <a className="nr-logo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
+                    <a className="nr-logo" href="/">JADEY<span>.</span></a>
                     <div className="nr-nav-r">
                         <div className="nr-ndot" />
                         <a href="/all-work">All Projects</a>
@@ -562,7 +562,7 @@ export default function NourPage() {
             {/* FOOTER */}
             <footer className="nr-foot">
                 <div className="nr-foot-inner">
-                    <a className="nr-flogo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
+                    <a className="nr-flogo" href="/">JADEY<span>.</span></a>
                     <div className="nr-fcopy">© 2025 Jane Dhell Cagas. All rights reserved.</div>
                     <div className="nr-flinks">
                         <a href="/#about">About Me</a>

@@ -235,7 +235,7 @@ export default function RaviKumarSapataPage() {
             {/* NAV */}
             <nav className="rk-nav" style={{ top: navScroll ? "38px" : "0" }}>
                 <div className="rk-nav-inner">
-                    <a className="rk-logo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
+                    <a className="rk-logo" href="/">JADEY<span>.</span></a>
                     <div className="rk-nav-r">
                         <div className="rk-ndot" />
                         <a href="/all-work">All Projects</a>
@@ -586,7 +586,7 @@ export default function RaviKumarSapataPage() {
             {/* FOOTER */}
             <footer className="rk-foot">
                 <div className="rk-foot-inner">
-                    <a className="rk-flogo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
+                    <a className="rk-flogo" href="/">JADEY<span>.</span></a>
                     <div className="rk-fcopy">© 2025 Jane Dhell Cagas. All rights reserved.</div>
                     <div className="rk-flinks">
                         <a href="/#about">About Me</a>
