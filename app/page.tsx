@@ -1263,7 +1263,7 @@ export default function JadeyPortfolio() {
                                     problem-solving in mind.
                                 </p>
                                 <p>
-                                    I started my design journey in 2016 as a part-time 
+                                    I started my design journey in 2018 as a part-time 
                                     graphic designer, and eventually grew into UI/UX 
                                     design as my core focus, while also working across 
                                     branding, web, presentation design, and basic video editing.
