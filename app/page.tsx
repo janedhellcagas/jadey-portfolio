@@ -1499,9 +1499,9 @@ export default function JadeyPortfolio() {
                                 className="jp-st"
                                 style={{ fontSize: "clamp(36px,6vw,76px)" }}
                             >
-                                From the
+                                Design
                                 <br />
-                                <em>Blog</em>
+                                <em>Writings</em>
                             </h2>
                         </div>
                         <div className="jp-handbook-card">
