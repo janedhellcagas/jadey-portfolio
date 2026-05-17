@@ -234,7 +234,7 @@ export default function OpexaSigmaEventPage() {
             {/* NAV */}
             <nav className="opx-nav" style={{ top: navScroll ? "38px" : "0" }}>
                 <div className="opx-nav-inner">
-                    <a className="opx-logo" href="/">JADEY<span>.</span></a>
+                    <a className="opx-logo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
                     <div className="opx-nav-r">
                         <div className="opx-ndot" />
                         <a href="/all-work">All Projects</a>
@@ -379,7 +379,7 @@ export default function OpexaSigmaEventPage() {
             {/* FOOTER */}
             <footer className="opx-foot">
                 <div className="opx-foot-inner">
-                    <a className="opx-flogo" href="/">JADEY<span>.</span></a>
+                    <a className="opx-flogo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
                     <div className="opx-fcopy">© 2025 Jane Dhell Cagas. All rights reserved.</div>
                     <div className="opx-flinks">
                         <a href="/#about">About Me</a>

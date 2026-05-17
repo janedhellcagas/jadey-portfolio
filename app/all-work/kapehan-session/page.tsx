@@ -286,7 +286,7 @@ export default function KapehanSessionPage() {
             {/* NAV */}
             <nav className="ks-nav" style={{ top: navScroll ? "38px" : "0" }}>
                 <div className="ks-nav-inner">
-                    <a className="ks-logo" href="/">JADEY<span>.</span></a>
+                    <a className="ks-logo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
                     <div className="ks-nav-r">
                         <div className="ks-ndot" />
                         <a href="/all-work">All Projects</a>
@@ -514,7 +514,7 @@ export default function KapehanSessionPage() {
             {/* FOOTER */}
             <footer className="ks-foot">
                 <div className="ks-foot-inner">
-                    <a className="ks-flogo" href="/">JADEY<span>.</span></a>
+                    <a className="ks-flogo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
                     <div className="ks-fcopy">© 2025 Jane Dhell Cagas. All rights reserved.</div>
                     <div className="ks-flinks">
                         <a href="/#about">About Me</a>

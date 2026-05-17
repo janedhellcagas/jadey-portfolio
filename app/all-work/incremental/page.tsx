@@ -225,7 +225,7 @@ export default function IncrementalPage() {
             {/* NAV */}
             <nav className="inc-nav" style={{ top: navScroll ? "38px" : "0" }}>
                 <div className="inc-nav-inner">
-                    <a className="inc-logo" href="/">JADEY<span>.</span></a>
+                    <a className="inc-logo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
                     <div className="inc-nav-r">
                         <div className="inc-ndot" />
                         <a href="/all-work">All Projects</a>
@@ -555,7 +555,7 @@ export default function IncrementalPage() {
             {/* FOOTER */}
             <footer className="inc-foot">
                 <div className="inc-foot-inner">
-                    <a className="inc-flogo" href="/">JADEY<span>.</span></a>
+                    <a className="inc-flogo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
                     <div className="inc-fcopy">© 2025 Jane Dhell Cagas. All rights reserved.</div>
                     <div className="inc-flinks">
                         <a href="/#about">About Me</a>

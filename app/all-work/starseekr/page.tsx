@@ -226,7 +226,7 @@ export default function StarseekrPage() {
             {/* NAV */}
             <nav className="skr-nav" style={{ top: navScroll ? "38px" : "0" }}>
                 <div className="skr-nav-inner">
-                    <a className="skr-logo" href="/">JADEY<span>.</span></a>
+                    <a className="skr-logo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
                     <div className="skr-nav-r">
                         <div className="skr-ndot" />
                         <a href="/all-work">All Projects</a>
@@ -548,7 +548,7 @@ export default function StarseekrPage() {
             {/* FOOTER */}
             <footer className="skr-foot">
                 <div className="skr-foot-inner">
-                    <a className="skr-flogo" href="/">JADEY<span>.</span></a>
+                    <a className="skr-flogo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
                     <div className="skr-fcopy">© 2025 Jane Dhell Cagas. All rights reserved.</div>
                     <div className="skr-flinks">
                         <a href="/#about">About Me</a>

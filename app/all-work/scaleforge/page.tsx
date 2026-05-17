@@ -225,7 +225,7 @@ export default function ScaleForgePage() {
             {/* NAV */}
             <nav className="sf-nav" style={{ top: navScroll ? "38px" : "0" }}>
                 <div className="sf-nav-inner">
-                    <a className="sf-logo" href="/">JADEY<span>.</span></a>
+                    <a className="sf-logo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
                     <div className="sf-nav-r">
                         <div className="sf-ndot" />
                         <a href="/all-work">All Projects</a>
@@ -555,7 +555,7 @@ export default function ScaleForgePage() {
             {/* FOOTER */}
             <footer className="sf-foot">
                 <div className="sf-foot-inner">
-                    <a className="sf-flogo" href="/">JADEY<span>.</span></a>
+                    <a className="sf-flogo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
                     <div className="sf-fcopy">© 2025 Jane Dhell Cagas. All rights reserved.</div>
                     <div className="sf-flinks">
                         <a href="/#about">About Me</a>

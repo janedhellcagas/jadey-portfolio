@@ -235,7 +235,7 @@ export default function ParinMehtaPage() {
             {/* NAV */}
             <nav className="pm-nav" style={{ top: navScroll ? "38px" : "0" }}>
                 <div className="pm-nav-inner">
-                    <a className="pm-logo" href="/">JADEY<span>.</span></a>
+                    <a className="pm-logo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
                     <div className="pm-nav-r">
                         <div className="pm-ndot" />
                         <a href="/all-work">All Projects</a>
@@ -619,7 +619,7 @@ export default function ParinMehtaPage() {
             {/* FOOTER */}
             <footer className="pm-foot">
                 <div className="pm-foot-inner">
-                    <a className="pm-flogo" href="/">JADEY<span>.</span></a>
+                    <a className="pm-flogo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
                     <div className="pm-fcopy">© 2025 Jane Dhell Cagas. All rights reserved.</div>
                     <div className="pm-flinks">
                         <a href="/#about">About Me</a>

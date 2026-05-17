@@ -225,7 +225,7 @@ export default function BrandSonicPage() {
             {/* NAV */}
             <nav className="bsi-nav" style={{ top: navScroll ? "38px" : "0" }}>
                 <div className="bsi-nav-inner">
-                    <a className="bsi-logo" href="/">JADEY<span>.</span></a>
+                    <a className="bsi-logo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
                     <div className="bsi-nav-r">
                         <div className="bsi-ndot" />
                         <a href="/all-work">All Projects</a>
@@ -548,7 +548,7 @@ export default function BrandSonicPage() {
             {/* FOOTER */}
             <footer className="bsi-foot">
                 <div className="bsi-foot-inner">
-                    <a className="bsi-flogo" href="/">JADEY<span>.</span></a>
+                    <a className="bsi-flogo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
                     <div className="bsi-fcopy">© 2025 Jane Dhell Cagas. All rights reserved.</div>
                     <div className="bsi-flinks">
                         <a href="/#about">About Me</a>

@@ -230,7 +230,7 @@ export default function NourGraphicPage() {
             {/* NAV */}
             <nav className="ng-nav" style={{ top: navScroll ? "38px" : "0" }}>
                 <div className="ng-nav-inner">
-                    <a className="ng-logo" href="/">JADEY<span>.</span></a>
+                    <a className="ng-logo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
                     <div className="ng-nav-r">
                         <div className="ng-ndot" />
                         <a href="/all-work">All Projects</a>
@@ -520,7 +520,7 @@ export default function NourGraphicPage() {
             {/* FOOTER */}
             <footer className="ng-foot">
                 <div className="ng-foot-inner">
-                    <a className="ng-flogo" href="/">JADEY<span>.</span></a>
+                    <a className="ng-flogo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
                     <div className="ng-fcopy">© 2025 Jane Dhell Cagas. All rights reserved.</div>
                     <div className="ng-flinks">
                         <a href="/#about">About Me</a>

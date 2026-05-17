@@ -237,7 +237,7 @@ export default function GraceLingPage() {
             {/* NAV */}
             <nav className="gl-nav" style={{ top: navScroll ? "38px" : "0" }}>
                 <div className="gl-nav-inner">
-                    <a className="gl-logo" href="/">JADEY<span>.</span></a>
+                    <a className="gl-logo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
                     <div className="gl-nav-r">
                         <div className="gl-ndot" />
                         <a href="/all-work">All Projects</a>
@@ -579,7 +579,7 @@ export default function GraceLingPage() {
             {/* FOOTER */}
             <footer className="gl-foot">
                 <div className="gl-foot-inner">
-                    <a className="gl-flogo" href="/">JADEY<span>.</span></a>
+                    <a className="gl-flogo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
                     <div className="gl-fcopy">© 2025 Jane Dhell Cagas. All rights reserved.</div>
                     <div className="gl-flinks">
                         <a href="/#about">About Me</a>

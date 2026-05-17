@@ -244,7 +244,7 @@ export default function RevivGraphicPage() {
             {/* NAV */}
             <nav className="rvg-nav" style={{ top: navScroll ? "38px" : "0" }}>
                 <div className="rvg-nav-inner">
-                    <a className="rvg-logo" href="/">JADEY<span>.</span></a>
+                    <a className="rvg-logo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
                     <div className="rvg-nav-r">
                         <div className="rvg-ndot" />
                         <a href="/all-work">All Projects</a>
@@ -415,7 +415,7 @@ export default function RevivGraphicPage() {
             {/* FOOTER */}
             <footer className="rvg-foot">
                 <div className="rvg-foot-inner">
-                    <a className="rvg-flogo" href="/">JADEY<span>.</span></a>
+                    <a className="rvg-flogo" href="/"><img src="/Jadey%20Site%20Logo.png" alt="Jadey Design" style={{height:"28px",width:"auto",display:"block"}} /></a>
                     <div className="rvg-fcopy">© 2025 Jane Dhell Cagas. All rights reserved.</div>
                     <div className="rvg-flinks">
                         <a href="/#about">About Me</a>
