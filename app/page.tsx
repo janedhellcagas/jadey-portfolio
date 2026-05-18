@@ -1247,7 +1247,7 @@ export default function JadeyPortfolio() {
                                 <div className="jp-amug-b">
                                     <div className="jp-amug-l">JADEY C.</div>
                                     <div className="jp-amug-r">
-                                        Cagayan de Oro, PH
+                                        Cebu City, PH
                                         <br />
                                         Open to remote
                                     </div>
