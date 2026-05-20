@@ -385,7 +385,7 @@ const TESTIMONIAL_SLIDES = [
             img: "/A.%20Leroi.png",
             name: "A. Leroi",
             flag: "🇬🇧",
-            position: "CEO and Architect",
+            position: "Founder, CEO, CXO, Chief Design Officer, Architect, Inventor, Researcher, Technocrat, Writer, TV Producer",
             q: "It’s been such an enjoyable team work with Jadey. She is extremely responsive, respectful and polite. Despite the time difference, as I am based in the UK. However, Jadey never fails to respond to my messages and email as fast as she could. I would love to continue to work with her and continue to support her. Her punctilious and positive attitude is what my team and I would love to continue this collaboration as long as possible. I do highly recommend Jadey’s services and stewardship.",
         },
         {
