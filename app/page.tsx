@@ -1,6 +1,7 @@
 'use client'
 import Image from "next/image"
 import { useState, useEffect, useRef } from "react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export function LoadFonts() {
     return (
@@ -2049,6 +2050,7 @@ export default function JadeyPortfolio() {
                     </div>
                 </footer>
             </div>
+            <SpeedInsights />
         </>
     )
 }
