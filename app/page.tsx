@@ -1314,6 +1314,7 @@ export default function JadeyPortfolio() {
                                         "ClickUp",
                                         "Jira",
                                         "CapCut",
+                                        "Squarespace",
                                     ].map((t) => (
                                         <span key={t} className="jp-tl">
                                             {t}
