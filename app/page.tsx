@@ -1304,6 +1304,8 @@ export default function JadeyPortfolio() {
                                     {[
                                         "Figma",
                                         "Adobe Photoshop",
+                                        "Adobe Creative Suite",
+                                        "Adobe Lightroom",
                                         "Canva",
                                         "Framer",
                                         "ChatGPT",
