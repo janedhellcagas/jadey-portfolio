@@ -1317,6 +1317,8 @@ export default function JadeyPortfolio() {
                                         "Jira",
                                         "CapCut",
                                         "Squarespace",
+                                        "Lovable",
+                                        "WordPress and Elementor",
                                     ].map((t) => (
                                         <span key={t} className="jp-tl">
                                             {t}
