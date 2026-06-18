@@ -378,7 +378,7 @@ const HIGHLIGHTS = [
 ]
 
 const TESTIMONIAL_SLIDES = [
-    /* ── Slide 1: CEOs first ── */
+    /* ── Slide 1 ── */
     [
         {
             big: true,
@@ -390,15 +390,23 @@ const TESTIMONIAL_SLIDES = [
         },
         {
             big: false,
+            img: "/Rachelle%20Arayan.png",
+            name: "Rachelle Arayan",
+            flag: "🇦🇺",
+            position: "Founder, SHIFT Integrative",
+            q: "I came across Jane after a friend who had previously engaged her services recommended her to me. From our very first interaction, she was professional and genuinely invested in understanding my vision. She patiently worked through my logo design brief, taking the time to listen to my ideas and goals for the brand. Throughout the process, she was patient, communicative, and open to feedback, making sure that every detail aligned with what I had envisioned. I am pleased with the final logo. Thank you, Jane, for making the entire experience smooth and enjoyable.",
+        },
+    ],
+    /* ── Slide 2 ── */
+    [
+        {
+            big: false,
             img: "/Jhai%20Salcedo.jpg",
             name: "Jhai Salcedo",
             flag: "🇵🇭",
             position: "CEO of Advante",
             q: "Jadey did an excellent job working on the Advante landing page. She demonstrated a strong sense of design structure, ensuring that the layout was both visually appealing and easy to navigate. Beyond her technical skills, she is highly hardworking, detail-oriented, and reliable. She consistently delivers quality work and is someone you can trust to execute with both creativity and discipline.",
         },
-    ],
-    /* ── Slide 2: Long pair ── */
-    [
         {
             big: false,
             img: "/Mary%20Ann%20Monuz.jpg",
@@ -407,6 +415,9 @@ const TESTIMONIAL_SLIDES = [
             position: "Lead of SQA & Project Manager, ScaleForge",
             q: "I worked closely with Jadey across almost all of our UI/UX designs, and she’s been a great partner throughout. As a Product/Project Manager, I really value how well she understands requirements and translates them into designs that are clean, intuitive, and aligned with both user needs and business goals. She’s easy to work with—open to feedback, quick to iterate, and proactive in suggesting improvements that make a real difference in the overall experience. What stands out is her attention to detail and her ability to think through how users will actually interact with the product, not just how it looks. Jadey is reliable, collaborative, and someone I’d confidently work with again. I’d highly recommend her to any team looking for a strong UI/UX designer.",
         },
+    ],
+    /* ── Slide 3 ── */
+    [
         {
             big: false,
             img: "/Carmella%20Joy%20Ventanilla.jpg",
@@ -415,9 +426,6 @@ const TESTIMONIAL_SLIDES = [
             position: "Software Quality Assurance, ScaleForge",
             q: "I had the pleasure of working with Jane Dhell Cagas on several projects, and as a Software Quality Analyst, I truly appreciate her attention to detail and strong design sense. Jane consistently delivers clean, user-friendly, and visually engaging designs that align well with both business requirements and user experience standards. What stands out the most is her openness to feedback and her ability to quickly adapt to changes. She collaborates effectively with the QA and development teams, ensuring that designs are not only visually appealing but also practical and easy to implement. This greatly helps in minimizing issues during testing and improves overall product quality. Jane is reliable, creative, and highly professional. I highly recommend her to anyone looking for a designer who values both aesthetics and functionality.",
         },
-    ],
-    /* ── Slide 3: Long pair ── */
-    [
         {
             big: false,
             img: "/Jesson%20Sacote.jpg",
@@ -426,6 +434,9 @@ const TESTIMONIAL_SLIDES = [
             position: "UI/UX Designer, ScaleForge",
             q: "Since July 2022, I’ve worked closely with Jane Dhell and have been continually impressed by her talent and adaptability. She is sharp, quick to shift her strategies in response to company changes, and extremely versatile when it comes to designing, whether it’s crafting elegant interfaces or solving complex UX and UI problems. Beyond her design skills, Jane Dhell has shown strong leadership by leading several projects and even organizing company gatherings and events. Her positive energy, attention to detail, and ability to collaborate effectively have made a real difference on our team. Jane is not only a talented UI/UX professional but also a reliable and inspiring colleague.",
         },
+    ],
+    /* ── Slide 4 ── */
+    [
         {
             big: false,
             img: "/Kris%20Herrah%20N.%20Arancon.jpg",
@@ -434,9 +445,6 @@ const TESTIMONIAL_SLIDES = [
             position: "Former HR Admin of ScaleForge",
             q: "Jane Dhell \"Jadey\" Cagas and I worked together in an online tech company. During my tenure, she was one of the first members of the design department I reached out to for assistance. She is good-natured, approachable, and very easy to work with. I never had any difficulty asking for help, as she is always willing to assist anyone who needs her support. In fact, even before I could request a design, she would often take the initiative to start the project and suggest improvements to make it more visually appealing. Aside from her initiative, Jadey is also fast and highly efficient, often completing tasks ahead of the set deadlines. She is open to suggestions and consistently demonstrates strong work ethics. I can confidently recommend Jadey, not only because of her positive attitude but also because of her professionalism and dedication to her work.",
         },
-    ],
-    /* ── Slide 4: Long + medium ── */
-    [
         {
             big: false,
             img: "/April%20Sheena%20Dalhog.jpg",
@@ -445,6 +453,9 @@ const TESTIMONIAL_SLIDES = [
             position: "HR Admin, starseekr",
             q: "Our department recently commissioned the development of our recruitment website, with Jane leading the design, and we’re very pleased with the outcome. The site presents a clean, modern aesthetic that aligns well with our goals. Jane was receptive to our feedback, and our requested refinements were thoughtfully implemented. Each section feels purposeful and well-structured, contributing to a smooth user experience. Performance has been reliable, with fast load times and responsive interactions. The design is engaging without being overwhelming, with subtle creative touches that add personality. Jane showed a strong understanding of both aesthetics and user experience, and her attention to detail was evident throughout the project. Overall, starseekr.io is a polished and well-executed result that meets our expectations.",
         },
+    ],
+    /* ── Slide 5 ── */
+    [
         {
             big: false,
             img: "/Jade%20Kenneth%20Darunday.jpg",
@@ -453,9 +464,6 @@ const TESTIMONIAL_SLIDES = [
             position: "Frontend Engineer, ScaleForge",
             q: "I’ve had the chance to work closely with Jane Dhell, and as a frontend developer, I really appreciate how thoughtful and precise her UI/UX work is. She has a strong eye for detail and consistently follows solid design principles, which makes implementation smooth and predictable. Her designs are clear, well-structured, and user-focused. On top of that, she works fast without sacrificing quality, which is rare. It’s always easy collaborating with her.",
         },
-    ],
-    /* ── Slide 5: Highlighted + medium ── */
-    [
         {
             big: true,
             img: "/Handy%20Rick%20Thampon.jpg",
@@ -464,6 +472,9 @@ const TESTIMONIAL_SLIDES = [
             position: "Backend Engineer, ScaleForge",
             q: "Jane Dhell has a really great eye for detail and always puts the user first. She’s excellent at taking a messy brief and turning it into a clean, intuitive interface that actually works. She’s been a massive help on our projects and is just generally great to collaborate with.",
         },
+    ],
+    /* ── Slide 6 ── */
+    [
         {
             big: false,
             img: "/Philip%20John%20Calape.jpg",
@@ -472,9 +483,6 @@ const TESTIMONIAL_SLIDES = [
             position: "Backend Engineer (Unit Head), ScaleForge",
             q: "Working with Jadey has always been a great experience. She is a highly talented designer who combines creativity with efficiency, delivering outputs that are both visually impressive and high quality. One of her strongest qualities is her ability to truly understand ideas and bring them to life in a way that often exceeds expectations. She is reliable, detail-oriented, and very easy to collaborate with. If you’re looking for someone who can execute ideas quickly without sacrificing quality, Jadey is definitely someone you can count on.",
         },
-    ],
-    /* ── Slide 6: Short pair ── */
-    [
         {
             big: false,
             img: "/Mereyem%20Jell%20Malinao.jpg",
@@ -483,6 +491,9 @@ const TESTIMONIAL_SLIDES = [
             position: "Multimedia Designer, Nektic",
             q: "Working with Jane and her collaborative mindset has helped us so much in our team. She has a good eye on making sure what the user needs without losing the aesthetic and practicality. She’s fast at producing high quality outputs, but is also willing to listen and adapt to the client’s requests.",
         },
+    ],
+    /* ── Slide 7 ── */
+    [
         {
             big: false,
             img: "/Dionrie%20L.%20Amomonpon.png",
@@ -491,9 +502,6 @@ const TESTIMONIAL_SLIDES = [
             position: "Graphic Designer, Thinkogic",
             q: "Jane is detail-oriented and can easily identify problems without needing to consult the head. She works efficiently, and the quality of her work is excellent. She’s great to work with—always taking care as a leader by guiding us and offering helpful advice to improve the workflow.",
         },
-    ],
-    /* ── Slide 7: Short pair ── */
-    [
         {
             big: false,
             img: "/Kent%20Bryan%20Maglinao.jpg",
@@ -502,6 +510,9 @@ const TESTIMONIAL_SLIDES = [
             position: "Backend Engineer (Unit Head), ScaleForge",
             q: "Jane Dhell is highly dependable, detail-oriented, and always on time. We never had to worry about project timelines because they treated every design requirement and deadline as a firm commitment.",
         },
+    ],
+    /* ── Slide 8 ── */
+    [
         {
             big: false,
             img: "/Ronnel%20Yacunas.jpg",
@@ -510,9 +521,6 @@ const TESTIMONIAL_SLIDES = [
             position: "Backend Engineer (Unit Head), ScaleForge",
             q: "Jane Dhell is someone you can always rely on to deliver excellent results. Her UI/UX skills make every project both engaging and user-friendly. She pays close attention to detail and consistently raises the quality of the work. Working with her means you’ll always get creativity and dependability combined.",
         },
-    ],
-    /* ── Slide 8: Solo (odd total — centered at column width) ── */
-    [
         {
             big: false,
             img: "/Princess%20Romera%20Origenes.jpg",
