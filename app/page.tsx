@@ -355,11 +355,11 @@ const CSS = `
 
 const HIGHLIGHTS = [
     {
-        slug: "scaleforge",
-        img: "/ScaleForge%20Landing%20Page%20Banner%20Showcase%20-%20Main.png",
-        label: "UI/UX DESIGN",
-        title: "ScaleForge",
-        desc: "Tech solutions company — scalable, reliable, metrics-driven, and rooted in strong company values.",
+        slug: "barangay-buddy",
+        img: "/Barangay%20Buddy%20Banner%20Showcase%20-%20Main.png",
+        label: "UI/UX DESIGN CASE STUDY",
+        title: "Barangay Buddy App",
+        desc: "Barangay Buddy App is a GovTech community platform designed to help residents access official barangay updates, document requests, emergency contacts, events, polls, and public resources through one Android app, while barangay officials and staff manage content through a structured web admin portal.",
     },
     {
         slug: "brandsonic",
