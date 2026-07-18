@@ -136,8 +136,8 @@ function interleaveCategories<T extends {cat:string}>(items: T[]): T[] {
 }
 
 const ALL_WORKS = [
-    {slug:"barangay-buddy",  cat:"ux", label:"UI/UX DESIGN CASE STUDY",  title:"Barangay Buddy App",           desc:"GovTech community platform — resident Android app and web admin portal for barangay updates, requests, and services.", img:"/Barangay%20Buddy%20Banner%20Showcase%20-%20Main.png"},
-    {slug:"advante",         cat:"ux", label:"UI/UX DESIGN CASE STUDY",  title:"Advante",                      desc:"Executive coaching platform — orbital hero, trust-building layout, and seamless trial conversion.",           img:"/Advante%20Landing%20Page%20Banner%20Showcase%20-%20Main.png"},
+    {slug:"barangay-buddy",  cat:"ux", label:"UI/UX DESIGN CASE STUDY",  title:"Barangay Buddy App",           desc:"GovTech community platform for a resident Android app and web admin portal for barangay updates, requests, and services.", img:"/Barangay%20Buddy%20Banner%20Showcase%20-%20Main.png"},
+    {slug:"advante",         cat:"ux", label:"UI/UX DESIGN CASE STUDY",  title:"Advante",                      desc:"Coaching platform website with a guided journey, outcome-focused structure, and multiple entry points.",           img:"/Advante%20Landing%20Page%20Banner%20Showcase%20-%20Main.png"},
     {slug:"brandsonic",      cat:"ux", label:"WEB DESIGN",    title:"BrandSonic",                   desc:"All-in-one podcast creation service — use the power of audio to build your brand.",                           img:"/BrandSonic%20Landing%20Page%20Banner%20Showcase%20-%20Main.png"},
     {slug:"devluvs",         cat:"ux", label:"UI/UX DESIGN",  title:"DevLuvs",                      desc:"Online developer's documentation notebook — clean, minimal, built for how devs actually work.",               img:"/DevLuvs%20Landing%20Page%20Banner%20Showcase%20-%20Main.png"},
     {slug:"future-founders", cat:"ux", label:"UI/UX DESIGN",  title:"Future Founders",              desc:"Venture building community platform — dark, bold, and built for founders shaping the future of work.",        img:"/Future%20Founders%20Landing%20Page%20Banner%20Showcase%20-%20Main.png"},
@@ -145,7 +145,7 @@ const ALL_WORKS = [
     {slug:"login-signup",    cat:"ux", label:"TEMPLATE KIT",  title:"Login and Signup Template Kit",desc:"Complete authentication UI kit — multiple screen styles, light and dark modes, ready to use.",                img:"/Login%20and%20Signup%20Template%20Kit%20-%20Main.png"},
     {slug:"reviv",           cat:"ux", label:"UI/UX DESIGN",  title:"Reviv",                        desc:"Oral health device — premium, dark, with bold before/after storytelling and a money-back guarantee.",         img:"/Reviv%20Landing%20Page%20Banner%20Showcase%20-%20Main.png"},
     {slug:"scaleforge-uiux", cat:"ux", label:"UI/UX DESIGN",  title:"ScaleForge",                   desc:"Technology company landing page — clearer structure, stronger content hierarchy, and a more polished UI/UX presentation.", img:"/ScaleForge%20Landing%20Page%20Banner%20Showcase%20-%20Main.png"},
-    {slug:"starseekr",         cat:"ux", label:"UI/UX DESIGN",   title:"Starseekr",                      desc:"Recruitment platform — helping businesses find their next star employee with expertise and precision.",                                               img:"/Starseekr%20Landing%20Page%20Banner%20Showcase%20-%20Main.png"},
+    {slug:"starseekr-uiux",    cat:"ux", label:"UI/UX DESIGN CASE STUDY",   title:"StarSeekr",                      desc:"Recruitment service website that helps companies find qualified candidates and connect with the team through clear consultation flows.",                                               img:"/Starseekr%20Landing%20Page%20Banner%20Showcase%20-%20Main%20New.png"},
     {slug:"taskbeasts",        cat:"ux", label:"UI/UX DESIGN",   title:"TaskBeasts",                     desc:"Outsourcing platform — buy points, hand off tasks to vetted experts, and get results without the hassle of hiring freelancers.",                          img:"/TaskBeasts%20Banner%20Showcase%20-%20Main.png"},
     {slug:"helios-solar",      cat:"ux", label:"UI/UX DESIGN",   title:"Helios Solar",                   desc:"Philippines' no.1 solar marketplace — panel options, savings calculator, bank financing, and admin tools in one platform.",                             img:"/Helios%20Solar%20Site%20Banner%20Showcase%20-%20Main.png"},
     {slug:"ballers-ph",        cat:"ux", label:"UI/UX DESIGN",   title:"Ballers.ph",                     desc:"Philippine basketball news site redesign — cleaner editorial hierarchy, improved article layouts, and responsive design across devices.",                 img:"/Ballers.ph%20Site%20Banner%20Showcase%20-%20Main.png"},
@@ -172,6 +172,8 @@ const ALL_WORKS = [
 ]
 
 const ALL_WORKS_SHUFFLED = interleaveCategories(ALL_WORKS)
+
+const UX_PRIORITY_ORDER = ["barangay-buddy", "starseekr-uiux", "advante"]
 
 
 export default function AllWorkPage() {
@@ -227,7 +229,18 @@ export default function AllWorkPage() {
         return () => document.removeEventListener("keydown", trap)
     }, [menuOpen])
 
-    const filtered = filter === "all" ? ALL_WORKS_SHUFFLED : ALL_WORKS.filter(w => w.cat === filter)
+    const filtered = filter === "all"
+        ? ALL_WORKS_SHUFFLED
+        : filter === "ux"
+            ? [...ALL_WORKS.filter(w => w.cat === "ux")].sort((a, b) => {
+                const ai = UX_PRIORITY_ORDER.indexOf(a.slug)
+                const bi = UX_PRIORITY_ORDER.indexOf(b.slug)
+                if (ai !== -1 && bi !== -1) return ai - bi
+                if (ai !== -1) return -1
+                if (bi !== -1) return 1
+                return 0
+            })
+            : ALL_WORKS.filter(w => w.cat === filter)
 
     return (
         <div className="aw" ref={ref}>

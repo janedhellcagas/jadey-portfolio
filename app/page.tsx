@@ -359,21 +359,21 @@ const HIGHLIGHTS = [
         img: "/Barangay%20Buddy%20Banner%20Showcase%20-%20Main.png",
         label: "UI/UX DESIGN CASE STUDY",
         title: "Barangay Buddy App",
-        desc: "Barangay Buddy App is a GovTech community platform designed to help residents access official barangay updates, document requests, emergency contacts, events, polls, and public resources through one Android app, while barangay officials and staff manage content through a structured web admin portal.",
+        desc: "GovTech community platform for a resident Android app and web admin portal for barangay updates, requests, and services.",
     },
     {
-        slug: "brandsonic",
-        img: "/BrandSonic%20Landing%20Page%20Banner%20Showcase%20-%20Main.png",
-        label: "WEB DESIGN",
-        title: "BrandSonic",
-        desc: "All-in-one podcast creation service — use the power of audio to build your brand.",
+        slug: "starseekr-uiux",
+        img: "/Starseekr%20Landing%20Page%20Banner%20Showcase%20-%20Main%20New.png",
+        label: "UI/UX DESIGN CASE STUDY",
+        title: "StarSeekr",
+        desc: "Recruitment service website that helps companies find qualified candidates and connect with the team through clear consultation flows.",
     },
     {
         slug: "advante",
         img: "/Advante%20Landing%20Page%20Banner%20Showcase%20-%20Main.png",
         label: "UI/UX DESIGN CASE STUDY",
         title: "Advante",
-        desc: "Coaching platform website — guided journey, outcome-focused, and built for multiple entry points.",
+        desc: "Coaching platform website with a guided journey, outcome-focused structure, and multiple entry points.",
     },
 ]
 

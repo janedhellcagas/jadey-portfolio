@@ -46,7 +46,7 @@ const CSS = `
 /* COVER */
 .av-cover{padding:52px var(--pad) 0}
 .av-cover-wrap{max-width:1425px;margin:0 auto;overflow:hidden}
-.av-cover-wrap img{width:100%;height:auto;display:block;border:1px solid var(--border)}
+.av-cover-wrap img{width:100%;height:auto;display:block}
 /* BODY */
 .av-body{padding:0}
 .av-body-inner{max-width:var(--max);margin:0 auto;padding:72px var(--pad)}
@@ -109,19 +109,19 @@ const CSS = `
 .av-spec-track{height:4px;background:var(--border);position:relative}
 .av-spec-dot{position:absolute;top:50%;width:12px;height:12px;border-radius:50%;background:var(--pu);border:2px solid var(--bg);transform:translate(-50%,-50%)}
 /* SITEMAP / SKETCH VISUAL */
-.av-sitemap-shot{margin-top:28px;border:1px solid var(--border);background:var(--bg2);padding:16px;overflow-x:auto}
-.av-sitemap-shot img{display:block;width:100%;min-width:900px;height:auto;border:1px solid var(--border);border-radius:8px}
+.av-sitemap-shot{margin-top:28px;background:var(--bg2);padding:16px;overflow-x:auto}
+.av-sitemap-shot img{display:block;width:100%;min-width:900px;height:auto;border-radius:8px}
 /* MOODBOARD VISUALS */
 .av-mb-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px}
-.av-mb-shot{border:1px solid var(--border);background:var(--bg2);padding:16px}
-.av-mb-shot img{display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:8px}
+.av-mb-shot{background:var(--bg2);padding:16px}
+.av-mb-shot img{display:block;width:100%;height:auto;border-radius:8px}
 /* REDLINING / DOCUMENTATION SHOWCASE (equal-height, natural width) */
 .av-redoc-row{display:grid;grid-template-columns:2fr 1fr;gap:20px;margin-top:28px;width:100%}
-.av-redoc-shot{height:480px;border:1px solid var(--border);background:var(--bg2);padding:16px;overflow:hidden}
+.av-redoc-shot{height:480px;background:var(--bg2);padding:16px;overflow:hidden}
 .av-redoc-shot img{height:100%;width:100%;display:block;object-fit:contain;border-radius:6px}
 /* RESPONSIVE SHOWCASE */
 .av-showcase-list{display:flex;flex-direction:column;gap:32px;margin-top:36px}
-.av-showcase-item img{width:100%;height:auto;display:block;border:1px solid var(--border);background:var(--bg2)}
+.av-showcase-item img{width:100%;height:auto;display:block;background:var(--bg2)}
 /* TIMELINE (Gantt + tooltip + mobile stacker) */
 .av-tl-gantt{margin-top:36px;border:1px solid var(--border);background:var(--bg2);padding:32px 28px}
 .av-tl-gweeks{display:grid;grid-template-columns:230px repeat(10,1fr);gap:6px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border)}
@@ -242,8 +242,8 @@ const CSS = `
 
 const HERO_META = [
     { l: "Project", v: "Advante (formerly Valiant)" },
-    { l: "Category", v: "UI/UX Design Case Study" },
     { l: "Service", v: "UI/UX Design" },
+    { l: "Industry", v: "Coaching Service Website" },
     { l: "Platform", v: "Responsive Website / Landing Page" },
     { l: "Role", v: "UI/UX Designer" },
 ]

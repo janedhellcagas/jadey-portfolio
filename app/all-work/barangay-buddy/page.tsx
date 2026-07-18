@@ -44,7 +44,7 @@ const CSS = `
 /* COVER — main project showcase banner, same container style as other case-study cover images */
 .bb-cover{padding:52px var(--pad) 0}
 .bb-cover-wrap{max-width:1425px;margin:0 auto;overflow:hidden}
-.bb-cover-wrap img{width:100%;height:auto;display:block;border:1px solid var(--border)}
+.bb-cover-wrap img{width:100%;height:auto;display:block}
 /* BODY */
 .bb-body{padding:0}
 .bb-body-inner{max-width:var(--max);margin:0 auto;padding:72px var(--pad)}
@@ -238,7 +238,7 @@ const CSS = `
 /* PRODUCT SHOWCASE — real screenshots, one per row, matches site's image-container convention */
 .bb-showcase-intro{font-size:11.5px;line-height:1.9;color:var(--muted);max-width:760px;margin-top:20px}
 .bb-showcase-list{display:flex;flex-direction:column;gap:36px;margin-top:40px}
-.bb-showcase-item img{width:100%;height:auto;display:block;border:1px solid var(--border);background:var(--bg2)}
+.bb-showcase-item img{width:100%;height:auto;display:block;background:var(--bg2)}
 /* USABILITY */
 .bb-usab{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
 /* OUTCOME (dark secondary band — same treatment as sf-impact-final) */
