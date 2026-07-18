@@ -371,7 +371,7 @@ const HIGHLIGHTS = [
     {
         slug: "advante",
         img: "/Advante%20Landing%20Page%20Banner%20Showcase%20-%20Main.png",
-        label: "UI/UX DESIGN",
+        label: "UI/UX DESIGN CASE STUDY",
         title: "Advante",
         desc: "Coaching platform website — guided journey, outcome-focused, and built for multiple entry points.",
     },

@@ -239,7 +239,6 @@ const CSS = `
 .bb-showcase-intro{font-size:11.5px;line-height:1.9;color:var(--muted);max-width:760px;margin-top:20px}
 .bb-showcase-list{display:flex;flex-direction:column;gap:36px;margin-top:40px}
 .bb-showcase-item img{width:100%;height:auto;display:block;border:1px solid var(--border);background:var(--bg2)}
-.bb-showcase-cap{font-size:10.5px;color:var(--muted);text-align:center;margin-top:14px;letter-spacing:.02em}
 /* USABILITY */
 .bb-usab{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
 /* OUTCOME (dark secondary band — same treatment as sf-impact-final) */
@@ -497,10 +496,10 @@ const FEATURE_CARDS = [
 ]
 
 const SHOWCASE_IMAGES = [
-    { src: "/Barangay%20Buddy%20Banner%20Showcase%20-%201st.png", alt: "Barangay Buddy resident app — home, requests, services, community polls, and gallery screens", cap: "Resident app — home, requests, services, community polls, and gallery" },
-    { src: "/Barangay%20Buddy%20Banner%20Showcase%20-%202nd.png", alt: "Barangay Buddy resident app shown in everyday use on a phone — profile, digital ID, and notifications", cap: "Resident app in everyday use — profile, digital ID, and notifications" },
-    { src: "/Barangay%20Buddy%20Banner%20Showcase%20-%203rd.png", alt: "Barangay Buddy web admin portal — resident directory and announcements management", cap: "Web admin portal — resident directory and announcements management" },
-    { src: "/Barangay%20Buddy%20Banner%20Showcase%20-%204th.png", alt: "Field visit to Barangay Bantigue, Hilongos, Leyte presenting Barangay Buddy to local officials", cap: "Field visit to Barangay Bantigue, Hilongos, Leyte — presenting Barangay Buddy and gathering community input" },
+    { src: "/Barangay%20Buddy%20Banner%20Showcase%20-%201st.png", alt: "Barangay Buddy resident app — home, requests, services, community polls, and gallery screens" },
+    { src: "/Barangay%20Buddy%20Banner%20Showcase%20-%202nd.png", alt: "Barangay Buddy resident app shown in everyday use on a phone — profile, digital ID, and notifications" },
+    { src: "/Barangay%20Buddy%20Banner%20Showcase%20-%203rd.png", alt: "Barangay Buddy web admin portal — resident directory and announcements management" },
+    { src: "/Barangay%20Buddy%20Banner%20Showcase%20-%204th.png", alt: "Field visit to Barangay Bantigue, Hilongos, Leyte presenting Barangay Buddy to local officials" },
 ]
 
 const SWATCHES = [
@@ -1173,7 +1172,6 @@ export default function BarangayBuddyPage() {
                             {SHOWCASE_IMAGES.map(img => (
                                 <div className="bb-showcase-item" key={img.src}>
                                     <img src={img.src} alt={img.alt} loading="lazy" />
-                                    <div className="bb-showcase-cap">{img.cap}</div>
                                 </div>
                             ))}
                         </div>

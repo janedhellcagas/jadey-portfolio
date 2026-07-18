@@ -1,7 +1,7 @@
 import ProjectDetailPage from "./ProjectDetailPage"
 
 const SLUGS = [
-    "advante", "brandsonic", "devluvs", "future-founders",
+    "brandsonic", "devluvs", "future-founders",
     "incremental", "login-signup", "reviv", "scaleforge-uiux", "starseekr",
     "taskbeasts", "helios-solar", "ballers-ph", "landing-page-kit",
 ]
