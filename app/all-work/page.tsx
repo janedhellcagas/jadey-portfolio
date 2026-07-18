@@ -44,15 +44,33 @@ const CSS = `
 .aw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .aw-card{border:1px solid var(--border);overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:transform .3s,border-color .3s}
 .aw-card:hover{transform:translate(-4px,-4px);border-color:var(--pu)}
-.aw-thumb{width:100%;aspect-ratio:4/3;display:block;position:relative;overflow:hidden;flex-shrink:0}
+.aw-thumb{width:100%;aspect-ratio:4/3;display:block;position:relative;overflow:hidden;flex-shrink:0;background:var(--bg2)}
 .aw-thumb img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.05)}
+.aw-thumb video{width:100%;height:100%;object-fit:cover;display:block}
 .aw-overlay{position:absolute;inset:0;background:rgba(74,22,130,0.85);opacity:0;transition:opacity .3s;display:flex;align-items:center;justify-content:center}
 .aw-card:hover .aw-overlay{opacity:1}
 .aw-view{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;color:white;border:1px solid white;padding:9px 22px}
+.aw-play-badge{position:absolute;bottom:10px;right:10px;width:34px;height:34px;border-radius:50%;background:rgba(10,10,8,0.75);border:1px solid rgba(255,255,255,0.5);display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;z-index:2;pointer-events:none}
 .aw-info{padding:18px 20px;border-top:1px solid var(--border);flex:1;display:flex;flex-direction:column}
 .aw-info-cat{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--pu);margin-bottom:5px}
 .aw-info-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.5px;color:var(--paper)}
 .aw-info-desc{font-size:10px;color:var(--muted);margin-top:4px;line-height:1.7;flex:1}
+.aw-tool-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.aw-tool-chip{font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:var(--pu2);background:var(--pbg);border:1px solid var(--pborder);padding:5px 9px;font-weight:700}
+.aw-video-card{border:1px solid var(--border);overflow:hidden;display:flex;flex-direction:column;background:transparent;text-align:left;cursor:pointer;transition:transform .3s,border-color .3s;font-family:'Space Mono',monospace;width:100%}
+.aw-video-card:hover{transform:translate(-4px,-4px);border-color:var(--pu)}
+/* MODAL */
+.aw-modal-overlay{position:fixed;inset:0;z-index:700;background:rgba(5,5,4,0.92);display:flex;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(6px)}
+.aw-modal{background:var(--bg2);border:1px solid var(--pborder);max-width:920px;width:100%;max-height:90vh;overflow-y:auto;position:relative}
+.aw-modal-close{position:absolute;top:16px;right:16px;background:rgba(10,10,8,0.75);border:1px solid var(--border);color:var(--paper);width:36px;height:36px;border-radius:50%;font-size:18px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;line-height:1;transition:border-color .2s,color .2s}
+.aw-modal-close:hover{border-color:var(--pu);color:var(--pu)}
+.aw-modal-video{width:100%;background:#000;display:block;max-height:60vh}
+.aw-modal-body{padding:28px 32px 32px}
+.aw-modal-cat{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--pu);margin-bottom:8px}
+.aw-modal-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.5px;color:var(--paper);margin-bottom:14px}
+.aw-modal-desc{font-size:12px;line-height:1.9;color:var(--muted);margin-bottom:8px}
+.aw-modal-sub{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper);font-weight:700;margin-bottom:10px;margin-top:24px}
+.aw-modal-workflow{font-size:11.5px;line-height:1.85;color:var(--muted)}
 /* FOOTER */
 .aw-footer{border-top:1px solid var(--border)}
 .aw-footer-inner{max-width:var(--max);margin:0 auto;padding:44px var(--pad);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
@@ -95,6 +113,10 @@ const CSS = `
     .aw-filters{flex-wrap:wrap}
     .aw-footer-inner{flex-direction:column;align-items:flex-start;gap:20px;padding:32px var(--pad)}
     .aw-flinks{flex-direction:column;gap:10px;align-items:flex-start}
+    .aw-modal-overlay{padding:0}
+    .aw-modal{max-height:100vh;height:100%;overflow-y:auto}
+    .aw-modal-body{padding:22px 20px 28px}
+    .aw-modal-title{font-size:22px}
 }
 @media(max-width:480px){
     :root{--pad:16px}
@@ -104,6 +126,7 @@ const CSS = `
 }
 @media(hover:none){
     .aw-card:hover{transform:none;border-color:var(--border)}
+    .aw-video-card:hover{transform:none;border-color:var(--border)}
 }
 @media(hover:none),(pointer:coarse){
     .aw-hamburger{min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
@@ -175,14 +198,64 @@ const ALL_WORKS_SHUFFLED = interleaveCategories(ALL_WORKS)
 
 const UX_PRIORITY_ORDER = ["barangay-buddy", "starseekr-uiux", "advante", "incremental-uiux"]
 
+const VIDEO_TOOLS = ["ChatGPT", "Grok", "CapCut"]
+
+const VIDEO_WORKFLOW = "I used ChatGPT to create the scene direction, scenario, and image prompt needed for the video concept. I used Grok to generate the AI video based on the prepared visual direction, then edited and polished the final video in CapCut."
+
+const VIDEOS = [
+    {
+        slug: "clarion-glasses",
+        title: "Clarion Glasses",
+        file: "/Clarion%20Glasses.mov",
+        cardDesc: "AI-assisted product video concept for smart glasses, showing a clean product-focused visual presentation.",
+        modalDesc: "Clarion Glasses is an AI-assisted product video concept focused on presenting smart glasses in a clean and visually engaging way.",
+    },
+    {
+        slug: "glowmate-product",
+        title: "GlowMate Product",
+        file: "/GlowMate%20Product.mov",
+        cardDesc: "AI-assisted product video concept for a beauty device, created to show product use and visual appeal.",
+        modalDesc: "GlowMate Product is an AI-assisted product video concept made to highlight a beauty device through product-focused scenes and polished editing.",
+    },
+    {
+        slug: "lumora-bag",
+        title: "Lumora Bag",
+        file: "/Lumora%20Bag.mov",
+        cardDesc: "AI-assisted fashion product video concept for a carry bag, focused on lifestyle and product presentation.",
+        modalDesc: "Lumora Bag is an AI-assisted fashion product video concept designed to showcase a carry bag through clean lifestyle visuals and product-focused storytelling.",
+    },
+    {
+        slug: "nescafe-product",
+        title: "Nescafe Product",
+        file: "/Nescafe%20Product.mp4",
+        cardDesc: "AI-assisted promotional video concept for an iced coffee product with short-form product storytelling.",
+        modalDesc: "Nescafe Product is an AI-assisted promotional video concept focused on iced coffee, using short-form scenes to present the product in a simple and engaging way.",
+    },
+    {
+        slug: "powerplay-arcade",
+        title: "PowerPlay Arcade",
+        file: "/PowerPlay%20Arcade.mov",
+        cardDesc: "AI-assisted business concept video for an arcade brand, focused on fun, energy, and entertainment.",
+        modalDesc: "PowerPlay Arcade is an AI-assisted business concept video created to present an arcade brand with a fun, energetic, and entertainment-focused direction.",
+    },
+]
+
 
 export default function AllWorkPage() {
     const [filter, setFilter] = useState("all")
     const [navScroll, setNavScroll] = useState(false)
     const [menuOpen, setMenuOpen] = useState(false)
+    const [activeVideo, setActiveVideo] = useState<typeof VIDEOS[number] | null>(null)
     const ref = useRef<HTMLDivElement>(null)
     const drawerRef = useRef<HTMLDivElement>(null)
     const hamburgerRef = useRef<HTMLButtonElement>(null)
+    const modalVideoRef = useRef<HTMLVideoElement>(null)
+
+    const closeVideoModal = () => {
+        const el = modalVideoRef.current
+        if (el) { el.pause(); el.currentTime = 0 }
+        setActiveVideo(null)
+    }
 
     useEffect(() => {
         const els = Array.from(ref.current?.querySelectorAll(".aw-rv") || [])
@@ -208,9 +281,17 @@ export default function AllWorkPage() {
     }, [])
 
     useEffect(() => {
-        document.body.style.overflow = menuOpen ? "hidden" : ""
+        document.body.style.overflow = (menuOpen || activeVideo) ? "hidden" : ""
         return () => { document.body.style.overflow = "" }
-    }, [menuOpen])
+    }, [menuOpen, activeVideo])
+
+    useEffect(() => {
+        if (!activeVideo) return
+        const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") closeVideoModal() }
+        document.addEventListener("keydown", onKey)
+        return () => document.removeEventListener("keydown", onKey)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [activeVideo])
 
     useEffect(() => {
         if (!menuOpen) { hamburgerRef.current?.focus(); return }
@@ -229,6 +310,8 @@ export default function AllWorkPage() {
         return () => document.removeEventListener("keydown", trap)
     }, [menuOpen])
 
+    const isVideoTab = filter === "video"
+
     const filtered = filter === "all"
         ? ALL_WORKS_SHUFFLED
         : filter === "ux"
@@ -240,7 +323,11 @@ export default function AllWorkPage() {
                 if (bi !== -1) return 1
                 return 0
             })
-            : ALL_WORKS.filter(w => w.cat === filter)
+            : isVideoTab
+                ? []
+                : ALL_WORKS.filter(w => w.cat === filter)
+
+    const displayCount = isVideoTab ? VIDEOS.length : filtered.length
 
     return (
         <div className="aw" ref={ref}>
@@ -298,14 +385,34 @@ export default function AllWorkPage() {
             <div className="aw-body">
                 <div className="aw-body-inner">
                     <div className="aw-toolbar aw-rv">
-                        <div className="aw-count">{filtered.length} PROJECT{filtered.length !== 1 ? "S" : ""}</div>
+                        <div className="aw-count">{displayCount} PROJECT{displayCount !== 1 ? "S" : ""}</div>
                         <div className="aw-filters">
-                            {([["all","All"],["ux","UI / UX"],["brand","Brand"],["graphic","Graphic"]] as [string,string][]).map(([f,l]) => (
+                            {([["all","All"],["ux","UI / UX"],["brand","Brand"],["graphic","Graphic"],["video","AI-Assisted Video"]] as [string,string][]).map(([f,l]) => (
                                 <button key={f} className={`aw-fb${filter === f ? " on" : ""}`} onClick={() => setFilter(f)}>{l}</button>
                             ))}
                         </div>
                     </div>
-                    {filtered.length > 0 ? (
+                    {isVideoTab ? (
+                        <div className="aw-grid aw-rv">
+                            {VIDEOS.map(v => (
+                                <button key={v.slug} className="aw-video-card" onClick={() => setActiveVideo(v)} aria-haspopup="dialog">
+                                    <div className="aw-thumb">
+                                        <video src={v.file} preload="metadata" muted playsInline aria-hidden="true" />
+                                        <div className="aw-overlay"><span className="aw-view">▶ PLAY VIDEO</span></div>
+                                        <div className="aw-play-badge">▶</div>
+                                    </div>
+                                    <div className="aw-info">
+                                        <div className="aw-info-cat">AI-Assisted Video</div>
+                                        <div className="aw-info-title">{v.title}</div>
+                                        <div className="aw-info-desc">{v.cardDesc}</div>
+                                        <div className="aw-tool-row">
+                                            {VIDEO_TOOLS.map(t => <span className="aw-tool-chip" key={t}>{t}</span>)}
+                                        </div>
+                                    </div>
+                                </button>
+                            ))}
+                        </div>
+                    ) : filtered.length > 0 ? (
                         <div className="aw-grid aw-rv">
                             {filtered.map(w => (
                                 <a key={`${w.slug}-${w.cat}`} className="aw-card" href={`/all-work/${w.slug}`}>
@@ -349,6 +456,33 @@ export default function AllWorkPage() {
                     </div>
                 </div>
             </footer>
+
+            {/* AI-ASSISTED VIDEO MODAL */}
+            {activeVideo && (
+                <div className="aw-modal-overlay" onClick={closeVideoModal} role="presentation">
+                    <div className="aw-modal" role="dialog" aria-modal="true" aria-label={`${activeVideo.title} video`} onClick={e => e.stopPropagation()}>
+                        <button className="aw-modal-close" onClick={closeVideoModal} aria-label="Close video">✕</button>
+                        <video
+                            ref={modalVideoRef}
+                            className="aw-modal-video"
+                            src={activeVideo.file}
+                            controls
+                            playsInline
+                            key={activeVideo.slug}
+                        />
+                        <div className="aw-modal-body">
+                            <div className="aw-modal-cat">AI-Assisted Video</div>
+                            <div className="aw-modal-title">{activeVideo.title}</div>
+                            <p className="aw-modal-desc">{activeVideo.modalDesc}</p>
+                            <div className="aw-tool-row">
+                                {VIDEO_TOOLS.map(t => <span className="aw-tool-chip" key={t}>{t}</span>)}
+                            </div>
+                            <div className="aw-modal-sub">Workflow</div>
+                            <p className="aw-modal-workflow">{VIDEO_WORKFLOW}</p>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
