@@ -141,7 +141,7 @@ const ALL_WORKS = [
     {slug:"brandsonic",      cat:"ux", label:"WEB DESIGN",    title:"BrandSonic",                   desc:"All-in-one podcast creation service — use the power of audio to build your brand.",                           img:"/BrandSonic%20Landing%20Page%20Banner%20Showcase%20-%20Main.png"},
     {slug:"devluvs",         cat:"ux", label:"UI/UX DESIGN",  title:"DevLuvs",                      desc:"Online developer's documentation notebook — clean, minimal, built for how devs actually work.",               img:"/DevLuvs%20Landing%20Page%20Banner%20Showcase%20-%20Main.png"},
     {slug:"future-founders", cat:"ux", label:"UI/UX DESIGN",  title:"Future Founders",              desc:"Venture building community platform — dark, bold, and built for founders shaping the future of work.",        img:"/Future%20Founders%20Landing%20Page%20Banner%20Showcase%20-%20Main.png"},
-    {slug:"incremental",     cat:"ux", label:"UI/UX DESIGN",  title:"Incremental",                  desc:"Newsletter platform — connect your writing app to your email delivery and unshackle your newsletter.",        img:"/Incremental%20Landing%20Page%20Banner%20Showcase%20-%20Main.png"},
+    {slug:"incremental-uiux", cat:"ux", label:"UI/UX DESIGN CASE STUDY",  title:"Incremental",                  desc:"Newsletter platform landing page redesigned to improve product clarity, feature flow, pricing presentation, and getting-started actions.",        img:"/Incremental%20Landing%20Page%20Banner%20Showcase%20-%20Main.png"},
     {slug:"login-signup",    cat:"ux", label:"TEMPLATE KIT",  title:"Login and Signup Template Kit",desc:"Complete authentication UI kit — multiple screen styles, light and dark modes, ready to use.",                img:"/Login%20and%20Signup%20Template%20Kit%20-%20Main.png"},
     {slug:"reviv",           cat:"ux", label:"UI/UX DESIGN",  title:"Reviv",                        desc:"Oral health device — premium, dark, with bold before/after storytelling and a money-back guarantee.",         img:"/Reviv%20Landing%20Page%20Banner%20Showcase%20-%20Main.png"},
     {slug:"scaleforge-uiux", cat:"ux", label:"UI/UX DESIGN",  title:"ScaleForge",                   desc:"Technology company landing page — clearer structure, stronger content hierarchy, and a more polished UI/UX presentation.", img:"/ScaleForge%20Landing%20Page%20Banner%20Showcase%20-%20Main.png"},
@@ -173,7 +173,7 @@ const ALL_WORKS = [
 
 const ALL_WORKS_SHUFFLED = interleaveCategories(ALL_WORKS)
 
-const UX_PRIORITY_ORDER = ["barangay-buddy", "starseekr-uiux", "advante"]
+const UX_PRIORITY_ORDER = ["barangay-buddy", "starseekr-uiux", "advante", "incremental-uiux"]
 
 
 export default function AllWorkPage() {
