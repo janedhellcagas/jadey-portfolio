@@ -194,8 +194,6 @@ const ALL_WORKS = [
     {slug:"scaleforge",            cat:"brand", label:"BRAND DESIGN", title:"ScaleForge",                         desc:"Collaborative brand identity project — a strong, structured, and scalable visual system built for a technology and B2B engineering brand.",                          img:"/scaleforge%20-%20thumbnail.png"},
 ]
 
-const ALL_WORKS_SHUFFLED = interleaveCategories(ALL_WORKS)
-
 const UX_PRIORITY_ORDER = ["barangay-buddy", "starseekr-uiux", "advante", "incremental-uiux"]
 
 const VIDEO_TOOLS = ["ChatGPT", "Grok", "CapCut"]
@@ -205,6 +203,7 @@ const VIDEO_WORKFLOW = "I used ChatGPT to create the scene direction, scenario, 
 const VIDEOS = [
     {
         slug: "clarion-glasses",
+        cat: "video",
         title: "Clarion Glasses",
         file: "/Clarion%20Glasses.mov",
         cardDesc: "AI-assisted product video concept for smart glasses, showing a clean product-focused visual presentation.",
@@ -212,6 +211,7 @@ const VIDEOS = [
     },
     {
         slug: "glowmate-product",
+        cat: "video",
         title: "GlowMate Product",
         file: "/GlowMate%20Product.mov",
         cardDesc: "AI-assisted product video concept for a beauty device, created to show product use and visual appeal.",
@@ -219,6 +219,7 @@ const VIDEOS = [
     },
     {
         slug: "lumora-bag",
+        cat: "video",
         title: "Lumora Bag",
         file: "/Lumora%20Bag.mov",
         cardDesc: "AI-assisted fashion product video concept for a carry bag, focused on lifestyle and product presentation.",
@@ -226,6 +227,7 @@ const VIDEOS = [
     },
     {
         slug: "nescafe-product",
+        cat: "video",
         title: "Nescafe Product",
         file: "/Nescafe%20Product.mp4",
         cardDesc: "AI-assisted promotional video concept for an iced coffee product with short-form product storytelling.",
@@ -233,6 +235,7 @@ const VIDEOS = [
     },
     {
         slug: "powerplay-arcade",
+        cat: "video",
         title: "PowerPlay Arcade",
         file: "/PowerPlay%20Arcade.mov",
         cardDesc: "AI-assisted business concept video for an arcade brand, focused on fun, energy, and entertainment.",
@@ -240,6 +243,28 @@ const VIDEOS = [
     },
 ]
 
+const ALL_ITEMS_SHUFFLED = interleaveCategories([...ALL_WORKS, ...VIDEOS])
+
+function isVideoItem(w: { cat: string }): w is typeof VIDEOS[number] {
+    return w.cat === "video"
+}
+
+function VideoCard({ v, onOpen }: { v: typeof VIDEOS[number]; onOpen: () => void }) {
+    return (
+        <button className="aw-video-card" onClick={onOpen} aria-haspopup="dialog">
+            <div className="aw-thumb">
+                <video src={v.file} preload="metadata" muted playsInline aria-hidden="true" />
+                <div className="aw-overlay"><span className="aw-view">▶ PLAY VIDEO</span></div>
+                <div className="aw-play-badge">▶</div>
+            </div>
+            <div className="aw-info">
+                <div className="aw-info-cat">AI-Assisted Video</div>
+                <div className="aw-info-title">{v.title}</div>
+                <div className="aw-info-desc">{v.cardDesc}</div>
+            </div>
+        </button>
+    )
+}
 
 export default function AllWorkPage() {
     const [filter, setFilter] = useState("all")
@@ -311,9 +336,10 @@ export default function AllWorkPage() {
     }, [menuOpen])
 
     const isVideoTab = filter === "video"
+    const isAllTab = filter === "all"
 
-    const filtered = filter === "all"
-        ? ALL_WORKS_SHUFFLED
+    const filtered = isVideoTab || isAllTab
+        ? []
         : filter === "ux"
             ? [...ALL_WORKS.filter(w => w.cat === "ux")].sort((a, b) => {
                 const ai = UX_PRIORITY_ORDER.indexOf(a.slug)
@@ -323,11 +349,9 @@ export default function AllWorkPage() {
                 if (bi !== -1) return 1
                 return 0
             })
-            : isVideoTab
-                ? []
-                : ALL_WORKS.filter(w => w.cat === filter)
+            : ALL_WORKS.filter(w => w.cat === filter)
 
-    const displayCount = isVideoTab ? VIDEOS.length : filtered.length
+    const displayCount = isAllTab ? ALL_ITEMS_SHUFFLED.length : isVideoTab ? VIDEOS.length : filtered.length
 
     return (
         <div className="aw" ref={ref}>
@@ -392,24 +416,32 @@ export default function AllWorkPage() {
                             ))}
                         </div>
                     </div>
-                    {isVideoTab ? (
+                    {isAllTab ? (
+                        <div className="aw-grid aw-rv">
+                            {ALL_ITEMS_SHUFFLED.map(w => (
+                                isVideoItem(w) ? (
+                                    <VideoCard key={w.slug} v={w} onOpen={() => setActiveVideo(w)} />
+                                ) : (
+                                    <a key={`${w.slug}-${w.cat}`} className="aw-card" href={`/all-work/${w.slug}`}>
+                                        <div className="aw-thumb">
+                                            {w.img && (
+                                                <img src={w.img} alt={w.title} style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
+                                            )}
+                                            <div className="aw-overlay"><span className="aw-view">VIEW PROJECT →</span></div>
+                                        </div>
+                                        <div className="aw-info">
+                                            <div className="aw-info-cat">{w.label}</div>
+                                            <div className="aw-info-title">{w.title}</div>
+                                            <div className="aw-info-desc">{w.desc}</div>
+                                        </div>
+                                    </a>
+                                )
+                            ))}
+                        </div>
+                    ) : isVideoTab ? (
                         <div className="aw-grid aw-rv">
                             {VIDEOS.map(v => (
-                                <button key={v.slug} className="aw-video-card" onClick={() => setActiveVideo(v)} aria-haspopup="dialog">
-                                    <div className="aw-thumb">
-                                        <video src={v.file} preload="metadata" muted playsInline aria-hidden="true" />
-                                        <div className="aw-overlay"><span className="aw-view">▶ PLAY VIDEO</span></div>
-                                        <div className="aw-play-badge">▶</div>
-                                    </div>
-                                    <div className="aw-info">
-                                        <div className="aw-info-cat">AI-Assisted Video</div>
-                                        <div className="aw-info-title">{v.title}</div>
-                                        <div className="aw-info-desc">{v.cardDesc}</div>
-                                        <div className="aw-tool-row">
-                                            {VIDEO_TOOLS.map(t => <span className="aw-tool-chip" key={t}>{t}</span>)}
-                                        </div>
-                                    </div>
-                                </button>
+                                <VideoCard key={v.slug} v={v} onOpen={() => setActiveVideo(v)} />
                             ))}
                         </div>
                     ) : filtered.length > 0 ? (
@@ -474,7 +506,8 @@ export default function AllWorkPage() {
                             <div className="aw-modal-cat">AI-Assisted Video</div>
                             <div className="aw-modal-title">{activeVideo.title}</div>
                             <p className="aw-modal-desc">{activeVideo.modalDesc}</p>
-                            <div className="aw-tool-row">
+                            <div className="aw-modal-sub" style={{ marginTop: 18 }}>Tools Used</div>
+                            <div className="aw-tool-row" style={{ marginTop: 0 }}>
                                 {VIDEO_TOOLS.map(t => <span className="aw-tool-chip" key={t}>{t}</span>)}
                             </div>
                             <div className="aw-modal-sub">Workflow</div>
