@@ -1318,6 +1318,7 @@ export default function JadeyPortfolio() {
                                         "Adobe Lightroom",
                                         "Canva",
                                         "Framer",
+                                        "Webflow",
                                         "ChatGPT",
                                         "Claude",
                                         "Gemini",
