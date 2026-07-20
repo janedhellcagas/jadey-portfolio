@@ -77,16 +77,16 @@ const CSS = `
 /* TIMELINE / GANTT (desktop) — one row per phase, hover tooltips, 5-category color grouping */
 .bb-gantt{margin-top:48px;border:1px solid var(--border);background:var(--bg2);padding:32px 28px}
 .bb-gantt-inner{}
-.bb-gweeks{display:grid;grid-template-columns:220px repeat(12,1fr);gap:6px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.bb-gweeks{display:grid;grid-template-columns:220px repeat(8,1fr);gap:6px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border)}
 .bb-gweeks div{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center}
 .bb-gweeks div:first-child{text-align:left;color:var(--pu);font-weight:700;letter-spacing:.14em}
-.bb-grow{display:grid;grid-template-columns:220px repeat(12,1fr);gap:6px;align-items:center;margin-bottom:12px}
+.bb-grow{display:grid;grid-template-columns:220px repeat(8,1fr);gap:6px;align-items:center;margin-bottom:12px}
 .bb-grow:last-child{margin-bottom:0}
 .bb-grow-label{display:flex;align-items:flex-start;gap:9px}
 .bb-grow-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px}
 .bb-grow-name{font-size:11px;font-weight:700;color:var(--paper);line-height:1.35}
 .bb-grow-wk{font-size:9px;color:var(--muted);opacity:.7;margin-top:3px;letter-spacing:.03em}
-.bb-gtrack{grid-column:span 12;display:grid;grid-template-columns:repeat(12,1fr);gap:6px;height:38px}
+.bb-gtrack{grid-column:span 8;display:grid;grid-template-columns:repeat(8,1fr);gap:6px;height:38px}
 .bb-gseg{position:relative;display:flex;align-items:center;justify-content:center;padding:4px 6px;text-align:center;cursor:default}
 .bb-gseg span{font-size:8px;letter-spacing:.03em;font-weight:700;line-height:1.25}
 .bb-gseg-tip{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);width:230px;background:#141317;border:1px solid var(--pborder);padding:14px 16px;opacity:0;visibility:hidden;transition:opacity .16s ease;pointer-events:none;z-index:30;box-shadow:0 16px 36px rgba(0,0,0,.55);text-align:left}
@@ -311,7 +311,7 @@ const CSS = `
   .bb-ptrack::before{display:none}
   .bb-ps::after{content:'';position:absolute;top:26px;left:calc(50% + 26px);right:calc(-50% + 26px);height:1px;background:var(--border);z-index:0;pointer-events:none}
   .bb-ps:nth-child(3)::after,.bb-ps:last-child::after{display:none}
-  .bb-gweeks,.bb-grow{grid-template-columns:150px repeat(12,1fr)}
+  .bb-gweeks,.bb-grow{grid-template-columns:150px repeat(8,1fr)}
   .bb-gseg-tip{width:190px;padding:12px 14px}
 }
 @media(max-width:768px){
@@ -383,16 +383,14 @@ const TIMELINE_GROUPS = [
 ]
 
 const TIMELINE_PHASES = [
-    { label: "UX Strategy & Discovery", wk: "W1–W2", s: 1, e: 3, group: 0, desc: "Defined the problem, product goal, target users, and initial feature direction." },
-    { label: "Surveys & Interviews", wk: "W2–W3", s: 2, e: 4, group: 0, desc: "Collected input from residents and barangay officials/staff to understand real needs and service pain points." },
-    { label: "Research Synthesis", wk: "W3–W4", s: 3, e: 5, group: 0, desc: "Reviewed responses, identified key insights, and shaped the personas and product direction." },
-    { label: "Feature Prioritization & User Flows", wk: "W4–W5", s: 4, e: 6, group: 1, desc: "Prioritized the most important features and mapped the core resident and admin flows." },
-    { label: "Information Architecture & Wireframes", wk: "W5–W6", s: 5, e: 7, group: 1, desc: "Organized the product structure and created low-fidelity wireframes for the main tasks." },
-    { label: "UI Visual Design", wk: "W6–W8", s: 6, e: 9, group: 2, desc: "Designed the mobile app, admin portal, visual system, and reusable interface components." },
-    { label: "Prototype", wk: "W8–W9", s: 8, e: 10, group: 3, desc: "Connected the key flows to better review the product experience." },
-    { label: "Usability Review & Iteration", wk: "W9–W10", s: 9, e: 11, group: 3, desc: "Reviewed clarity, task flow, and information access, then improved the design based on findings." },
-    { label: "Design QA & Developer Handoff", wk: "W10–W11", s: 10, e: 12, group: 4, desc: "Prepared final screens, checked consistency, and supported handoff for development." },
-    { label: "Final Polish & Google Play Launch Support", wk: "W12", s: 12, e: 13, group: 4, desc: "Polished the final design and supported the app's readiness for Google Play release." },
+    { label: "UX Strategy, Discovery & Research", wk: "W1–W2", s: 1, e: 3, group: 0, desc: "Defined the problem, product goals, target users, and initial feature direction. Included interviews and surveys with residents and barangay officials to understand service access, communication gaps, document requests, and admin needs." },
+    { label: "Research Synthesis & Feature Prioritization", wk: "W2–W3", s: 2, e: 4, group: 0, desc: "Reviewed research findings, identified user pain points, created insights, and prioritized core features such as announcements, document requests, emergency contacts, events, resources, polls, and admin management." },
+    { label: "User Flows & Information Architecture", wk: "W3–W4", s: 3, e: 5, group: 1, desc: "Mapped the resident app and web admin structure, organized key user flows, and planned navigation for both resident and staff experiences." },
+    { label: "Wireframes & Early Structure Review", wk: "W3–W5", s: 3, e: 6, group: 1, desc: "Created wireframes for the main mobile app and web admin flows while reviewing structure, content placement, and task flow clarity before moving fully into visual design." },
+    { label: "UI Visual Design & Design System", wk: "W4–W6", s: 4, e: 7, group: 2, desc: "Designed the mobile app screens and web admin interface, including typography, colors, components, layouts, and reusable UI patterns." },
+    { label: "Prototype, Review & Iteration", wk: "W5–W7", s: 5, e: 8, group: 3, desc: "Connected the main flows into a prototype, reviewed the experience, checked if users could understand key tasks, and refined the design based on usability and flow feedback." },
+    { label: "Design QA & Developer Handoff", wk: "W6–W8", s: 6, e: 9, group: 4, desc: "Reviewed design consistency, prepared handoff materials, checked spacing and interaction details, supported development questions, and made sure the design was clear for implementation." },
+    { label: "Final Polish & Google Play Launch Support", wk: "W7–W8", s: 7, e: 9, group: 4, desc: "Polished final screens, checked app readiness, supported final adjustments, and helped prepare the resident app experience for Google Play availability." },
 ]
 
 const SURVEY_THEMES = [
@@ -762,7 +760,7 @@ export default function BarangayBuddyPage() {
                             <div className="bb-gantt-inner">
                                 <div className="bb-gweeks">
                                     <div>Phase</div>
-                                    {Array.from({ length: 12 }, (_, i) => <div key={i}>W{i + 1}</div>)}
+                                    {Array.from({ length: 8 }, (_, i) => <div key={i}>W{i + 1}</div>)}
                                 </div>
 
                                 {TIMELINE_PHASES.map(p => {
