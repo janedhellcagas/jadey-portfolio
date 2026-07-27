@@ -883,7 +883,7 @@ export default function AdvantePage() {
             {/* NEXT PROJECT */}
             <div className="av-next">
                 <div className="av-next-inner av-rv">
-                    <a className="av-next-preview" href="/all-work/brandsonic" aria-label="View BrandSonic project">
+                    <a className="av-next-preview" href="/all-work/brandsonic-uiux" aria-label="View BrandSonic project">
                         <img
                             src="/BrandSonic%20Landing%20Page%20Banner%20Showcase%20-%20Main.png"
                             alt="BrandSonic"
@@ -899,7 +899,7 @@ export default function AdvantePage() {
                         <div className="av-next-title">BrandSonic</div>
                         <p className="av-next-desc">All-in-one podcast creation service — use the power of audio to build your brand.</p>
                         <div className="av-next-actions">
-                            <a className="av-btn" href="/all-work/brandsonic">View Project →</a>
+                            <a className="av-btn" href="/all-work/brandsonic-uiux">View Project →</a>
                             <a className="av-ghost-btn" href="/all-work">All Work</a>
                         </div>
                     </div>
